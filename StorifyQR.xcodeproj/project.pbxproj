@@ -93,7 +93,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E9C130862B449A27004011E3 /* IItemDetail */,
+				E9C130862B449A27004011E3 /* ItemDetailView */,
 				E9C130902B44D437004011E3 /* ContentView */,
 			);
 			path = Views;
@@ -110,14 +110,14 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		E9C130862B449A27004011E3 /* IItemDetail */ = {
+		E9C130862B449A27004011E3 /* ItemDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				E9C130802B448D79004011E3 /* ItemDetailView.swift */,
 				E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */,
 				E9C130872B44B334004011E3 /* ItemDetailComponents.swift */,
 			);
-			path = IItemDetail;
+			path = ItemDetailView;
 			sourceTree = "<group>";
 		};
 		E9C1308B2B44B666004011E3 /* General */ = {
