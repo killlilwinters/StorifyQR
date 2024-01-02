@@ -7,12 +7,18 @@
 
 import SwiftUI
 import SwiftData
+import TipKit
 
 @main
 struct StorifyQRApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .task {
+                    try? Tips.configure([
+                        .datastoreLocation(.applicationDefault)
+                    ])
+                }
         }
         .modelContainer(for: StoredItem.self)
     }

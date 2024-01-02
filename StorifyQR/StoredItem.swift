@@ -19,7 +19,7 @@ final class StoredItem {
 //  let photo: Image
     let name: String
     var itemDescription: String
-//  let tag: Tags
+//  let tag: Tags?
     let dateCreated: Date
     var qrCode: CIImage {
         let qrGenerator = QRGenerator(inputID: id)
