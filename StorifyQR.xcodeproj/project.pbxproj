@@ -16,6 +16,10 @@
 		E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA72B43622100856102 /* ImageCoverter.swift */; };
 		E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C272B460F6A002753A7 /* MapView.swift */; };
 		E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C292B460FB3002753A7 /* MapViewModel.swift */; };
+		E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */; };
+		E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */; };
+		E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C302B476E9A002753A7 /* NewItemViewModel.swift */; };
+		E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */; };
 		E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130802B448D79004011E3 /* ItemDetailView.swift */; };
 		E9C130832B449127004011E3 /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130822B449127004011E3 /* DateConverter.swift */; };
 		E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */; };
@@ -36,6 +40,10 @@
 		E95FFFA72B43622100856102 /* ImageCoverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoverter.swift; sourceTree = "<group>"; };
 		E9BB2C272B460F6A002753A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E9BB2C292B460FB3002753A7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
+		E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundUI.swift; sourceTree = "<group>"; };
+		E9BB2C302B476E9A002753A7 /* NewItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewModel.swift; sourceTree = "<group>"; };
+		E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItemDataSource.swift; sourceTree = "<group>"; };
 		E9C130802B448D79004011E3 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		E9C130822B449127004011E3 /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
@@ -76,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				E95FFFA32B435C3300856102 /* StoredItem.swift */,
+				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
 				E9C1308B2B44B666004011E3 /* General */,
 				E95FFFAA2B436F8200856102 /* Tools */,
@@ -97,6 +106,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9BB2C2B2B4712AF002753A7 /* NewItemView */,
 				E9BB2C262B460F52002753A7 /* MapView */,
 				E9C130862B449A27004011E3 /* ItemDetailView */,
 				E9C130902B44D437004011E3 /* ContentView */,
@@ -124,6 +134,15 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
+		E9BB2C2B2B4712AF002753A7 /* NewItemView */ = {
+			isa = PBXGroup;
+			children = (
+				E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */,
+				E9BB2C302B476E9A002753A7 /* NewItemViewModel.swift */,
+			);
+			path = NewItemView;
+			sourceTree = "<group>";
+		};
 		E9C130862B449A27004011E3 /* ItemDetailView */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +158,7 @@
 			children = (
 				E9C130892B44B369004011E3 /* ViewComponents.swift */,
 				E9C1308C2B44B683004011E3 /* Tips.swift */,
+				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -221,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */,
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
@@ -230,7 +251,10 @@
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9C130882B44B334004011E3 /* ItemDetailComponents.swift in Sources */,
+				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
+				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
+				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,
 				E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */,
 				E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */,
@@ -368,6 +392,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StorifyQR/Preview Content\"";
+				DEVELOPMENT_TEAM = XUYF93872P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";
@@ -397,6 +422,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"StorifyQR/Preview Content\"";
+				DEVELOPMENT_TEAM = XUYF93872P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";

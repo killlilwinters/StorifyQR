@@ -16,9 +16,12 @@ struct MapView: View {
         Map(position: $viewModel.mapRegionPosition) {
             Marker("Item's location", coordinate: viewModel.rawLocation)
         }
-            .onAppear {
-                viewModel.checkIfLocationServicesIsEnabled()
-            }
+        .onAppear {
+            viewModel.checkIfLocationServicesIsEnabled()
+        }
+        .alert(viewModel.alertMessage, isPresented: $viewModel.isShowingAlert) {
+            Button("OK") { }
+        }
     }
 }
 

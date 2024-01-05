@@ -15,50 +15,60 @@ struct ItemDetailView: View {
     let viewModel: ItemDetailViewModel
     
     var body: some View {
-        ScrollView(.vertical) {
-            Rectangle()
-                .frame(height: 250)
-                .foregroundStyle(.link)
-            ScrollView(.horizontal) {
-                ActionButtons()
-            }
-            VStack {
-                Text("Description:")
-                    .foregroundStyle(.secondary)
-                Text(viewModel.item.itemDescription)
-            }
-            .modifier(ContentPad())
-            Text("QR Code:")
-            if viewModel.isShowingQR {
-                let image = viewModel.shareQR()
-                ShareLink(item: image, preview: SharePreview("QRCode for \(viewModel.item.name)", image: image)) {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .modifier(ContentPad())
-                        .containerRelativeFrame(.horizontal, { width, axis in
-                            width * 0.6
+        Background {
+            ScrollView(.vertical) {
+                VStack {
+                    Rectangle()
+                        .frame(height: 250)
+                        .foregroundStyle(.link)
+                        .overlay (
+                            Image(systemName: "shippingbox.fill")
+                                .font(.system(size: 100))
+                        )
+                    ScrollView(.horizontal) {
+                        ActionButtons()
+                    }
+                    VStack {
+                        Text("Description:")
+                            .foregroundStyle(.secondary)
+                        Text(viewModel.item.itemDescription ?? "No description")
+                    }
+                    .modifier(ContentPad())
+                    .padding()
+                    Text("QR Code:")
+                    if viewModel.isShowingQR {
+                        let image = viewModel.shareQR()
+                        ShareLink(item: image, preview: SharePreview("QRCode for \(viewModel.item.name)", image: image)) {
+                            image
+                                .resizable()
+                                .scaledToFit()
+                                .modifier(ContentPad())
+                                .padding()
+                                .containerRelativeFrame(.horizontal, { width, axis in
+                                    width * 0.6
+                                })
+                        }
+                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                        .popoverTip(viewModel.qrTip)
+                        .simultaneousGesture(TapGesture().onEnded() {
+                            viewModel.qrTip.invalidate(reason: .actionPerformed)
                         })
+                        
+                    }
+                    Button(viewModel.isShowingQR ? "Hide" : "Show") {
+                        withAnimation(.bouncy) {
+                            viewModel.isShowingQR.toggle()
+                        }
+                    }
+                    .buttonStyle(.bordered)
+                    .clipShape(.capsule)
+                    Text(viewModel.getDate())
+                        .foregroundStyle(.secondary)
                 }
-                .transition(.asymmetric(insertion: .scale, removal: .opacity))
-                .popoverTip(viewModel.qrTip)
-                .simultaneousGesture(TapGesture().onEnded() {
-                    viewModel.qrTip.invalidate(reason: .actionPerformed)
-                })
-
+                .navigationTitle(viewModel.item.name)
+                .navigationBarTitleDisplayMode(.inline)
             }
-            Button(viewModel.isShowingQR ? "Hide" : "Show") {
-                withAnimation(.bouncy) {
-                    viewModel.isShowingQR.toggle()
-                }
-            }
-            .buttonStyle(.bordered)
-            .clipShape(.capsule)
-            Text(viewModel.getDate())
-                .foregroundStyle(.secondary)
         }
-        .navigationTitle(viewModel.item.name)
-        .navigationBarTitleDisplayMode(.inline)
     }
     
     init(item: StoredItem) {

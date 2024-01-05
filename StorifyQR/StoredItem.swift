@@ -18,7 +18,7 @@ final class StoredItem {
     let id: UUID
 //  let photo: Image
     let name: String
-    var itemDescription: String
+    var itemDescription: String?
 //  let tag: Tags?
     let dateCreated: Date
     var qrCode: CIImage {
@@ -26,7 +26,7 @@ final class StoredItem {
         return qrGenerator.generateQRCode()
     }
     
-    init(name: String, itemDescription: String) {
+    init(name: String, itemDescription: String?) {
         self.id = UUID()
         self.name = name
         self.itemDescription = itemDescription

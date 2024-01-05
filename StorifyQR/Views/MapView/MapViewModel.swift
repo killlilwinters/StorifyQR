@@ -8,13 +8,15 @@
 import MapKit
 import SwiftUI
 
-// TODO: Error handling
-
 @Observable
 final class MapViewModel: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
+
     var rawLocation = CLLocationCoordinate2D(latitude: 8.7832, longitude: 124.5085)
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 8.7832, longitude: 124.5085), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)))
+    
+    var isShowingAlert = false
+    var alertMessage = ""
     
     func checkIfLocationServicesIsEnabled() {
         DispatchQueue.global().async {
@@ -32,23 +34,27 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
         guard let locationManager = locationManager else { return }
         switch locationManager.authorizationStatus {
         case .notDetermined:
-            print("requesting auth")
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            print("your location is restricted likely due to parental controls")
+            alertUser("Tour location is restricted likely due to parental controls.")
         case .denied:
-            print("you have denied location permission, you can re-enable it in settings")
+            alertUser("You have denied location permission, you can re-enable it in settings")
         case .authorizedAlways, .authorizedWhenInUse, .authorized:
-            print("authorized")
-            rawLocation = locationManager.location!.coordinate
+            rawLocation = locationManager.location?.coordinate ?? rawLocation
             mapRegionPosition = .region(MKCoordinateRegion(center: rawLocation, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)))
         @unknown default:
-            fatalError("Unknown locationManager authrorization status")
+            alertUser("Unknown locationManager authrorization status, contact developer.")
         }
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
+    
+    func alertUser(_ message: String) {
+        alertMessage = message
+        isShowingAlert = true
+    }
+    
 }
 

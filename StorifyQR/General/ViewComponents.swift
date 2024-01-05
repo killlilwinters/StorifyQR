@@ -16,7 +16,6 @@ struct ContentPad: ViewModifier {
             content
                 .padding()
         }
-        .padding()
     }
 }
 

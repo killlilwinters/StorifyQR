@@ -22,7 +22,7 @@ struct ContentView: View {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(item.name)
-                            Text(item.itemDescription)
+                            Text(item.itemDescription ?? "No description")
                         }
                         Spacer()
                         Image(uiImage: ContentView.imageConverter.convertImage(ciImage: item.qrCode))
@@ -38,8 +38,8 @@ struct ContentView: View {
             })
             .navigationTitle("StorifyQR")
             .toolbar {
-                Button {
-                    modelContext.insert(StoredItem(name: "Test Item", itemDescription: "This item is created for testing purposes."))
+                NavigationLink {
+                    NewItemView()
                 } label: {
                     Image(systemName: "plus")
                 }
