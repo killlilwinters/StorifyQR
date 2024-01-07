@@ -9,6 +9,7 @@
 
 import SwiftUI
 import SwiftData
+import MapKit
 
 struct ItemDetailView: View {
     
@@ -35,6 +36,9 @@ struct ItemDetailView: View {
                     }
                     .modifier(ContentPad())
                     .padding()
+                    if viewModel.item.location != nil {
+                        Coordinate2DMapView(coordinate2D: viewModel.item.location!)
+                    }
                     Text("QR Code:")
                     if viewModel.isShowingQR {
                         let image = viewModel.shareQR()
@@ -80,7 +84,7 @@ struct ItemDetailView: View {
 #Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
     let container = try! ModelContainer(for: StoredItem.self, configurations: config)
-    let item = StoredItem(name: "StoredItem", itemDescription: "Important: If you attempt to create a model object without first having created a container for that object, your preview will crash. If you do all that and don't use the modelContainer() modifier to send your container into SwiftUI, running any code using the modelContext environment key will also crash your preview.")
+    let item = StoredItem(name: "StoredItem", itemDescription: "Important: If you attempt to create a model object without first having created a container for that object, your preview will crash. If you do all that and don't use the modelContainer() modifier to send your container into SwiftUI, running any code using the modelContext environment key will also crash your preview.", location: nil)
     return ItemDetailView(item: item)
         .modelContainer(container)
 }

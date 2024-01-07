@@ -27,6 +27,9 @@
 		E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130892B44B369004011E3 /* ViewComponents.swift */; };
 		E9C1308D2B44B683004011E3 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308C2B44B683004011E3 /* Tips.swift */; };
 		E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */; };
+		E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */; };
+		E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */; };
+		E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833672B4B620B009BADB5 /* Coordinate2D.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,9 @@
 		E9C130892B44B369004011E3 /* ViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComponents.swift; sourceTree = "<group>"; };
 		E9C1308C2B44B683004011E3 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Resize.swift"; sourceTree = "<group>"; };
+		E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapView.swift; sourceTree = "<group>"; };
+		E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapViewModel.swift; sourceTree = "<group>"; };
+		E9E833672B4B620B009BADB5 /* Coordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2D.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E95FFFA32B435C3300856102 /* StoredItem.swift */,
+				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
 				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
 				E9C1308B2B44B666004011E3 /* General */,
@@ -106,6 +113,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */,
 				E9BB2C2B2B4712AF002753A7 /* NewItemView */,
 				E9BB2C262B460F52002753A7 /* MapView */,
 				E9C130862B449A27004011E3 /* ItemDetailView */,
@@ -169,6 +177,15 @@
 				E95FFF972B4350CA00856102 /* ContentView.swift */,
 			);
 			path = ContentView;
+			sourceTree = "<group>";
+		};
+		E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */ = {
+			isa = PBXGroup;
+			children = (
+				E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */,
+				E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */,
+			);
+			path = Coordinate2DMapView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,12 +264,15 @@
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
+				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
+				E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9C130882B44B334004011E3 /* ItemDetailComponents.swift in Sources */,
 				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
+				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,

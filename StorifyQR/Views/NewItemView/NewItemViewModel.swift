@@ -19,12 +19,16 @@ final class NewItemViewModel {
     @ObservationIgnored
     private let dataSource: StoredItemDataSource
     
+    let mapView = MapView()
+    
     var name = ""
     var isShowingNameWarning = false
     var itemDescription = ""
     var pickerItem: PhotosPickerItem?
     var image: Image?
+    
     var isShowingAlert = false
+    var isIncludingLocation = true
     
     init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, name: String = "", isShowingNameWarning: Bool = false, itemDescription: String = "", pickerItem: PhotosPickerItem? = nil, image: Image? = nil, isShowingAlert: Bool = false) {
         self.dataSource = dataSource
@@ -60,7 +64,16 @@ final class NewItemViewModel {
     
     func saveToContext() {
         guard checkIsNameFilled() else { return }
-        dataSource.appendItem(item:StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription))
+        dataSource.appendItem(item:StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation()))
+    }
+    
+    func appendLocation() -> Coordinate2D? {
+        if mapView.viewModel.isIncludingLocation {
+            let location = mapView.viewModel.rawLocation
+            return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
+        } else {
+            return nil
+        }
     }
     
     func askToSave() {
