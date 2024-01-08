@@ -10,17 +10,13 @@ import SwiftData
 import CoreImage
 import MapKit
 
-enum Tags {
-    case fruits
-}
-
 @Model
 final class StoredItem: Identifiable {
     let id: UUID
 //  let photo: Image
     let name: String
     var itemDescription: String?
-//  let tag: Tags?
+    var tags = [Tag]()
     let dateCreated: Date
     let location: Coordinate2D?
     var qrCode: CIImage {

@@ -16,6 +16,8 @@ import PhotosUI
 @Observable
 final class NewItemViewModel {
     
+    static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
+    
     @ObservationIgnored
     private let dataSource: StoredItemDataSource
     
@@ -26,7 +28,9 @@ final class NewItemViewModel {
     var itemDescription = ""
     var pickerItem: PhotosPickerItem?
     var image: Image?
+    var tags = [Tag]()
     
+    var isShowingSheet = false
     var isShowingAlert = false
     var isIncludingLocation = true
     

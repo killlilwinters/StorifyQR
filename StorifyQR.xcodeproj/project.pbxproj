@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
+		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
+		E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635682B4CA79100882CF5 /* PreviewContainer.swift */; };
+		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
 		E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF952B4350CA00856102 /* StorifyQRApp.swift */; };
 		E95FFF982B4350CA00856102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF972B4350CA00856102 /* ContentView.swift */; };
 		E95FFF9A2B4350CB00856102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95FFF992B4350CB00856102 /* Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
+		E93635682B4CA79100882CF5 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
+		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
 		E95FFF922B4350CA00856102 /* StorifyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorifyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95FFF952B4350CA00856102 /* StorifyQRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyQRApp.swift; sourceTree = "<group>"; };
 		E95FFF972B4350CA00856102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,6 +78,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E936355F2B4C922800882CF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E93635682B4CA79100882CF5 /* PreviewContainer.swift */,
+				E93635602B4C923100882CF5 /* StoredItem */,
+				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
+				E93635612B4C93C500882CF5 /* Tag.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E93635602B4C923100882CF5 /* StoredItem */ = {
+			isa = PBXGroup;
+			children = (
+				E95FFFA32B435C3300856102 /* StoredItem.swift */,
+				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
+			);
+			path = StoredItem;
+			sourceTree = "<group>";
+		};
+		E93635632B4C977600882CF5 /* AddTagVIew */ = {
+			isa = PBXGroup;
+			children = (
+				E93635642B4C978A00882CF5 /* AddTagView.swift */,
+				E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */,
+			);
+			path = AddTagVIew;
+			sourceTree = "<group>";
+		};
 		E95FFF892B4350CA00856102 = {
 			isa = PBXGroup;
 			children = (
@@ -89,10 +126,8 @@
 		E95FFF942B4350CA00856102 /* StorifyQR */ = {
 			isa = PBXGroup;
 			children = (
-				E95FFFA32B435C3300856102 /* StoredItem.swift */,
-				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
-				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
+				E936355F2B4C922800882CF5 /* Model */,
 				E9C1308B2B44B666004011E3 /* General */,
 				E95FFFAA2B436F8200856102 /* Tools */,
 				E95FFFA92B436F6700856102 /* Views */,
@@ -113,6 +148,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E93635632B4C977600882CF5 /* AddTagVIew */,
 				E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */,
 				E9BB2C2B2B4712AF002753A7 /* NewItemView */,
 				E9BB2C262B460F52002753A7 /* MapView */,
@@ -264,6 +300,9 @@
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
+				E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */,
+				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
+				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
@@ -278,6 +317,7 @@
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,
 				E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */,
 				E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */,
+				E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */,
 				E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

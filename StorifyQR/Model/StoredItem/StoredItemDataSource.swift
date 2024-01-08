@@ -20,6 +20,15 @@ final class StoredItemDataSource {
         self.modelContainer = try! ModelContainer(for: StoredItem.self)
         self.modelContext = modelContainer.mainContext
     }
+    
+    func appendTagToItem(item: StoredItem, tag: Tag) {
+        item.tags.append(tag)
+        do {
+            try modelContext.save()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
+    }
 
     func appendItem(item: StoredItem) {
         modelContext.insert(item)

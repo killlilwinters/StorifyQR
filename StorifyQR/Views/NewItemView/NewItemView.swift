@@ -11,8 +11,6 @@
 // https://www.youtube.com/watch?v=83RhhYeybgQ
 //
 
-// TODO: Clean up the code
-
 import SwiftUI
 import PhotosUI
 
@@ -24,6 +22,7 @@ struct NewItemView: View {
         Background {
             ScrollView {
                 VStack(spacing: 20) {
+// Picture view, picture selector
                     VStack {
                         if viewModel.image != nil {
                             viewModel.image!
@@ -47,6 +46,7 @@ struct NewItemView: View {
                             }
                         Spacer()
                     }
+// Tags
                     VStack {
                         Text("Tags:")
                             .font(.system(.headline))
@@ -58,8 +58,18 @@ struct NewItemView: View {
                                     .foregroundStyle(.white)
                                     .background(.blue.gradient)
                                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                ForEach(viewModel.tags) { tag in
+                                    Text(tag.title)
+                                        .padding(10)
+                                        .foregroundStyle(.white)
+                                        .background(.blue.gradient)
+                                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                }
+                                .onChange(of: viewModel.tags) { oldValue, newValue in
+                                    print("Received value \(newValue)")
+                                }
                                 Button {
-                                    // add a tag
+                                    viewModel.isShowingSheet.toggle()
                                 } label: {
                                     Image(systemName: "plus")
                                         .frame(width: 25, height: 25)
@@ -71,6 +81,13 @@ struct NewItemView: View {
                     }
                     .modifier(ContentPad())
                     .padding(.horizontal)
+                    .sheet(isPresented: $viewModel.isShowingSheet) {
+                        AddTagView { tag in
+                            viewModel.tags.append(tag)
+                        }
+                        .presentationDetents([.medium])
+                    }
+// Name TextField
                     VStack {
                         Text("Name:")
                             .font(.system(.headline))
@@ -85,56 +102,44 @@ struct NewItemView: View {
                     }
                     .modifier(ContentPad())
                     .padding(.horizontal)
+// Description TextField
                     VStack {
                         Text("Description:")
                             .font(.system(.headline))
                             .padding(.horizontal)
                         TextField("Enter your item's name", text: $viewModel.itemDescription, axis: .vertical)
-                            .frame(height: 50)
+                            .frame(height: 100)
                             .lineLimit(2...5)
                     }
                     .modifier(ContentPad())
                     .padding(.horizontal)
                     viewModel.mapView
-                    Spacer()
                 }
             }
-            .safeAreaInset(edge: .bottom, alignment: .center, spacing: -20) {
-                    Button {
-                        viewModel.askToSave()
-                    } label: {
-                        SaveButton()
-                    }
+// Bottom save floating button
+            .safeAreaInset(edge: .bottom, alignment: .center) {
+                Button {
+                    viewModel.askToSave()
+                } label: {
+                    StyledButtonComponent(title: "Save", foregroundStyle: NewItemViewModel.saveButtonStyle)
+                        .containerRelativeFrame(.horizontal) { width, axis in
+                            width * 0.7
+                        }
                 }
+                .padding(.vertical)
+            }
             .navigationTitle("Add new item")
             .navigationBarTitleDisplayMode(.inline)
-            .alert("Save \(viewModel.name)?", isPresented: $viewModel.isShowingAlert) {
-                Button("Cancel", role: .cancel) { }
-                Button("Save") {
-                    viewModel.saveToContext()
-                    dismiss()
-                }
-            }
         }.onTapGesture {
             viewModel.endEditing()
         }
-    }
-}
-
-struct SaveButton: View {
-    var body: some View {
-        RoundedRectangle(cornerRadius: 20)
-            .foregroundStyle(LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing))
-            .overlay (
-                Text("Save")
-                    .font(.headline)
-                    .foregroundStyle(.white)
-            )
-            .frame(height: 50)
-            .containerRelativeFrame(.horizontal) { width, axis in
-                width * 0.7
+        .alert("Save \(viewModel.name)?", isPresented: $viewModel.isShowingAlert) {
+            Button("Cancel", role: .cancel) { }
+            Button("Save") {
+                viewModel.saveToContext()
+                dismiss()
             }
-            .padding()
+        }
     }
 }
 

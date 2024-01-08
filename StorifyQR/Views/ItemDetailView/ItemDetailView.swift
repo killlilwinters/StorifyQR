@@ -82,9 +82,7 @@ struct ItemDetailView: View {
 }
 
 #Preview {
-    let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container = try! ModelContainer(for: StoredItem.self, configurations: config)
-    let item = StoredItem(name: "StoredItem", itemDescription: "Important: If you attempt to create a model object without first having created a container for that object, your preview will crash. If you do all that and don't use the modelContainer() modifier to send your container into SwiftUI, running any code using the modelContext environment key will also crash your preview.", location: nil)
-    return ItemDetailView(item: item)
-        .modelContainer(container)
+    let preview = PreviewContainer([StoredItem.self])
+    return ItemDetailView(item: PreviewContainer.item)
+        .modelContainer(preview.container)
 }

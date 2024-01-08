@@ -37,3 +37,20 @@ struct ActionButton: View {
         }
     }
 }
+
+struct StyledButtonComponent<Style: ShapeStyle>: View {
+    
+    let title: String
+    var foregroundStyle: Style
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 20)
+            .foregroundStyle(foregroundStyle)
+            .overlay (
+                Text(title)
+                    .font(.headline)
+                    .foregroundStyle(.white)
+            )
+            .frame(height: 50)
+    }
+}
