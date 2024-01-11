@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 05.01.2024.
 //
+// https://dev.to/jameson/swiftui-with-swiftdata-through-repository-36d1
+//
 
 import Foundation
 import SwiftData

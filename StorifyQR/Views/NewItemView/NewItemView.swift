@@ -52,6 +52,7 @@ struct NewItemView: View {
                             .font(.system(.headline))
                             .padding(.horizontal)
                         ScrollView(.horizontal) {
+// TODO: Hide scroll indicatiors
                             HStack {
                                 Text("No photo")
                                     .padding(10)
