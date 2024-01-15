@@ -4,6 +4,10 @@
 //
 //  Created by Maks Winters on 08.01.2024.
 //
+// https://developer.apple.com/forums/thread/70775
+//
+// https://www.youtube.com/watch?v=lHdBkXp3j74
+//
 
 import Foundation
 import SwiftData
