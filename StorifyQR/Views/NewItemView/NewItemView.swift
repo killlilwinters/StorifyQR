@@ -61,10 +61,11 @@ struct NewItemView: View {
                                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                 }
                                 .onChange(of: viewModel.tags) { oldValue, newValue in
-                                    print("Received value \(newValue)")
+                                    print("Received value \(newValue.last?.title ?? "Idk")")
                                 }
                                 Button {
                                     viewModel.isShowingSheet.toggle()
+                                    print("Toggled sheet")
                                 } label: {
                                     Image(systemName: "plus")
                                         .frame(width: 25, height: 25)
@@ -79,9 +80,10 @@ struct NewItemView: View {
                     .padding(.horizontal)
                     .sheet(isPresented: $viewModel.isShowingSheet) {
                         AddTagView { tag in
+                            print("saveTo appending a Tag")
                             viewModel.tags.append(tag)
                         }
-                        .presentationDetents([.medium])
+                        .presentationDetents([.medium, .large])
                     }
 // Name TextField
                     VStack {

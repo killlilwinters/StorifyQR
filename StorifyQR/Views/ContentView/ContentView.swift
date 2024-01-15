@@ -9,15 +9,12 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    static let imageConverter = ImageCoverter()
-    @Environment(\.modelContext) var modelContext
-    @Query private var storedItems: [StoredItem]
     
-    @State private var path = NavigationPath()
-    
+    @Bindable var viewModel = ContentViewModel()
+
     var body: some View {
-        NavigationStack(path: $path) {
-            List(storedItems) { item in
+        NavigationStack(path: $viewModel.path) {
+            List(viewModel.storedItems) { item in
                 NavigationLink(value: item) {
                     HStack {
                         VStack(alignment: .leading) {
@@ -25,13 +22,16 @@ struct ContentView: View {
                             Text(item.itemDescription ?? "No description")
                         }
                         Spacer()
-                        Image(uiImage: ContentView.imageConverter.convertImage(ciImage: item.qrCode))
+                        Image(uiImage: ContentViewModel.imageConverter.convertImage(ciImage: item.qrCode))
                             .resizable()
                             .interpolation(.none)
                             .frame(width: 50, height: 50)
                             .scaledToFit()
                     }
                 }
+            }
+            .onAppear {
+                viewModel.fetchItems()
             }
             .navigationDestination(for: StoredItem.self, destination: { item in
                 ItemDetailView(item: item)

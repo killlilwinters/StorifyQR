@@ -29,7 +29,7 @@ final class NewItemViewModel {
     var pickerItem: PhotosPickerItem?
     var image: Image?
     var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
-    var tags = [Tag(title: "No photo", colorComponent: ColorComponents.fromColor(.blue))]
+    var tags = [Tag]()
     
     var isShowingSheet = false
     var isShowingAlert = false
@@ -70,7 +70,9 @@ final class NewItemViewModel {
         guard checkIsNameFilled() else { return }
         let newItem = StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation())
         dataSource.appendItem(item: newItem)
-        tags[0] = mlModelTag // MLModel computed tag insertion
+//        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
+//        Above commented code causes duplicate values and crashes the app
+//        TODO: Find a better way to insert MLModel result tag
         dataSource.appendTagToItem(item: newItem, tags: tags)
     }
     

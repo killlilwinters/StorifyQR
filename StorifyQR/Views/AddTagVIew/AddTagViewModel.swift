@@ -12,19 +12,12 @@ import SwiftUI
 final class AddTagViewModel {
     
     @ObservationIgnored
-    private let dataSource: StoredItemDataSource
+    private let dataSource: TagDataSource
     
     var saveTo: (Tag) -> Void
     
     var rows: [[Tag]] = []
-// TODO: Fix unability to add tags
-    var tags: [Tag] = [
-        Tag(title: "XCode", colorComponent: ColorComponents.fromColor(.blue)),
-        Tag(title: "IOS", colorComponent: ColorComponents.fromColor(.green)),
-        Tag(title: "IOS App Development", colorComponent: ColorComponents.fromColor(.orange)),
-        Tag(title: "Swift", colorComponent: ColorComponents.fromColor(.red)),
-        Tag(title: "SwiftUI", colorComponent: ColorComponents.fromColor(.purple))
-    ]
+    var tags = [Tag]()
     var tagText = ""
     var tagTextLength = 10
     
@@ -69,7 +62,7 @@ final class AddTagViewModel {
         } else {
             self.rows = []
         }
-        
+        tags = dataSource.fetchItems()
     }
     
     func limitTextField() {
@@ -79,10 +72,10 @@ final class AddTagViewModel {
     }
     
     func addTag() {
+        print("Adding a tag")
         guard !tagText.isEmpty else { return }
         let newTag = Tag(title: tagText, colorComponent: ColorComponents.fromColor(selectedColor))
-        tags.append(newTag)
-        print(tags.last?.title ?? "None")
+        dataSource.appendItem(tag: newTag)
         getTags()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.tagText = ""
@@ -94,9 +87,10 @@ final class AddTagViewModel {
         getTags()
     }
     
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, saveTo: @escaping (Tag) -> Void) {
+    init(dataSource: TagDataSource = TagDataSource.shared, saveTo: @escaping (Tag) -> Void) {
         self.dataSource = dataSource
         self.saveTo = saveTo
+        self.tags = dataSource.fetchItems()
         getTags()
     }
 }

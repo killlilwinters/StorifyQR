@@ -35,6 +35,8 @@
 		E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130892B44B369004011E3 /* ViewComponents.swift */; };
 		E9C1308D2B44B683004011E3 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308C2B44B683004011E3 /* Tips.swift */; };
 		E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */; };
+		E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D722B5589BD00ECC51D /* TagDataSource.swift */; };
+		E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */; };
 		E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */; };
 		E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */; };
 		E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833672B4B620B009BADB5 /* Coordinate2D.swift */; };
@@ -70,6 +72,8 @@
 		E9C130892B44B369004011E3 /* ViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComponents.swift; sourceTree = "<group>"; };
 		E9C1308C2B44B683004011E3 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
 		E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Resize.swift"; sourceTree = "<group>"; };
+		E9D06D722B5589BD00ECC51D /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
+		E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapView.swift; sourceTree = "<group>"; };
 		E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapViewModel.swift; sourceTree = "<group>"; };
 		E9E833672B4B620B009BADB5 /* Coordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2D.swift; sourceTree = "<group>"; };
@@ -90,8 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				E93635682B4CA79100882CF5 /* PreviewContainer.swift */,
+				E9D06D712B5589A800ECC51D /* Tag */,
 				E93635602B4C923100882CF5 /* StoredItem */,
-				E93635612B4C93C500882CF5 /* Tag.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -239,8 +243,18 @@
 			isa = PBXGroup;
 			children = (
 				E95FFF972B4350CA00856102 /* ContentView.swift */,
+				E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */,
 			);
 			path = ContentView;
+			sourceTree = "<group>";
+		};
+		E9D06D712B5589A800ECC51D /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				E93635612B4C93C500882CF5 /* Tag.swift */,
+				E9D06D722B5589BD00ECC51D /* TagDataSource.swift */,
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */ = {
@@ -323,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */,
+				E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */,
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
@@ -345,6 +360,7 @@
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
 				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
+				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,
 				E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */,

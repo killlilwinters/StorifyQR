@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SwiftData
 import TipKit
 
 @main
@@ -20,6 +19,6 @@ struct StorifyQRApp: App {
                     ])
                 }
         }
-        .modelContainer(for: StoredItem.self)
+//        .modelContainer(for: StoredItem.self) this is the cause of Sheet closing automatically when using MVVM SwiftData implementation.
     }
 }

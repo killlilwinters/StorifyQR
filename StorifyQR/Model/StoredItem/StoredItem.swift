@@ -16,6 +16,7 @@ final class StoredItem: Identifiable {
 //  let photo: Image
     let name: String
     var itemDescription: String?
+    @Relationship(inverse: \Tag.item)
     var tags = [Tag]()
     let dateCreated: Date
     let location: Coordinate2D?

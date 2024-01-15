@@ -11,7 +11,7 @@ import Foundation
 import SwiftData
 
 final class StoredItemDataSource {
-    private let modelContainer: ModelContainer
+    let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
     @MainActor

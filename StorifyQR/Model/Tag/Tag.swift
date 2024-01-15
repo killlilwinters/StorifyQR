@@ -12,15 +12,13 @@ import SwiftUI
 @Model
 class Tag {
     @Attribute(.unique)
-// TODO: Fix getter breakpoint error
     let title: String
     var size: CGFloat = 0
     var colorComponent: ColorComponents
-    var item: StoredItem?
+    var item: [StoredItem]?
     
-    init(title: String, colorComponent: ColorComponents, item: StoredItem? = nil) {
+    init(title: String, colorComponent: ColorComponents) {
         self.title = title
         self.colorComponent = colorComponent
-        self.item = item
     }
 }

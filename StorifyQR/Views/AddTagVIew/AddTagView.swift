@@ -18,48 +18,7 @@ struct AddTagView: View {
         Background {
                 ZStack(alignment: .bottom) {
                     ScrollView(.vertical) {
-                        VStack{
-                            VStack(alignment: .leading, spacing: 4) {
-                                ForEach(viewModel.rows, id: \.self) { rows in
-                                    HStack(spacing: 6) {
-                                        ForEach(rows){ row in
-                                            Text(row.title)
-                                                .fixedSize()
-                                                .foregroundStyle(.white)
-                                                .font(.system(size: 16))
-                                                .padding(.leading, 14)
-                                                .padding(.trailing, 30)
-                                                .padding(.vertical, 10)
-                                                .onTapGesture {
-                                                    viewModel.saveTo(row)
-                                                    dismiss()
-                                                }
-                                                .background(
-                                                    ZStack(alignment: .trailing){
-                                                        Capsule()
-                                                            .fill(row.colorComponent.getColor.gradient)
-                                                        Button{
-                                                            viewModel.removeTag(by: row.title)
-                                                        } label:{
-                                                            Image(systemName: "xmark")
-                                                                .frame(width: 15, height: 15)
-                                                                .padding(.trailing, 10)
-                                                                .foregroundColor(.white)
-                                                        }
-                                                    }
-                                                )
-                                                .shadow(radius: 3)
-                                        }
-                                        Spacer()
-                                    }
-                                    .frame(height: 28)
-                                    .padding(.bottom, 15)
-                                }
-                            }
-                            .padding(24)
-                            
-                            Spacer()
-                        }
+                        chipsView
                     }
                     VStack {
                         if viewModel.isShowingSelectior {
@@ -118,6 +77,51 @@ struct AddTagView: View {
                 .navigationTitle("Tag picker")
                 .navigationBarTitleDisplayMode(.inline)
             }
+        }
+    }
+    
+    var chipsView: some View {
+        VStack{
+            VStack(alignment: .leading, spacing: 4) {
+                ForEach(viewModel.rows, id: \.self) { rows in
+                    HStack(spacing: 6) {
+                        ForEach(rows){ row in
+                            Text(row.title)
+                                .fixedSize()
+                                .foregroundStyle(.white)
+                                .font(.system(size: 16))
+                                .padding(.leading, 14)
+                                .padding(.trailing, 30)
+                                .padding(.vertical, 10)
+                                .onTapGesture {
+                                    viewModel.saveTo(row)
+                                    dismiss()
+                                }
+                                .background(
+                                    ZStack(alignment: .trailing){
+                                        Capsule()
+                                            .fill(row.colorComponent.getColor.gradient)
+                                        Button{
+                                            viewModel.removeTag(by: row.title)
+                                        } label:{
+                                            Image(systemName: "xmark")
+                                                .frame(width: 15, height: 15)
+                                                .padding(.trailing, 10)
+                                                .foregroundColor(.white)
+                                        }
+                                    }
+                                )
+                                .shadow(radius: 3)
+                        }
+                        Spacer()
+                    }
+                    .frame(height: 28)
+                    .padding(.bottom, 15)
+                }
+            }
+            .padding(24)
+            
+            Spacer()
         }
     }
     
