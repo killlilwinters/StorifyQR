@@ -52,18 +52,12 @@ struct NewItemView: View {
                             .font(.system(.headline))
                             .padding(.horizontal)
                         ScrollView(.horizontal) {
-// TODO: Hide scroll indicatiors
                             HStack {
-                                Text("No photo")
-                                    .padding(10)
-                                    .foregroundStyle(.white)
-                                    .background(.blue.gradient)
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                 ForEach(viewModel.tags) { tag in
                                     Text(tag.title)
                                         .padding(10)
                                         .foregroundStyle(.white)
-                                        .background(.blue.gradient)
+                                        .background(tag.colorComponent.getColor.gradient)
                                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                 }
                                 .onChange(of: viewModel.tags) { oldValue, newValue in
@@ -79,6 +73,7 @@ struct NewItemView: View {
                                 .buttonBorderShape(.circle)
                             }
                         }
+                        .scrollIndicators(.hidden)
                     }
                     .modifier(ContentPad())
                     .padding(.horizontal)
@@ -114,7 +109,7 @@ struct NewItemView: View {
                     }
                     .modifier(ContentPad())
                     .padding(.horizontal)
-                    viewModel.mapView
+                    viewModel.mapView // MapView
                 }
             }
 // Bottom save floating button

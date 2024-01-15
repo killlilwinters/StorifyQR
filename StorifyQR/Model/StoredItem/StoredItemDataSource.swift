@@ -23,8 +23,8 @@ final class StoredItemDataSource {
         self.modelContext = modelContainer.mainContext
     }
     
-    func appendTagToItem(item: StoredItem, tag: Tag) {
-        item.tags.append(tag)
+    func appendTagToItem(item: StoredItem, tags: [Tag]) {
+        item.tags = tags
         do {
             try modelContext.save()
         } catch {

@@ -28,11 +28,11 @@ final class NewItemViewModel {
     var itemDescription = ""
     var pickerItem: PhotosPickerItem?
     var image: Image?
-    var tags = [Tag]()
+    var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
+    var tags = [Tag(title: "No photo", colorComponent: ColorComponents.fromColor(.blue))]
     
     var isShowingSheet = false
     var isShowingAlert = false
-    var isIncludingLocation = true
     
     init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, name: String = "", isShowingNameWarning: Bool = false, itemDescription: String = "", pickerItem: PhotosPickerItem? = nil, image: Image? = nil, isShowingAlert: Bool = false) {
         self.dataSource = dataSource
@@ -68,7 +68,10 @@ final class NewItemViewModel {
     
     func saveToContext() {
         guard checkIsNameFilled() else { return }
-        dataSource.appendItem(item:StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation()))
+        let newItem = StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation())
+        dataSource.appendItem(item: newItem)
+        tags[0] = mlModelTag // MLModel computed tag insertion
+        dataSource.appendTagToItem(item: newItem, tags: tags)
     }
     
     func appendLocation() -> Coordinate2D? {

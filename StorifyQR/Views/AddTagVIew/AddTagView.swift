@@ -14,34 +14,109 @@ struct AddTagView: View {
     @Bindable var viewModel: AddTagViewModel
     
     var body: some View {
+    NavigationStack {
         Background {
-            VStack {
-                VStack {
-                    Text("Name:")
-                        .font(.system(.headline))
-                        .padding(.horizontal)
-                    TextField("Enter a title", text: $viewModel.title)
-                        .frame(height: 50)
-                }
-                .modifier(ContentPad())
-                .padding(.horizontal)
-                .frame(height: 100)
-                HStack {
-                    Button(role: .cancel) {
-                        dismiss()
-                    } label: {
-                        StyledButtonComponent(title: "Cancel", foregroundStyle: .blue.gradient)
-                    }
-                    Button {
-                        if let tag = viewModel.makeTag() {
-                            viewModel.saveTo(tag)
+                ZStack(alignment: .bottom) {
+                    ScrollView(.vertical) {
+                        VStack{
+                            VStack(alignment: .leading, spacing: 4) {
+                                ForEach(viewModel.rows, id: \.self) { rows in
+                                    HStack(spacing: 6) {
+                                        ForEach(rows){ row in
+                                            Text(row.title)
+                                                .fixedSize()
+                                                .foregroundStyle(.white)
+                                                .font(.system(size: 16))
+                                                .padding(.leading, 14)
+                                                .padding(.trailing, 30)
+                                                .padding(.vertical, 10)
+                                                .onTapGesture {
+                                                    viewModel.saveTo(row)
+                                                    dismiss()
+                                                }
+                                                .background(
+                                                    ZStack(alignment: .trailing){
+                                                        Capsule()
+                                                            .fill(row.colorComponent.getColor.gradient)
+                                                        Button{
+                                                            viewModel.removeTag(by: row.title)
+                                                        } label:{
+                                                            Image(systemName: "xmark")
+                                                                .frame(width: 15, height: 15)
+                                                                .padding(.trailing, 10)
+                                                                .foregroundColor(.white)
+                                                        }
+                                                    }
+                                                )
+                                                .shadow(radius: 3)
+                                        }
+                                        Spacer()
+                                    }
+                                    .frame(height: 28)
+                                    .padding(.bottom, 15)
+                                }
+                            }
+                            .padding(24)
+                            
+                            Spacer()
                         }
-                        dismiss()
-                    } label: {
-                        StyledButtonComponent(title: "Add", foregroundStyle: .orange.gradient)
                     }
+                    VStack {
+                        if viewModel.isShowingSelectior {
+                            CustomColorPickerView(selectedColor: $viewModel.selectedColor)
+                        }
+                        HStack {
+                            TextField("Enter tag", text: $viewModel.tagText, onCommit: {
+                                viewModel.addTag()
+                            })
+                            .autocorrectionDisabled()
+                            .onChange(of: viewModel.tagText) {
+                                viewModel.limitTextField()
+                            }
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 25)
+                                    .strokeBorder()
+                                    .foregroundColor(.primary)
+                            )
+                            Button {
+                                withAnimation {
+                                    viewModel.isShowingSelectior.toggle()
+                                }
+                            } label: {
+                                Circle()
+                                    .stroke(lineWidth: 2)
+                                    .fill(.primary)
+                                    .frame(height: 55)
+                                    .overlay(
+                                        Circle()
+                                            .fill(viewModel.selectedColor)
+                                            .frame(width: 20)
+                                    )
+                            }
+                            .buttonStyle(.plain)
+                            Button {
+                                viewModel.addTag()
+                            } label: {
+                                Circle()
+                                    .stroke(lineWidth: 1)
+                                    .fill(.primary)
+                                    .frame(height: 55)
+                                    .overlay(
+                                        Image(systemName: "plus")
+                                            .foregroundStyle(.primary)
+                                            .font(.system(size: 20))
+                                    )
+                            }
+                            .buttonStyle(.plain)
+                        }
+                        .padding(.horizontal)
+                    }
+                    .padding(.vertical, 10)
+                    .background(.ultraThinMaterial)
                 }
-                .padding()
+                .navigationTitle("Tag picker")
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

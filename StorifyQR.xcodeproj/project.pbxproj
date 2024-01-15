@@ -11,6 +11,10 @@
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635682B4CA79100882CF5 /* PreviewContainer.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
+		E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */; };
+		E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1862B54B2FD003E5230 /* StringGetSize.swift */; };
+		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
+		E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* ColorComponents.swift */; };
 		E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF952B4350CA00856102 /* StorifyQRApp.swift */; };
 		E95FFF982B4350CA00856102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF972B4350CA00856102 /* ContentView.swift */; };
 		E95FFF9A2B4350CB00856102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95FFF992B4350CB00856102 /* Assets.xcassets */; };
@@ -41,6 +45,10 @@
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E93635682B4CA79100882CF5 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
+		E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenWidth.swift; sourceTree = "<group>"; };
+		E944E1862B54B2FD003E5230 /* StringGetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGetSize.swift; sourceTree = "<group>"; };
+		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
+		E944E18B2B54B557003E5230 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
 		E95FFF922B4350CA00856102 /* StorifyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorifyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95FFF952B4350CA00856102 /* StorifyQRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyQRApp.swift; sourceTree = "<group>"; };
 		E95FFF972B4350CA00856102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,7 +91,6 @@
 			children = (
 				E93635682B4CA79100882CF5 /* PreviewContainer.swift */,
 				E93635602B4C923100882CF5 /* StoredItem */,
-				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
 				E93635612B4C93C500882CF5 /* Tag.swift */,
 			);
 			path = Model;
@@ -107,6 +114,26 @@
 			path = AddTagVIew;
 			sourceTree = "<group>";
 		};
+		E944E1832B54B214003E5230 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */,
+				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
+				E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */,
+				E944E1862B54B2FD003E5230 /* StringGetSize.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E944E18A2B54B545003E5230 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
+				E944E18B2B54B557003E5230 /* ColorComponents.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E95FFF892B4350CA00856102 = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +155,9 @@
 			children = (
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
 				E936355F2B4C922800882CF5 /* Model */,
-				E9C1308B2B44B666004011E3 /* General */,
+				E944E18A2B54B545003E5230 /* Components */,
+				E944E1832B54B214003E5230 /* Extensions */,
+				E9C1308B2B44B666004011E3 /* GeneralUI */,
 				E95FFFAA2B436F8200856102 /* Tools */,
 				E95FFFA92B436F6700856102 /* Views */,
 				E95FFF992B4350CB00856102 /* Assets.xcassets */,
@@ -164,7 +193,6 @@
 				E95FFFA72B43622100856102 /* ImageCoverter.swift */,
 				E95FFFA52B435EAD00856102 /* QRGenerator.swift */,
 				E9C130822B449127004011E3 /* DateConverter.swift */,
-				E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -197,14 +225,14 @@
 			path = ItemDetailView;
 			sourceTree = "<group>";
 		};
-		E9C1308B2B44B666004011E3 /* General */ = {
+		E9C1308B2B44B666004011E3 /* GeneralUI */ = {
 			isa = PBXGroup;
 			children = (
 				E9C130892B44B369004011E3 /* ViewComponents.swift */,
 				E9C1308C2B44B683004011E3 /* Tips.swift */,
-				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
+				E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */,
 			);
-			path = General;
+			path = GeneralUI;
 			sourceTree = "<group>";
 		};
 		E9C130902B44D437004011E3 /* ContentView */ = {
@@ -298,14 +326,18 @@
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
+				E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
 				E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
+				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
+				E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */,
 				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
+				E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */,
 				E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9C130882B44B334004011E3 /* ItemDetailComponents.swift in Sources */,

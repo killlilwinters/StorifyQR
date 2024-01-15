@@ -30,6 +30,29 @@ struct ItemDetailView: View {
                         ActionButtons()
                     }
                     VStack {
+                        Text("Tags:")
+                            .font(.system(.headline))
+                            .padding(.horizontal)
+                        ScrollView(.horizontal) {
+                            HStack {
+                                ForEach(viewModel.item.tags) { tag in
+                                    Text(tag.title)
+                                        .padding(10)
+                                        .foregroundStyle(.white)
+                                        .background(tag.colorComponent.getColor.gradient)
+                                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                }
+                            }
+                        }
+                        .scrollIndicators(.hidden)
+                    }
+                    .onAppear {
+                        print(viewModel.item.tags)
+                    }
+                    .modifier(ContentPad())
+                    .padding(.top)
+                    .padding(.horizontal)
+                    VStack {
                         Text("Description:")
                             .foregroundStyle(.secondary)
                         Text(viewModel.item.itemDescription ?? "No description")
