@@ -13,9 +13,14 @@ import SwiftUI
 final class ItemDetailViewModel {
     static let imageConverter = ImageCoverter()
     let qrTip = QRCodeShareTip()
+
+    let dataSource: StoredItemDataSource
     
     let item: StoredItem
     var isShowingQR = false
+    
+    var isShowingAlert = false
+    var alertMessage = ""
     
     func getDate() -> String {
         let dateConverter = DateConverter(date: item.dateCreated)
@@ -30,7 +35,13 @@ final class ItemDetailViewModel {
         return Image(uiImage: getQR().resize(1500, 1500))
     }
     
-    init(item: StoredItem) {
+    func deleteCurrentItem() {
+        dataSource.removeItem(item)
+    }
+    
+    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
+         item: StoredItem) {
+        self.dataSource = dataSource
         self.item = item
     }
 }

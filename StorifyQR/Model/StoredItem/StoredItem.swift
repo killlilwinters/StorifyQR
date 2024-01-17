@@ -13,7 +13,8 @@ import MapKit
 @Model
 final class StoredItem: Identifiable {
     let id: UUID
-//  let photo: Image
+    @Attribute(.externalStorage)
+    var photo: Data?
     let name: String
     var itemDescription: String?
     @Relationship(inverse: \Tag.item)
@@ -25,8 +26,12 @@ final class StoredItem: Identifiable {
         return qrGenerator.generateQRCode()
     }
     
-    init(name: String, itemDescription: String?, location: Coordinate2D?) {
+    init(photo: Data? = nil,
+         name: String,
+         itemDescription: String?,
+         location: Coordinate2D?) {
         self.id = UUID()
+        self.photo = photo
         self.name = name
         self.itemDescription = itemDescription
         self.dateCreated = Date()

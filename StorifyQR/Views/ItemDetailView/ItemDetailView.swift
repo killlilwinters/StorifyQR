@@ -13,21 +13,28 @@ import MapKit
 
 struct ItemDetailView: View {
     
-    let viewModel: ItemDetailViewModel
+    @Environment(\.dismiss) var dismiss
+    @Bindable var viewModel: ItemDetailViewModel
     
     var body: some View {
         Background {
             ScrollView(.vertical) {
                 VStack {
-                    Rectangle()
-                        .frame(height: 250)
-                        .foregroundStyle(.link)
-                        .overlay (
-                            Image(systemName: "shippingbox.fill")
-                                .font(.system(size: 100))
-                        )
+                    if viewModel.item.photo != nil {
+                        Image(uiImage: UIImage(data: viewModel.item.photo!) ?? UIImage())
+                            .resizable()
+                            .scaledToFit()
+                    } else {
+                        Rectangle()
+                            .frame(height: 250)
+                            .foregroundStyle(.link)
+                            .overlay (
+                                Image(systemName: "shippingbox.fill")
+                                    .font(.system(size: 100))
+                            )
+                    }
                     ScrollView(.horizontal) {
-                        ActionButtons()
+                        actionButtons
                     }
                     VStack {
                         Text("Tags:")
@@ -92,6 +99,12 @@ struct ItemDetailView: View {
                     Text(viewModel.getDate())
                         .foregroundStyle(.secondary)
                 }
+                .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
+                    Button("Delete", role: .destructive) {
+                        viewModel.deleteCurrentItem()
+                        dismiss()
+                    }
+                })
                 .navigationTitle(viewModel.item.name)
                 .navigationBarTitleDisplayMode(.inline)
             }

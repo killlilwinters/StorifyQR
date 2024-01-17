@@ -101,8 +101,8 @@ struct AddTagView: View {
                                     ZStack(alignment: .trailing){
                                         Capsule()
                                             .fill(row.colorComponent.getColor.gradient)
-                                        Button{
-                                            viewModel.removeTag(by: row.title)
+                                        Button {
+                                            viewModel.removeTag(tag: row)
                                         } label:{
                                             Image(systemName: "xmark")
                                                 .frame(width: 15, height: 15)

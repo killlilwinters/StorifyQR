@@ -26,8 +26,11 @@ final class NewItemViewModel {
     var name = ""
     var isShowingNameWarning = false
     var itemDescription = ""
+    
     var pickerItem: PhotosPickerItem?
+    var photoData: Data?
     var image: Image?
+    
     var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
     var tags = [Tag]()
     
@@ -51,10 +54,10 @@ final class NewItemViewModel {
     func loadImage() {
         Task {
             guard let rawImage = try await pickerItem?.loadTransferable(type: Data.self) else { return }
+            photoData = rawImage
             let uiImage = UIImage(data: rawImage)
             image = Image(uiImage: uiImage!)
         }
-        
     }
     
     func checkIsNameFilled() -> Bool {
@@ -68,7 +71,7 @@ final class NewItemViewModel {
     
     func saveToContext() {
         guard checkIsNameFilled() else { return }
-        let newItem = StoredItem(name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation())
+        let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: appendLocation())
         dataSource.appendItem(item: newItem)
 //        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
 //        Above commented code causes duplicate values and crashes the app

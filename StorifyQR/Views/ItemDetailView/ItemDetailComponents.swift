@@ -8,8 +8,8 @@
 import Foundation
 import SwiftUI
 
-struct ActionButtons: View {
-    var body: some View {
+extension ItemDetailView {
+    var actionButtons: some View {
         HStack {
             Group {
                 Button {
@@ -23,7 +23,7 @@ struct ActionButtons: View {
                     ActionButton(sfImage: "square.and.arrow.up", buttonText: "Share", color: .green)
                 }
                 Button(role: .destructive) {
-                    // Delete button
+                    viewModel.isShowingAlert = true
                 } label: {
                     ActionButton(sfImage: "trash", buttonText: "Delete", color: .red)
                 }

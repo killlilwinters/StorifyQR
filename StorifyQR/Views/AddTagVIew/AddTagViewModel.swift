@@ -82,8 +82,8 @@ final class AddTagViewModel {
         }
     }
     
-    func removeTag(by title: String) {
-        tags = tags.filter{ $0.title != title }
+    func removeTag(tag: Tag) {
+        dataSource.removeItem(tag)
         getTags()
     }
     

@@ -29,13 +29,7 @@ struct NewItemView: View {
                                 .resizable()
                                 .scaledToFit()
                         } else {
-                            Rectangle()
-                                .frame(height: 250)
-                                .foregroundStyle(.link)
-                                .overlay (
-                                    Image(systemName: "shippingbox.fill")
-                                        .font(.system(size: 100))
-                                )
+                            emptyPhotoView
                         }
                         PhotosPicker("Select a photo", selection: $viewModel.pickerItem)
                             .buttonStyle(.bordered)
@@ -44,7 +38,6 @@ struct NewItemView: View {
                             .onChange(of: viewModel.pickerItem) { oldValue, newValue in
                                 viewModel.loadImage()
                             }
-                        Spacer()
                     }
 // Tags
                     VStack {
@@ -138,6 +131,19 @@ struct NewItemView: View {
                 dismiss()
             }
         }
+    }
+}
+
+
+extension NewItemView {
+    var emptyPhotoView: some View {
+        Rectangle()
+            .frame(height: 250)
+            .foregroundStyle(.link)
+            .overlay (
+                Image(systemName: "shippingbox.fill")
+                    .font(.system(size: 100))
+            )
     }
 }
 
