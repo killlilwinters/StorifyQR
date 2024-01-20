@@ -12,17 +12,25 @@
 import Foundation
 import SwiftData
 import SwiftUI
+import CoreTransferable
 
 @Model
-class Tag {
+class Tag: Codable {
     @Attribute(.unique)
     let title: String
     var size: CGFloat = 0
     var colorComponent: ColorComponents
-    var item: [StoredItem]?
+    var items: [StoredItem]?
     
     init(title: String, colorComponent: ColorComponents) {
         self.title = title
         self.colorComponent = colorComponent
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decode(String.self, forKey: .title)
+        size = try container.decode(CGFloat.self, forKey: .size)
+        colorComponent = try container.decode(ColorComponents.self, forKey: .colorComponent)
     }
 }

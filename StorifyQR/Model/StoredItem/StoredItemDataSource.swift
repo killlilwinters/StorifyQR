@@ -37,7 +37,7 @@ final class StoredItemDataSource {
         do {
             try modelContext.save()
         } catch {
-            fatalError(error.localizedDescription)
+            fatalError("\(error)")
         }
     }
 

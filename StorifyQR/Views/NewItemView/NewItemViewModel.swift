@@ -54,9 +54,10 @@ final class NewItemViewModel {
     func loadImage() {
         Task {
             guard let rawImage = try await pickerItem?.loadTransferable(type: Data.self) else { return }
-            photoData = rawImage
-            let uiImage = UIImage(data: rawImage)
-            image = Image(uiImage: uiImage!)
+            let fullUIImage = UIImage(data: rawImage)
+            photoData = fullUIImage?.jpeg(.low)
+            let compressedUIImage = UIImage(data: photoData!)
+            image = Image(uiImage: compressedUIImage!)
         }
     }
     

@@ -17,9 +17,7 @@ extension ItemDetailView {
                 } label: {
                     ActionButton(sfImage: "pencil", buttonText: "Edit", color: .blue)
                 }
-                Button {
-                    // Sharing button
-                } label: {
+                ShareLink(item: viewModel.item, preview: SharePreview(viewModel.item.name, image: "globe")){
                     ActionButton(sfImage: "square.and.arrow.up", buttonText: "Share", color: .green)
                 }
                 Button(role: .destructive) {

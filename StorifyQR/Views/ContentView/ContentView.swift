@@ -38,12 +38,39 @@ struct ContentView: View {
             })
             .navigationTitle("StorifyQR")
             .toolbar {
-                NavigationLink {
-                    NewItemView()
-                } label: {
-                    Image(systemName: "plus")
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        NewItemView()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Import", systemImage: "square.and.arrow.down") {
+                        viewModel.importingData.toggle()
+                    }
                 }
             }
+            .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
+                switch result {
+                case .success(let success):
+                    viewModel.saveImport(success)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+            .alert("Import \(viewModel.importItem?.name ?? "")?", isPresented: $viewModel.importingAlert) {
+                Button("Cancel") { }
+                Button("Save") {
+                    viewModel.saveItem()
+                }
+            }
+            .alert("There was an error", isPresented: $viewModel.errorAlert) {
+                Button("OK") { }
+            } message: {
+                Text(viewModel.errorMessage)
+            }
+
         }
     }
 }
