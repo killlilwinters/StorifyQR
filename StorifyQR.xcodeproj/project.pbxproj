@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635682B4CA79100882CF5 /* PreviewContainer.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E93635682B4CA79100882CF5 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				E944E1862B54B2FD003E5230 /* StringGetSize.swift */,
 				E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */,
 				E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */,
+				E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
+				E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
 				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,

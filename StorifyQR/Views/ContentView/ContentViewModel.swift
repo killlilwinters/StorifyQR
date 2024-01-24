@@ -39,11 +39,9 @@ final class ContentViewModel {
     
     func saveImport(_ success: URL) {
         do {
-            let decoder = JSONDecoder()
             
-            let data = try Data(contentsOf: success)
-            let decoded = try decoder.decode(StoredItem.self, from: data)
-            let rawTags = try decoder.decode(Tags.self, from: data)
+            let decoded: StoredItem = try Bundle.main.decode(success)
+            let rawTags: Tags = try Bundle.main.decode(success)
             
             let taglessObject = StoredItem(photo: decoded.photo, name: decoded.name, itemDescription: decoded.itemDescription, location: decoded.location)
             
