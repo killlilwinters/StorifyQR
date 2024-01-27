@@ -52,16 +52,20 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
             isIncludingLocation = false
             showAlerts ? alertUser("You have denied location permission, you can re-enable it in settings") : nil
         case .authorizedAlways, .authorizedWhenInUse, .authorized:
-            rawLocation = locationManager.location?.coordinate ?? MapDetails.defaultRegion
-            mapRegionPosition = .region(MKCoordinateRegion(center: rawLocation, span: MapDetails.defaultSpan))
-            isLocationAvailable = true
+            handleAuthorizedLocation()
         @unknown default:
             isIncludingLocation = false
             showAlerts ? alertUser("Unknown locationManager authrorization status, contact developer.") : nil
         }
     }
     
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+    private func handleAuthorizedLocation() {
+        rawLocation = locationManager?.location?.coordinate ?? MapDetails.defaultRegion
+        mapRegionPosition = .region(MKCoordinateRegion(center: rawLocation, span: MapDetails.defaultSpan))
+        isLocationAvailable = true
+    }
+    
+    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkLocationAuthorization()
     }
     

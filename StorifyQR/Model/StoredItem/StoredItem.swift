@@ -14,7 +14,7 @@ import MapKit
 import CoreTransferable
 
 @Model
-final class StoredItem: Identifiable, Codable, Transferable {
+final class StoredItem: Identifiable, Transferable {
     let id: UUID
     @Attribute(.externalStorage)
     var photo: Data?

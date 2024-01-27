@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Tag {
+extension Tag: Codable {
     enum CodingKeys: CodingKey {
         case title
         case size

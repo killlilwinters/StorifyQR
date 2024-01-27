@@ -10,7 +10,7 @@
 import Foundation
 import CoreTransferable
 
-extension StoredItem {
+extension StoredItem: Codable {
     enum CodingKeys: CodingKey {
         case id
         case photo

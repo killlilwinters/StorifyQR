@@ -15,7 +15,7 @@ import SwiftUI
 import CoreTransferable
 
 @Model
-class Tag: Codable {
+class Tag {
     @Attribute(.unique)
     let title: String
     var size: CGFloat = 0
