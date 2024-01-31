@@ -20,8 +20,8 @@ struct ItemDetailView: View {
         Background {
             ScrollView(.vertical) {
                 VStack {
-                    if viewModel.item.photo != nil {
-                        Image(uiImage: UIImage(data: viewModel.item.photo!) ?? UIImage())
+                    if viewModel.itemProcessedImage != nil {
+                        viewModel.itemProcessedImage!
                             .resizable()
                             .scaledToFit()
                     } else {

@@ -40,12 +40,39 @@ final class StoredItemDataSource {
             fatalError("\(error)")
         }
     }
+    
+    func editItem(item: StoredItem, 
+                  photo: Data?,
+                  name: String,
+                  itemDescription: String?,
+                  tags: [Tag],
+                  location: Coordinate2D?) 
+    {
+        item.photo = photo
+        item.name = name
+        item.itemDescription = itemDescription
+        item.location = location
+        item.tags = tags
+        do {
+            try modelContext.save()
+        } catch {
+            fatalError("\(error)")
+        }
+    }
 
     func fetchItems() -> [StoredItem] {
         do {
             return try modelContext.fetch(FetchDescriptor<StoredItem>())
         } catch {
             fatalError(error.localizedDescription)
+        }
+    }
+    
+    func getItem(itemUUID: UUID) -> StoredItem? {
+        if let item = fetchItems().first(where: {$0.id == itemUUID}) {
+           return item
+        } else {
+           return nil
         }
     }
 

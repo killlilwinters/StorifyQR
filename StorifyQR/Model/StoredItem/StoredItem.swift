@@ -18,12 +18,12 @@ final class StoredItem: Identifiable, Transferable {
     let id: UUID
     @Attribute(.externalStorage)
     var photo: Data?
-    let name: String
+    var name: String
     var itemDescription: String?
     @Relationship(inverse: \Tag.items)
     var tags = [Tag]()
     let dateCreated: Date
-    let location: Coordinate2D?
+    var location: Coordinate2D?
     var qrCode: CIImage {
         let qrGenerator = QRGenerator(inputID: id)
         return qrGenerator.generateQRCode()

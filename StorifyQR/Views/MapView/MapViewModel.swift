@@ -69,6 +69,15 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
+    func appendLocation() -> Coordinate2D? {
+        if isIncludingLocation {
+            let location = rawLocation
+            return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
+        } else {
+            return nil
+        }
+    }
+    
     func alertUser(_ message: String) {
         alertMessage = message
         isShowingAlert = true

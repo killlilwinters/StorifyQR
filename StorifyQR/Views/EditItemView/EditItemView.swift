@@ -1,22 +1,18 @@
 //
-//  NewItemView.swift
+//  EditItemView.swift
 //  StorifyQR
 //
-//  Created by Maks Winters on 04.01.2024.
+//  Created by Maks Winters on 31.01.2024.
 //
-// https://stackoverflow.com/questions/69965379/swiftui-how-to-prevent-keyboard-in-a-sheet-to-push-up-my-main-ui
-//
-// https://stackoverflow.com/questions/56491386/how-to-hide-keyboard-when-using-swiftui
-//
-// https://www.youtube.com/watch?v=83RhhYeybgQ
-//
+
+import SwiftUI
 
 import SwiftUI
 import PhotosUI
 
-struct NewItemView: View {
+struct EditItemView: View {
     @Environment(\.dismiss) var dismiss
-    @Bindable var viewModel = NewItemViewModel()
+    @Bindable var viewModel: EditItemViewModel
     
     var body: some View {
         Background {
@@ -107,12 +103,14 @@ struct NewItemView: View {
                     viewModel.mapView // MapView
                 }
             }
+            .onAppear(perform: viewModel.preloadValues)
 // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
-                    viewModel.askToSave()
+                    viewModel.saveChanges()
+                    dismiss()
                 } label: {
-                    StyledButtonComponent(title: "Create item", foregroundStyle: NewItemViewModel.saveButtonStyle)
+                    StyledButtonComponent(title: "Save changes", foregroundStyle: NewItemViewModel.saveButtonStyle)
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }
@@ -127,26 +125,19 @@ struct NewItemView: View {
         .alert("Save \(viewModel.name)?", isPresented: $viewModel.isShowingAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Save") {
-                viewModel.saveToContext()
                 dismiss()
             }
         }
     }
-}
-
-
-struct EmptyPhotoView: View {
-    var body: some View {
-        Rectangle()
-            .frame(height: 250)
-            .foregroundStyle(.link)
-            .overlay (
-                Image(systemName: "shippingbox.fill")
-                    .font(.system(size: 100))
-            )
+    
+    init(item: StoredItem) {
+        self.viewModel = EditItemViewModel(item: item)
     }
+    
 }
 
 #Preview {
-    NewItemView()
+    let preview = PreviewContainer([StoredItem.self])
+    return EditItemView(item: PreviewContainer.item)
+        .modelContainer(preview.container)
 }

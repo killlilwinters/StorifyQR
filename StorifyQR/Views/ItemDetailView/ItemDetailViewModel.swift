@@ -17,6 +17,12 @@ final class ItemDetailViewModel {
     let dataSource: StoredItemDataSource
     
     let item: StoredItem
+    var itemProcessedImage: Image? {
+        if let itemsPhoto = item.photo {
+            return Image(data: itemsPhoto)
+        }
+        return nil
+    }
     var isShowingQR = false
     
     var isShowingAlert = false

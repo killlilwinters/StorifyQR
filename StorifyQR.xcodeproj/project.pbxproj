@@ -27,6 +27,9 @@
 		E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */; };
 		E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */; };
 		E9ACB34C2B5AF6AE00BB1C5D /* UIImageCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */; };
+		E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */; };
+		E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */; };
+		E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D22B6ACE3C001063A9 /* Image-from.swift */; };
 		E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C272B460F6A002753A7 /* MapView.swift */; };
 		E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C292B460FB3002753A7 /* MapViewModel.swift */; };
 		E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */; };
@@ -70,6 +73,9 @@
 		E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCodable.swift; sourceTree = "<group>"; };
 		E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTExportType.swift; sourceTree = "<group>"; };
 		E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCompress.swift; sourceTree = "<group>"; };
+		E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
+		E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewModel.swift; sourceTree = "<group>"; };
+		E9AF53D22B6ACE3C001063A9 /* Image-from.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-from.swift"; sourceTree = "<group>"; };
 		E9BB2C272B460F6A002753A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E9BB2C292B460FB3002753A7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 				E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */,
 				E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */,
 				E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */,
+				E9AF53D22B6ACE3C001063A9 /* Image-from.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -197,6 +204,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9AF53CD2B6AAF23001063A9 /* EditItemView */,
 				E93635632B4C977600882CF5 /* AddTagVIew */,
 				E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */,
 				E9BB2C2B2B4712AF002753A7 /* NewItemView */,
@@ -215,6 +223,15 @@
 				E9C130822B449127004011E3 /* DateConverter.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		E9AF53CD2B6AAF23001063A9 /* EditItemView */ = {
+			isa = PBXGroup;
+			children = (
+				E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */,
+				E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */,
+			);
+			path = EditItemView;
 			sourceTree = "<group>";
 		};
 		E9BB2C262B460F52002753A7 /* MapView */ = {
@@ -356,12 +373,14 @@
 				E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */,
 				E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */,
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,
+				E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
 				E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
 				E9BBFF3F2B5840200031BEB6 /* ItemDetailComponents.swift in Sources */,
+				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
 				E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
@@ -369,6 +388,7 @@
 				E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */,
 				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
+				E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,

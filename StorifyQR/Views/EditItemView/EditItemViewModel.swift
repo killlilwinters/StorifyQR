@@ -1,12 +1,8 @@
 //
-//  NewItemViewModel.swift
+//  EditItemViewModel.swift
 //  StorifyQR
 //
-//  Created by Maks Winters on 05.01.2024.
-//
-// https://dev.to/jameson/swiftui-with-swiftdata-through-repository-36d1
-//
-// https://www.youtube.com/watch?v=4-Q14fCm-VE
+//  Created by Maks Winters on 31.01.2024.
 //
 
 import Foundation
@@ -14,7 +10,7 @@ import SwiftUI
 import PhotosUI
 
 @Observable
-final class NewItemViewModel {
+final class EditItemViewModel {
     
     static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
     
@@ -22,6 +18,8 @@ final class NewItemViewModel {
     private let dataSource: StoredItemDataSource
     
     let mapView = MapView()
+    
+    let item: StoredItem
     
     var name = ""
     var isShowingNameWarning = false
@@ -31,22 +29,24 @@ final class NewItemViewModel {
     var photoData: Data?
     var image: Image?
     
-    var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
     var tags = [Tag]()
     
     var isShowingSheet = false
     var isShowingAlert = false
     
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, 
-         name: String = "",
+    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
+         item: StoredItem,
          isShowingNameWarning: Bool = false,
-         itemDescription: String = "",
          isShowingAlert: Bool = false) {
         self.dataSource = dataSource
-        self.name = name
-        self.isShowingNameWarning = isShowingNameWarning
-        self.itemDescription = itemDescription
-        self.isShowingAlert = isShowingAlert
+        self.item = item
+        self.name = item.name
+        self.photoData = item.photo
+        self.itemDescription = item.itemDescription ?? ""
+        self.tags = item.tags
+        if let itemsPhoto = item.photo {
+            self.image = Image(data: itemsPhoto)
+        }
     }
     
     func endEditing() {
@@ -72,15 +72,26 @@ final class NewItemViewModel {
         return true
     }
     
-    func saveToContext() {
-        guard checkIsNameFilled() else { return }
+    func preloadValues() {
+        name = item.name
+        itemDescription = item.itemDescription ?? ""
+        photoData = item.photo
+        tags = item.tags
+    }
+    
+    func saveChanges() {
+        let itemDescChecked = itemDescription.isEmpty ? nil : itemDescription
         let itemsLocation = mapView.viewModel.appendLocation()
-        let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: itemsLocation)
-        dataSource.appendItem(item: newItem)
-//        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
-//        Above commented code causes duplicate values and crashes the app
-//        TODO: Find a better way to insert MLModel result tag
-        dataSource.appendTagToItem(item: newItem, tags: tags)
+        dataSource.editItem(item: item, photo: photoData, name: name, itemDescription: itemDescChecked, tags: tags, location: itemsLocation)
+    }
+    
+    func appendLocation() -> Coordinate2D? {
+        if mapView.viewModel.isIncludingLocation {
+            let location = mapView.viewModel.rawLocation
+            return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
+        } else {
+            return nil
+        }
     }
     
     func askToSave() {
