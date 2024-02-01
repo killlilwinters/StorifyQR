@@ -10,73 +10,23 @@ import SwiftUI
 import PhotosUI
 
 @Observable
-final class EditItemViewModel {
+final class EditItemViewModel: BaseItemEditing {
     
-    static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
-    
-    @ObservationIgnored
-    private let dataSource: StoredItemDataSource
+    static let saveButtonStyle = LinearGradient(colors: [.blue, .green], startPoint: .bottomLeading, endPoint: .topTrailing)
     
     let mapView = MapView()
     
     let item: StoredItem
     
-    var name = ""
-    var isShowingNameWarning = false
-    var itemDescription = ""
-    
-    var pickerItem: PhotosPickerItem?
-    var photoData: Data?
-    var image: Image?
-    
-    var tags = [Tag]()
-    
-    var isShowingSheet = false
-    var isShowingAlert = false
-    
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
-         item: StoredItem,
+    init(item: StoredItem,
          isShowingNameWarning: Bool = false,
          isShowingAlert: Bool = false) {
-        self.dataSource = dataSource
         self.item = item
-        self.name = item.name
-        self.photoData = item.photo
-        self.itemDescription = item.itemDescription ?? ""
-        self.tags = item.tags
+        var itemsImage: Image?
         if let itemsPhoto = item.photo {
-            self.image = Image(data: itemsPhoto)
+            itemsImage = Image(data: itemsPhoto)
         }
-    }
-    
-    func endEditing() {
-        UIApplication.shared.endEditing()
-    }
-    
-    func loadImage() {
-        Task {
-            guard let rawImage = try await pickerItem?.loadTransferable(type: Data.self) else { return }
-            let fullUIImage = UIImage(data: rawImage)
-            photoData = fullUIImage?.jpeg(.low)
-            let compressedUIImage = UIImage(data: photoData!)
-            image = Image(uiImage: compressedUIImage!)
-        }
-    }
-    
-    func checkIsNameFilled() -> Bool {
-        isShowingNameWarning = false
-        guard !name.isEmpty else {
-            isShowingNameWarning = true
-            return false
-        }
-        return true
-    }
-    
-    func preloadValues() {
-        name = item.name
-        itemDescription = item.itemDescription ?? ""
-        photoData = item.photo
-        tags = item.tags
+        super.init(name: item.name, itemDescription: item.itemDescription ?? "", photoData: item.photo, image: itemsImage, tags: item.tags)
     }
     
     func saveChanges() {
@@ -85,18 +35,14 @@ final class EditItemViewModel {
         dataSource.editItem(item: item, photo: photoData, name: name, itemDescription: itemDescChecked, tags: tags, location: itemsLocation)
     }
     
-    func appendLocation() -> Coordinate2D? {
-        if mapView.viewModel.isIncludingLocation {
-            let location = mapView.viewModel.rawLocation
-            return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
-        } else {
-            return nil
+    func checkLocation() {
+        if item.location != nil {
+            mapView.viewModel.isIncludingLocation = true
         }
     }
     
-    func askToSave() {
-        guard checkIsNameFilled() else { return }
-        isShowingAlert = true
+    func removeTag(at index: Int) {
+        tags.remove(at: index)
     }
     
 }

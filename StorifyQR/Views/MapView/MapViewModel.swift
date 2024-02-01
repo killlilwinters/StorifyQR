@@ -16,6 +16,8 @@ enum MapDetails {
 @Observable
 final class MapViewModel: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
+    
+    static let shared = MapViewModel()
 
     var rawLocation = MapDetails.defaultRegion
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: MapDetails.defaultRegion, span: MapDetails.defaultSpan))

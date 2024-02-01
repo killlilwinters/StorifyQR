@@ -10,7 +10,7 @@ import MapKit
 
 struct MapView: View {
     
-    @Bindable var viewModel = MapViewModel()
+    @Bindable var viewModel = MapViewModel.shared
     
     var body: some View {
         VStack {

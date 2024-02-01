@@ -34,7 +34,7 @@ extension StoredItem: Codable {
     
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation<StoredItem, JSONEncoder, JSONDecoder>(contentType: .sqrExportType)
-            .suggestedFileName("StorifyQR\(Date())")
+            .suggestedFileName("StorifyQR-export-\(DateConverter(date: Date()).currentDateTimeString())")
     }
     
 }

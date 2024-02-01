@@ -124,7 +124,7 @@ struct NewItemView: View {
         }.onTapGesture {
             viewModel.endEditing()
         }
-        .alert("Save \(viewModel.name)?", isPresented: $viewModel.isShowingAlert) {
+        .alert("Save \"\(viewModel.name)\"?", isPresented: $viewModel.isShowingAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Save") {
                 viewModel.saveToContext()

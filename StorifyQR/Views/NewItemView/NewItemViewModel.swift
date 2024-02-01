@@ -14,63 +14,13 @@ import SwiftUI
 import PhotosUI
 
 @Observable
-final class NewItemViewModel {
+class NewItemViewModel: BaseItemEditing {
     
     static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
     
-    @ObservationIgnored
-    private let dataSource: StoredItemDataSource
-    
     let mapView = MapView()
     
-    var name = ""
-    var isShowingNameWarning = false
-    var itemDescription = ""
-    
-    var pickerItem: PhotosPickerItem?
-    var photoData: Data?
-    var image: Image?
-    
     var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
-    var tags = [Tag]()
-    
-    var isShowingSheet = false
-    var isShowingAlert = false
-    
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, 
-         name: String = "",
-         isShowingNameWarning: Bool = false,
-         itemDescription: String = "",
-         isShowingAlert: Bool = false) {
-        self.dataSource = dataSource
-        self.name = name
-        self.isShowingNameWarning = isShowingNameWarning
-        self.itemDescription = itemDescription
-        self.isShowingAlert = isShowingAlert
-    }
-    
-    func endEditing() {
-        UIApplication.shared.endEditing()
-    }
-    
-    func loadImage() {
-        Task {
-            guard let rawImage = try await pickerItem?.loadTransferable(type: Data.self) else { return }
-            let fullUIImage = UIImage(data: rawImage)
-            photoData = fullUIImage?.jpeg(.low)
-            let compressedUIImage = UIImage(data: photoData!)
-            image = Image(uiImage: compressedUIImage!)
-        }
-    }
-    
-    func checkIsNameFilled() -> Bool {
-        isShowingNameWarning = false
-        guard !name.isEmpty else {
-            isShowingNameWarning = true
-            return false
-        }
-        return true
-    }
     
     func saveToContext() {
         guard checkIsNameFilled() else { return }
@@ -81,11 +31,6 @@ final class NewItemViewModel {
 //        Above commented code causes duplicate values and crashes the app
 //        TODO: Find a better way to insert MLModel result tag
         dataSource.appendTagToItem(item: newItem, tags: tags)
-    }
-    
-    func askToSave() {
-        guard checkIsNameFilled() else { return }
-        isShowingAlert = true
     }
     
 }

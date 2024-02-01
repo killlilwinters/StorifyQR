@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 @Observable
-final class ItemDetailViewModel {
+class ItemDetailViewModel {
     static let imageConverter = ImageCoverter()
     let qrTip = QRCodeShareTip()
 

@@ -30,6 +30,7 @@
 		E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */; };
 		E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */; };
 		E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D22B6ACE3C001063A9 /* Image-from.swift */; };
+		E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */; };
 		E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C272B460F6A002753A7 /* MapView.swift */; };
 		E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C292B460FB3002753A7 /* MapViewModel.swift */; };
 		E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */; };
@@ -76,6 +77,7 @@
 		E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewModel.swift; sourceTree = "<group>"; };
 		E9AF53D22B6ACE3C001063A9 /* Image-from.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-from.swift"; sourceTree = "<group>"; };
+		E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemEditingModel.swift; sourceTree = "<group>"; };
 		E9BB2C272B460F6A002753A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E9BB2C292B460FB3002753A7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */,
 				E9AF53CD2B6AAF23001063A9 /* EditItemView */,
 				E93635632B4C977600882CF5 /* AddTagVIew */,
 				E9E833622B4B4D93009BADB5 /* Coordinate2DMapView */,
@@ -390,6 +393,7 @@
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
+				E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */,
 				E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
 				E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */,

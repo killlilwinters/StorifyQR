@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 31.01.2024.
 //
+// https://stackoverflow.com/questions/57244713/get-index-in-foreach-in-swiftui
+//
 
 import SwiftUI
 
@@ -42,8 +44,18 @@ struct EditItemView: View {
                             .padding(.horizontal)
                         ScrollView(.horizontal) {
                             HStack {
-                                ForEach(viewModel.tags) { tag in
-                                    Text(tag.title)
+                                ForEach(Array(viewModel.tags.enumerated()), id: \.offset) { index, tag in
+                                    HStack {
+                                        Text(tag.title)
+                                        Button {
+                                            viewModel.removeTag(at: index)
+                                             
+                                        } label: {
+                                            Image(systemName: "xmark")
+                                                .frame(width: 15, height: 15)
+                                                .foregroundColor(.white)
+                                        }
+                                    }
                                         .padding(10)
                                         .foregroundStyle(.white)
                                         .background(tag.colorComponent.getColor.gradient)
@@ -103,28 +115,30 @@ struct EditItemView: View {
                     viewModel.mapView // MapView
                 }
             }
-            .onAppear(perform: viewModel.preloadValues)
+            .onAppear {
+                viewModel.checkLocation()
+            }
 // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
-                    viewModel.saveChanges()
-                    dismiss()
+                    viewModel.askToSave()
                 } label: {
-                    StyledButtonComponent(title: "Save changes", foregroundStyle: NewItemViewModel.saveButtonStyle)
+                    StyledButtonComponent(title: "Save changes", foregroundStyle: EditItemViewModel.saveButtonStyle)
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }
                 }
                 .padding(.vertical)
             }
-            .navigationTitle("Add new item")
+            .navigationTitle("Editing - \(viewModel.item.name)")
             .navigationBarTitleDisplayMode(.inline)
         }.onTapGesture {
             viewModel.endEditing()
         }
-        .alert("Save \(viewModel.name)?", isPresented: $viewModel.isShowingAlert) {
+        .alert("Save changes to \"\(viewModel.name)\"?", isPresented: $viewModel.isShowingAlert) {
             Button("Cancel", role: .cancel) { }
             Button("Save") {
+                viewModel.saveChanges()
                 dismiss()
             }
         }
