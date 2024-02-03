@@ -23,6 +23,8 @@ struct Coordinate2DMapView: View {
             .frame(height: 200)
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .allowsHitTesting(false)
+            LocationNameBar(locationName: viewModel.locationName)
+                .onAppear(perform: viewModel.getLocationName)
         }
         .modifier(ContentPad())
         .padding(.horizontal)

@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 03.01.2024.
 //
+// https://www.hackingwithswift.com/quick-start/swiftui/how-to-animate-changes-in-binding-values
+//
 
 import SwiftUI
 import MapKit
@@ -18,14 +20,19 @@ struct MapView: View {
                 .font(.system(.headline))
                 .padding(.horizontal)
             if viewModel.isIncludingLocation {
-                Map(position: $viewModel.mapRegionPosition) {
-                    Marker("Item's location", coordinate: viewModel.rawLocation)
+                VStack {
+                    Map(position: $viewModel.mapRegionPosition) {
+                        Marker("Item's location", coordinate: viewModel.rawLocation)
+                    }
+                    .frame(height: 200)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .allowsHitTesting(false)
+                    LocationNameBar(locationName: viewModel.locationName)
+                        .onAppear(perform: viewModel.getLocationName)
                 }
-                .frame(height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .allowsHitTesting(false)
+                .transition(.asymmetric(insertion: .scale, removal: .opacity))
             }
-            Toggle("Include location?", isOn: $viewModel.isIncludingLocation)
+            Toggle("Include location?", isOn: $viewModel.isIncludingLocation.animation())
                 .padding(.horizontal, 5)
                 .disabled(!viewModel.isLocationAvailable)
                 .onTapGesture {

@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 02.01.2024.
 //
+// https://stackoverflow.com/questions/70528374/how-do-i-define-a-struct-property-to-accept-linear-or-angular-gradients-in-swift
+//
 
 import Foundation
 import SwiftUI
@@ -52,5 +54,20 @@ struct StyledButtonComponent<Style: ShapeStyle>: View {
                     .foregroundStyle(.white)
             )
             .frame(height: 50)
+    }
+}
+
+struct LocationNameBar: View {
+    
+    let locationName: String
+    
+    var body: some View {
+        Text(locationName)
+            .padding(10)
+            .frame(maxWidth: .infinity)
+            .background (
+                RoundedRectangle(cornerRadius: 25)
+                    .foregroundStyle(.pink.opacity(0.7))
+            )
     }
 }

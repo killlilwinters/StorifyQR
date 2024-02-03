@@ -16,6 +16,7 @@ enum MapDetails {
 @Observable
 final class MapViewModel: NSObject, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
+    let locationGeocoder = LocationGeocoder()
     
     static let shared = MapViewModel()
 
@@ -29,6 +30,14 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     var isShowingAlert = false
     
     var alertMessage = ""
+    
+    var locationName = "Unknown location"
+    
+    func getLocationName() {
+        locationGeocoder.getLocationName(rawLocation: rawLocation) { place in
+            self.locationName = place
+        }
+    }
     
     func checkIfLocationServicesIsEnabled() {
         DispatchQueue.global().async {
