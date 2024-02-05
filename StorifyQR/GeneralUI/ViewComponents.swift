@@ -18,6 +18,7 @@ struct ContentPad: ViewModifier {
             content
                 .padding()
         }
+        .makeiPadScreenCompatible()
     }
 }
 
@@ -54,6 +55,7 @@ struct StyledButtonComponent<Style: ShapeStyle>: View {
                     .foregroundStyle(.white)
             )
             .frame(height: 50)
+            .makeiPadScreenCompatible()
     }
 }
 

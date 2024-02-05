@@ -12,6 +12,7 @@
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635682B4CA79100882CF5 /* PreviewContainer.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
+		E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */; };
 		E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */; };
 		E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1862B54B2FD003E5230 /* StringGetSize.swift */; };
 		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
@@ -58,6 +59,7 @@
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E93635682B4CA79100882CF5 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
+		E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadCompatibilityModifier.swift; sourceTree = "<group>"; };
 		E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenWidth.swift; sourceTree = "<group>"; };
 		E944E1862B54B2FD003E5230 /* StringGetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGetSize.swift; sourceTree = "<group>"; };
 		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */,
 				E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */,
 				E9AF53D22B6ACE3C001063A9 /* Image-from.swift */,
+				E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
 				E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
+				E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
 				E9ACB34C2B5AF6AE00BB1C5D /* UIImageCompress.swift in Sources */,
 				E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */,

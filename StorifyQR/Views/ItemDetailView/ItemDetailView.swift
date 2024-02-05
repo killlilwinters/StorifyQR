@@ -15,6 +15,7 @@ struct ItemDetailView: View {
     
     @Environment(\.dismiss) var dismiss
     @Bindable var viewModel: ItemDetailViewModel
+    @Namespace var qrCodeID
     
     var body: some View {
         Background {
@@ -33,8 +34,12 @@ struct ItemDetailView: View {
                                     .font(.system(size: 100))
                             )
                     }
-                    ScrollView(.horizontal) {
+                    if UIDevice.current.userInterfaceIdiom == .pad {
                         actionButtons
+                    } else {
+                        ScrollView(.horizontal) {
+                            actionButtons
+                        }
                     }
                     VStack {
                         Text("Tags:")
@@ -72,15 +77,19 @@ struct ItemDetailView: View {
                     Text("QR Code:")
                     if viewModel.isShowingQR {
                         let image = viewModel.shareQR()
-                        ShareLink(item: image, preview: SharePreview("QRCode for \(viewModel.item.name)", image: image)) {
+                        
+                        let preview = SharePreview("QRCode for \(viewModel.item.name)",
+                                                   image: image)
+                        
+                        ShareLink(item: image, preview: preview) {
                             image
                                 .resizable()
                                 .scaledToFit()
                                 .modifier(ContentPad())
-                                .padding()
                                 .containerRelativeFrame(.horizontal, { width, axis in
-                                    width * 0.6
+                                    width * 0.5
                                 })
+                                .id(qrCodeID)
                         }
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
                         .popoverTip(viewModel.qrTip)
