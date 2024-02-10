@@ -127,7 +127,6 @@ struct ItemDetailView: View {
 }
 
 #Preview {
-    let preview = PreviewContainer([StoredItem.self])
-    return ItemDetailView(item: PreviewContainer.item)
-        .modelContainer(preview.container)
+    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    return ItemDetailView(item: StoredItemDataSource.shared.fetchItems().first!)
 }

@@ -10,7 +10,6 @@
 		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
-		E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635682B4CA79100882CF5 /* PreviewContainer.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
 		E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */; };
 		E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */; };
@@ -47,6 +46,7 @@
 		E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */; };
 		E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D722B5589BD00ECC51D /* TagDataSource.swift */; };
 		E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */; };
+		E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */; };
 		E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */; };
 		E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */; };
 		E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833672B4B620B009BADB5 /* Coordinate2D.swift */; };
@@ -57,7 +57,6 @@
 		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
-		E93635682B4CA79100882CF5 /* PreviewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewContainer.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
 		E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadCompatibilityModifier.swift; sourceTree = "<group>"; };
 		E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenWidth.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Resize.swift"; sourceTree = "<group>"; };
 		E9D06D722B5589BD00ECC51D /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 		E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
 		E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapView.swift; sourceTree = "<group>"; };
 		E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapViewModel.swift; sourceTree = "<group>"; };
 		E9E833672B4B620B009BADB5 /* Coordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2D.swift; sourceTree = "<group>"; };
@@ -153,6 +153,7 @@
 				E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */,
 				E9AF53D22B6ACE3C001063A9 /* Image-from.swift */,
 				E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */,
+				E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,7 +203,6 @@
 		E95FFF9B2B4350CB00856102 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E93635682B4CA79100882CF5 /* PreviewContainer.swift */,
 				E95FFF9C2B4350CB00856102 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -390,7 +390,6 @@
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
 				E9BBFF3F2B5840200031BEB6 /* ItemDetailComponents.swift in Sources */,
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
-				E93635692B4CA79100882CF5 /* PreviewContainer.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
 				E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
@@ -411,6 +410,7 @@
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
 				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
+				E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */,
 				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
 				E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,

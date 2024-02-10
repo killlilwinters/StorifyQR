@@ -19,7 +19,7 @@ final class StoredItemDataSource {
 
     @MainActor
     private init() {
-        self.modelContainer = try! ModelContainer(for: StoredItem.self)
+        self.modelContainer = try! ModelContainer(for: StoredItem.self, configurations: ModelConfiguration(isStoredInMemoryOnly: ProcessInfo.isOnPreview() ? true : false))
         self.modelContext = modelContainer.mainContext
     }
     

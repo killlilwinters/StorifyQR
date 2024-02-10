@@ -129,7 +129,7 @@ struct EditItemView: View {
             .onAppear {
                 viewModel.checkLocation()
             }
-// Bottom save floating button
+            // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
                     viewModel.askToSave()
@@ -162,7 +162,6 @@ struct EditItemView: View {
 }
 
 #Preview {
-    let preview = PreviewContainer([StoredItem.self])
-    return EditItemView(item: PreviewContainer.item)
-        .modelContainer(preview.container)
+    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    return EditItemView(item: StoredItemDataSource.shared.fetchItems().first!)
 }

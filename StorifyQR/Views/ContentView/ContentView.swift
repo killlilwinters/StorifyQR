@@ -76,5 +76,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+// https://forums.developer.apple.com/forums/thread/661669
+    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    return ContentView()
 }
