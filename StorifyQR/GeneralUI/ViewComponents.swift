@@ -11,12 +11,14 @@ import Foundation
 import SwiftUI
 
 struct ContentPad: ViewModifier {
+    var cornerRaduius: Double = 25
+    var enablePadding: Bool = true
     func body(content: Content) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 25.0)
+            RoundedRectangle(cornerRadius: cornerRaduius)
                 .foregroundStyle(Color(.contentPad))
             content
-                .padding()
+                .padding(enablePadding ? 15 : 0)
         }
         .makeiPadScreenCompatible()
     }

@@ -19,7 +19,7 @@ extension ItemDetailView {
                 }
                 ShareLink(item: viewModel.item,
                           preview: SharePreview(viewModel.item.name,
-                          image: viewModel.itemProcessedImage ?? Image(systemName: "shippingbox.fill"))) {
+                          image: viewModel.image ?? Image(systemName: "shippingbox.fill"))) {
                     ActionButton(sfImage: "square.and.arrow.up", buttonText: "Share", color: .green)
                 }
                 Button(role: .destructive) {

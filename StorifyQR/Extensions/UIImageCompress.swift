@@ -6,6 +6,8 @@
 //
 // https://stackoverflow.com/questions/29726643/how-to-compress-of-reduce-the-size-of-an-image-before-uploading-to-parse-as-pffi
 //
+// https://stackoverflow.com/a/61055279/23215434
+//
 
 import Foundation
 import UIKit
@@ -27,3 +29,17 @@ extension UIImage {
     }
 }
 
+extension UIImage {
+    public func resized(to target: CGSize) -> UIImage {
+        let ratio = min(
+            target.height / size.height, target.width / size.width
+        )
+        let new = CGSize(
+            width: size.width * ratio, height: size.height * ratio
+        )
+        let renderer = UIGraphicsImageRenderer(size: new)
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: new))
+        }
+    }
+}

@@ -14,63 +14,85 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack(path: $viewModel.path) {
-            List(viewModel.storedItems) { item in
-                NavigationLink(value: item) {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                            Text(item.itemDescription ?? "No description")
+            Background {
+                ScrollView(.vertical) {
+                    items
+                }
+                .onAppear {
+                    viewModel.fetchItems()
+                }
+                .navigationDestination(for: StoredItem.self, destination: { item in
+                    ItemDetailView(item: item)
+                })
+                .navigationTitle("StorifyQR")
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        NavigationLink {
+                            NewItemView()
+                        } label: {
+                            Image(systemName: "plus")
                         }
-                        Spacer()
-                        Image(uiImage: ContentViewModel.imageConverter.convertImage(ciImage: item.qrCode))
-                            .resizable()
-                            .interpolation(.none)
-                            .frame(width: 50, height: 50)
-                            .scaledToFit()
+                    }
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("Import", systemImage: "square.and.arrow.down") {
+                            viewModel.importingData.toggle()
+                        }
                     }
                 }
-            }
-            .onAppear {
-                viewModel.fetchItems()
-            }
-            .navigationDestination(for: StoredItem.self, destination: { item in
-                ItemDetailView(item: item)
-            })
-            .navigationTitle("StorifyQR")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    NavigationLink {
-                        NewItemView()
-                    } label: {
-                        Image(systemName: "plus")
+                .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
+                    viewModel.processImport(result: result)
+                }
+                .alert("Import \(viewModel.importItem?.name ?? "")?", isPresented: $viewModel.importingAlert) {
+                    Button("Cancel") { }
+                    Button("Save") {
+                        viewModel.saveItem()
                     }
                 }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Import", systemImage: "square.and.arrow.down") {
-                        viewModel.importingData.toggle()
+                .alert("There was an error", isPresented: $viewModel.errorAlert) {
+                    Button("OK") { }
+                } message: {
+                    Text(viewModel.errorMessage)
+                }
+            }
+        }
+    }
+    
+    var items: some View {
+        VStack {
+            ForEach(viewModel.storedItems) { item in
+                NavigationLink(value: item) {
+                    LazyVStack {
+                        HStack {
+                            let image = viewModel.getImage(item: item)
+                            if image != nil {
+                                image!
+                                    .resizable()
+                                    .frame(width: 100, height: 100)
+                                    .scaledToFill()
+                                    .clipShape(UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(topLeading: 25, bottomLeading: 25, bottomTrailing: 0, topTrailing: 0)))
+                            } else {
+                                Image(systemName: "shippingbox")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .padding()
+                            }
+                            VStack(alignment: .leading) {
+                                Text(item.name)
+                                    .bold()
+                                let append = item.itemDescription?.count ?? 0 > 20
+                                Text(item.itemDescription?.prefix(20).appending(
+                                    append ? "..." : ""
+                                ) ?? "Do description")
+                            }
+                            .padding(.horizontal)
+                            Spacer()
+                        }
+                        .modifier(ContentPad(enablePadding: false))
+                        .padding(.horizontal)
                     }
                 }
+                .buttonStyle(.plain)
             }
-            .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
-                switch result {
-                case .success(let success):
-                    viewModel.saveImport(success)
-                case .failure(let failure):
-                    print(failure.localizedDescription)
-                }
-            }
-            .alert("Import \(viewModel.importItem?.name ?? "")?", isPresented: $viewModel.importingAlert) {
-                Button("Cancel") { }
-                Button("Save") {
-                    viewModel.saveItem()
-                }
-            }
-            .alert("There was an error", isPresented: $viewModel.errorAlert) {
-                Button("OK") { }
-            } message: {
-                Text(viewModel.errorMessage)
-            }
-
         }
     }
 }

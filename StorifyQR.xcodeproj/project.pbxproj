@@ -51,6 +51,7 @@
 		E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */; };
 		E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833672B4B620B009BADB5 /* Coordinate2D.swift */; };
 		E9F363652B6EDE270055BF88 /* LocationGeocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F363642B6EDE270055BF88 /* LocationGeocoder.swift */; };
+		E9F5FF212B7D045D00794F34 /* EmptyPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9F5FF202B7D045D00794F34 /* EmptyPhotoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +101,7 @@
 		E9E833652B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapViewModel.swift; sourceTree = "<group>"; };
 		E9E833672B4B620B009BADB5 /* Coordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2D.swift; sourceTree = "<group>"; };
 		E9F363642B6EDE270055BF88 /* LocationGeocoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGeocoder.swift; sourceTree = "<group>"; };
+		E9F5FF202B7D045D00794F34 /* EmptyPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPhotoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +279,7 @@
 				E9C130892B44B369004011E3 /* ViewComponents.swift */,
 				E9C1308C2B44B683004011E3 /* Tips.swift */,
 				E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */,
+				E9F5FF202B7D045D00794F34 /* EmptyPhotoView.swift */,
 			);
 			path = GeneralUI;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
+				E9F5FF212B7D045D00794F34 /* EmptyPhotoView.swift in Sources */,
 				E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,

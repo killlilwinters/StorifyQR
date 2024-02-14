@@ -7,7 +7,6 @@
 // https://www.youtube.com/watch?v=Fg1VQsF1RQw&list=PLt46BtfcgiduiZ4StIPPzuD0vPcIZwKW_&index=60&t=291s
 //
 
-import Foundation
 import SwiftData
 import CoreImage
 import MapKit

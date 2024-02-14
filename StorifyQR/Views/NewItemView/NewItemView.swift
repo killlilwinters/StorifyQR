@@ -145,19 +145,6 @@ struct NewItemView: View {
     }
 }
 
-
-struct EmptyPhotoView: View {
-    var body: some View {
-        Rectangle()
-            .frame(height: 250)
-            .foregroundStyle(.link)
-            .overlay (
-                Image(systemName: "shippingbox.fill")
-                    .font(.system(size: 100))
-            )
-    }
-}
-
 #Preview {
     NewItemView()
 }

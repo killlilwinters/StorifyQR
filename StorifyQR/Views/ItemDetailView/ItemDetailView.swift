@@ -19,103 +19,106 @@ struct ItemDetailView: View {
     
     var body: some View {
         Background {
-            ScrollView(.vertical) {
-                VStack {
-                    if viewModel.itemProcessedImage != nil {
-                        viewModel.itemProcessedImage!
-                            .resizable()
-                            .scaledToFit()
-                    } else {
-                        Rectangle()
-                            .frame(height: 250)
-                            .foregroundStyle(.link)
-                            .overlay (
-                                Image(systemName: "shippingbox.fill")
-                                    .font(.system(size: 100))
-                            )
-                    }
-                    if UIDevice.current.userInterfaceIdiom == .pad {
-                        actionButtons
-                    } else {
-                        ScrollView(.horizontal) {
-                            actionButtons
-                        }
-                    }
+            ScrollViewReader { proxy in
+                ScrollView(.vertical) {
                     VStack {
-                        Text("Tags:")
-                            .font(.system(.headline))
-                            .padding(.horizontal)
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(viewModel.item.tags) { tag in
-                                    Text(tag.title)
-                                        .padding(10)
-                                        .foregroundStyle(.white)
-                                        .background(tag.colorComponent.getColor.gradient)
-                                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                }
-                            }
-                        }
-                        .scrollIndicators(.hidden)
-                    }
-                    .onAppear {
-                        print(viewModel.item.tags)
-                    }
-                    .modifier(ContentPad())
-                    .padding(.top)
-                    .padding(.horizontal)
-                    VStack {
-                        Text("Description:")
-                            .foregroundStyle(.secondary)
-                        Text(viewModel.item.itemDescription ?? "No description")
-                    }
-                    .modifier(ContentPad())
-                    .padding()
-                    if viewModel.item.location != nil {
-                        Coordinate2DMapView(coordinate2D: viewModel.item.location!)
-                    }
-                    Text("QR Code:")
-                    if viewModel.isShowingQR {
-                        let image = viewModel.shareQR()
-                        
-                        let preview = SharePreview("QRCode for \(viewModel.item.name)",
-                                                   image: image)
-                        
-                        ShareLink(item: image, preview: preview) {
-                            image
+                        if viewModel.image != nil {
+                            viewModel.image!
                                 .resizable()
                                 .scaledToFit()
-                                .modifier(ContentPad())
-                                .containerRelativeFrame(.horizontal, { width, axis in
-                                    width * 0.5
-                                })
-                                .id(qrCodeID)
+                        } else {
+                            EmptyPhotoView()
                         }
-                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
-                        .popoverTip(viewModel.qrTip)
+                        if UIDevice.current.userInterfaceIdiom == .pad {
+                            actionButtons
+                        } else {
+                            ScrollView(.horizontal) {
+                                actionButtons
+                            }
+                        }
+                        VStack {
+                            Text("Tags:")
+                                .font(.system(.headline))
+                                .padding(.horizontal)
+                            ScrollView(.horizontal) {
+                                HStack {
+                                    ForEach(viewModel.item.tags) { tag in
+                                        Text(tag.title)
+                                            .padding(10)
+                                            .foregroundStyle(.white)
+                                            .background(tag.colorComponent.getColor.gradient)
+                                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                    }
+                                }
+                            }
+                            .scrollIndicators(.hidden)
+                        }
+                        .onAppear {
+                            print(viewModel.item.tags)
+                        }
+                        .modifier(ContentPad())
+                        .padding(.top)
+                        .padding(.horizontal)
+                        VStack {
+                            Text("Description:")
+                                .foregroundStyle(.secondary)
+                            Text(viewModel.item.itemDescription ?? "No description")
+                        }
+                        .modifier(ContentPad())
+                        .padding()
+                        if viewModel.item.location != nil {
+                            Coordinate2DMapView(coordinate2D: viewModel.item.location!)
+                        }
+                        Text("QR Code:")
+                        if viewModel.isShowingQR {
+                            let image = viewModel.shareQR()
+                            
+                            let preview = SharePreview("QRCode for \(viewModel.item.name)",
+                                                       image: image)
+                            
+                            ShareLink(item: image, preview: preview) {
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .modifier(ContentPad())
+                                    .containerRelativeFrame(.horizontal, { width, axis in
+                                        width * 0.5
+                                    })
+                            }
+                            .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                            .popoverTip(viewModel.qrTip)
+                            .simultaneousGesture(TapGesture().onEnded() {
+                                viewModel.qrTip.invalidate(reason: .actionPerformed)
+                            })
+                            
+                        }
+                        Button(viewModel.isShowingQR ? "Hide" : "Show") {
+                            withAnimation(.bouncy) {
+                                viewModel.isShowingQR.toggle()
+                            }
+                        }
+                        .id(qrCodeID)
+                        .buttonStyle(.bordered)
+                        .clipShape(.capsule)
                         .simultaneousGesture(TapGesture().onEnded() {
-                            viewModel.qrTip.invalidate(reason: .actionPerformed)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                withAnimation {
+                                    proxy.scrollTo(qrCodeID)
+                                }
+                            }
                         })
-                        
+                        Text(viewModel.getDate())
+                            .foregroundStyle(.secondary)
                     }
-                    Button(viewModel.isShowingQR ? "Hide" : "Show") {
-                        withAnimation(.bouncy) {
-                            viewModel.isShowingQR.toggle()
+                    .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
+                        Button("Delete", role: .destructive) {
+                            viewModel.deleteCurrentItem()
+                            dismiss()
                         }
-                    }
-                    .buttonStyle(.bordered)
-                    .clipShape(.capsule)
-                    Text(viewModel.getDate())
-                        .foregroundStyle(.secondary)
+                    })
+                    .navigationTitle(viewModel.item.name)
+                    .navigationBarTitleDisplayMode(.inline)
                 }
-                .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
-                    Button("Delete", role: .destructive) {
-                        viewModel.deleteCurrentItem()
-                        dismiss()
-                    }
-                })
-                .navigationTitle(viewModel.item.name)
-                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

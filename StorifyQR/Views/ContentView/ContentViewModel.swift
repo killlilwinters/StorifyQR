@@ -55,8 +55,21 @@ final class ContentViewModel {
         }
     }
     
+    func getImage(item: StoredItem) -> Image? {
+        return item.photo.flatMap { Image(data: $0) }
+    }
+    
     func fetchItems() {
         storedItems = dataSource.fetchItems()
+    }
+    
+    func processImport(result: Result<URL, any Error>) {
+        switch result {
+        case .success(let success):
+            saveImport(success)
+        case .failure(let failure):
+            print(failure.localizedDescription)
+        }
     }
     
     init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, path: NavigationPath = NavigationPath()) {
