@@ -37,9 +37,7 @@ struct NewItemView: View {
                                 .buttonStyle(.bordered)
                                 .clipShape(.capsule)
                                 .padding(.top)
-                                .onChange(of: viewModel.pickerItem) { oldValue, newValue in
-                                    viewModel.loadImage()
-                                }
+                                .onChange(of: viewModel.pickerItem, viewModel.loadImage)
                         }
                         // Tags
                         VStack {
@@ -54,9 +52,6 @@ struct NewItemView: View {
                                             .foregroundStyle(.white)
                                             .background(tag.colorComponent.getColor.gradient)
                                             .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                    }
-                                    .onChange(of: viewModel.tags) { oldValue, newValue in
-                                        print("Received value \(newValue.last?.title ?? "Idk")")
                                     }
                                     Button {
                                         viewModel.isShowingSheet.toggle()
@@ -108,7 +103,7 @@ struct NewItemView: View {
                         .padding(.horizontal)
                         viewModel.mapView // MapView
                             .id(mapID)
-                            .onChange(of: viewModel.mapView.viewModel.isIncludingLocation) { oldValue, newValue in
+                            .onChange(of: viewModel.mapView.viewModel.isIncludingLocation) {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     withAnimation {
                                         proxy.scrollTo(mapID)

@@ -35,9 +35,7 @@ struct EditItemView: View {
                                 .buttonStyle(.bordered)
                                 .clipShape(.capsule)
                                 .padding(.top)
-                                .onChange(of: viewModel.pickerItem) { oldValue, newValue in
-                                    viewModel.loadImage()
-                                }
+                                .onChange(of: viewModel.pickerItem, viewModel.loadImage)
                         }
                         // Tags
                         VStack {
@@ -62,9 +60,6 @@ struct EditItemView: View {
                                         .foregroundStyle(.white)
                                         .background(tag.colorComponent.getColor.gradient)
                                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                    }
-                                    .onChange(of: viewModel.tags) { oldValue, newValue in
-                                        print("Received value \(newValue.last?.title ?? "Idk")")
                                     }
                                     Button {
                                         viewModel.isShowingSheet.toggle()
@@ -126,9 +121,7 @@ struct EditItemView: View {
                     }
                 }
             }
-            .onAppear {
-                viewModel.checkLocation()
-            }
+            .onAppear(perform: viewModel.checkLocation)
             // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {

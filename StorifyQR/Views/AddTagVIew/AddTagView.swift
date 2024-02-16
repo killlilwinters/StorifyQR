@@ -29,9 +29,7 @@ struct AddTagView: View {
                                 viewModel.addTag()
                             })
                             .autocorrectionDisabled()
-                            .onChange(of: viewModel.tagText) {
-                                viewModel.limitTextField()
-                            }
+                            .onChange(of: viewModel.tagText, viewModel.limitTextField)
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 25)
