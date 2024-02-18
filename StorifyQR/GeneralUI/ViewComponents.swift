@@ -24,6 +24,19 @@ struct ContentPad: ViewModifier {
     }
 }
 
+struct TagView: View {
+    
+    var tag: Tag
+    
+    var body: some View {
+        Text(tag.title)
+            .padding(10)
+            .foregroundStyle(.white)
+            .background(tag.colorComponent.getColor.gradient)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+    }
+}
+
 struct ActionButton: View {
     
     let sfImage: String?

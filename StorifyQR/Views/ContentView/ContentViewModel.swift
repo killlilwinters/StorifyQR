@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 15.01.2024.
 //
+// https://www.youtube.com/watch?v=-Tx5BLhcdEk
+//
 
 import Foundation
 import SwiftUI
@@ -15,12 +17,26 @@ struct Tags: Codable {
 @Observable
 final class ContentViewModel {
     static let imageConverter = ImageCoverter()
-    let dataSource: StoredItemDataSource
+    let dataSource = StoredItemDataSource.shared
     let tagDataSource = TagDataSource.shared
     
     var storedItems = [StoredItem]()
+    var filteredItems: [StoredItem] {
+        guard !searchText.isEmpty else { return storedItems }
+            let filteredItems = storedItems.compactMap {
+                let itemContainsQuery = $0.name.range(of: searchText, options: .caseInsensitive) != nil
+                return itemContainsQuery ? $0 : nil
+            }
+        return filteredItems
+    }
+    var tags = [Tag]()
+    var selectedTag: Tag? { didSet {
+        fetchFiltered()
+    }}
+    var searchText = ""
+    var isSearching = false
     
-    var path: NavigationPath
+    var path = NavigationPath()
     
     var importingData = false
     
@@ -61,6 +77,30 @@ final class ContentViewModel {
     
     func fetchItems() {
         storedItems = dataSource.fetchItems()
+        tags = tagDataSource.fetchItems()
+    }
+    
+    func filterTag(tag: Tag) {
+        if tag == selectedTag {
+            fetchItems()
+            selectedTag = nil
+        } else {
+            selectedTag = tag
+        }
+
+    }
+    
+    func fetchFiltered() {
+        guard selectedTag != nil else { return }
+        do {
+            storedItems = try storedItems.filter(
+                #Predicate<StoredItem>{
+                    $0.tags.contains(selectedTag!)
+                }
+            )
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
     func processImport(result: Result<URL, any Error>) {
@@ -70,10 +110,5 @@ final class ContentViewModel {
         case .failure(let failure):
             print(failure.localizedDescription)
         }
-    }
-    
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared, path: NavigationPath = NavigationPath()) {
-        self.dataSource = dataSource
-        self.path = path
     }
 }

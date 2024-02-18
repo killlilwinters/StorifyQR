@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
+		E93354E02B8269B700602047 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354DF2B8269B700602047 /* SearchBar.swift */; };
+		E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354E12B82990A00602047 /* ContentViewExtensions.swift */; };
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
@@ -56,6 +58,8 @@
 
 /* Begin PBXFileReference section */
 		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		E93354DF2B8269B700602047 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		E93354E12B82990A00602047 /* ContentViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExtensions.swift; sourceTree = "<group>"; };
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +293,8 @@
 			children = (
 				E95FFF972B4350CA00856102 /* ContentView.swift */,
 				E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */,
+				E93354DF2B8269B700602047 /* SearchBar.swift */,
+				E93354E12B82990A00602047 /* ContentViewExtensions.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -391,6 +397,7 @@
 				E9F5FF212B7D045D00794F34 /* EmptyPhotoView.swift in Sources */,
 				E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
+				E93354E02B8269B700602047 /* SearchBar.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
 				E9BBFF3F2B5840200031BEB6 /* ItemDetailComponents.swift in Sources */,
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
@@ -403,6 +410,7 @@
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
+				E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */,
 				E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */,
 				E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
@@ -563,6 +571,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StorifyQR/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Let us add this picture to your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -594,6 +603,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StorifyQR/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Let us add this picture to your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -19,7 +19,7 @@ struct iPadScreenContainer: ViewModifier {
         if UIDevice.current.userInterfaceIdiom == .pad {
             content
                 .containerRelativeFrame(.horizontal) { width, axis in
-                    width * 0.4
+                    width * 0.6
                 }
         } else {
             content

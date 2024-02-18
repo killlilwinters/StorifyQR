@@ -47,11 +47,7 @@ struct NewItemView: View {
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(viewModel.tags) { tag in
-                                        Text(tag.title)
-                                            .padding(10)
-                                            .foregroundStyle(.white)
-                                            .background(tag.colorComponent.getColor.gradient)
-                                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                        TagView(tag: tag)
                                     }
                                     Button {
                                         viewModel.isShowingSheet.toggle()

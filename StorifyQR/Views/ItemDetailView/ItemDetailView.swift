@@ -43,11 +43,7 @@ struct ItemDetailView: View {
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(viewModel.item.tags) { tag in
-                                        Text(tag.title)
-                                            .padding(10)
-                                            .foregroundStyle(.white)
-                                            .background(tag.colorComponent.getColor.gradient)
-                                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                                        TagView(tag: tag)
                                     }
                                 }
                             }
