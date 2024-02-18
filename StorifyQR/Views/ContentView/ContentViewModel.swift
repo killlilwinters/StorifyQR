@@ -93,7 +93,7 @@ final class ContentViewModel {
     func fetchFiltered() {
         guard selectedTag != nil else { return }
         do {
-            storedItems = try storedItems.filter(
+            storedItems = try dataSource.fetchItems().filter(
                 #Predicate<StoredItem>{
                     $0.tags.contains(selectedTag!)
                 }
