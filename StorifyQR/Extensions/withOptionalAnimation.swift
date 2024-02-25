@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 25.02.2024.
 //
+// https://www.hackingwithswift.com/books/ios-swiftui/supporting-specific-accessibility-needs-with-swiftui
+//
 
 import UIKit
 import SwiftUI
