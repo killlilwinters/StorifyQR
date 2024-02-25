@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
+		E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */; };
 		E93354E02B8269B700602047 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354DF2B8269B700602047 /* SearchBar.swift */; };
 		E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354E12B82990A00602047 /* ContentViewExtensions.swift */; };
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withOptionalAnimation.swift; sourceTree = "<group>"; };
 		E93354DF2B8269B700602047 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E93354E12B82990A00602047 /* ContentViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExtensions.swift; sourceTree = "<group>"; };
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				E9AF53D22B6ACE3C001063A9 /* Image-from.swift */,
 				E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */,
 				E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */,
+				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
 				E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
+				E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */,
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,
 				E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */,
 				E9F363652B6EDE270055BF88 /* LocationGeocoder.swift in Sources */,

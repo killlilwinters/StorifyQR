@@ -10,6 +10,7 @@ import SwiftData
 
 struct ContentView: View {
     
+    @Environment(\.accessibilityReduceMotion) var reduceMotion
     @Bindable var viewModel = ContentViewModel()
     
     var body: some View {
@@ -24,7 +25,7 @@ struct ContentView: View {
                         tags
                             .padding()
                         items
-                            .animation(.bouncy(duration: 0.3), value: viewModel.storedItems)
+                            .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
                     }
                 }
                 .onAppear {
@@ -76,7 +77,7 @@ struct ContentView: View {
                             Image(systemName: "magnifyingglass")
                                 .foregroundStyle(.reversed)
                                 .onTapGesture {
-                                    withAnimation {
+                                    withOptionalAnimation {
                                         viewModel.isSearching.toggle()
                                     }
                                 }

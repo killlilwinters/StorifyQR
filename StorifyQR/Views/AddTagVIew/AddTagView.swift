@@ -37,7 +37,7 @@ struct AddTagView: View {
                                     .foregroundColor(.primary)
                             )
                             Button {
-                                withAnimation {
+                                withOptionalAnimation {
                                     viewModel.isShowingSelectior.toggle()
                                 }
                             } label: {

@@ -30,7 +30,7 @@ struct MapView: View {
                     LocationNameBar(locationName: viewModel.locationName)
                         .onAppear(perform: viewModel.getLocationName)
                 }
-                .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                .optionalTrnsition(transition: .asymmetric(insertion: .scale, removal: .opacity))
             }
             Toggle("Include location?", isOn: $viewModel.isIncludingLocation.animation())
                 .padding(.horizontal, 5)

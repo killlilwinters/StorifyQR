@@ -89,7 +89,7 @@ struct ItemDetailView: View {
                             
                         }
                         Button(viewModel.isShowingQR ? "Hide" : "Show") {
-                            withAnimation(.bouncy) {
+                            withOptionalAnimation(.bouncy) {
                                 viewModel.isShowingQR.toggle()
                             }
                         }
@@ -98,7 +98,7 @@ struct ItemDetailView: View {
                         .clipShape(.capsule)
                         .simultaneousGesture(TapGesture().onEnded() {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                withAnimation {
+                                withOptionalAnimation {
                                     proxy.scrollTo(qrCodeID)
                                 }
                             }
