@@ -22,16 +22,12 @@ final class EditItemViewModel: BaseItemEditing {
          isShowingNameWarning: Bool = false,
          isShowingAlert: Bool = false) {
         self.item = item
-        var itemsImage: Image?
-        if let itemsPhoto = item.photo {
-            itemsImage = Image(data: itemsPhoto)
-        }
-        super.init(name: item.name, itemDescription: item.itemDescription ?? "", photoData: item.photo, image: itemsImage, tags: item.tags)
+        super.init(item: item)
     }
     
     func saveChanges() {
         let itemDescChecked = itemDescription.isEmpty ? nil : itemDescription
-        let itemsLocation = mapView.viewModel.appendLocation()
+        let itemsLocation = mapView.viewModel.getCurrentLocation()
         dataSource.editItem(item: item, photo: photoData, name: name, itemDescription: itemDescChecked, tags: tags, location: itemsLocation)
     }
     

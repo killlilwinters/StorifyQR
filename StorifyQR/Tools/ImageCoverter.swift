@@ -29,7 +29,7 @@ struct ImageCoverter {
                    completionHandler: @escaping ((photoData: Data?, image: Image?, error: String?)) -> Void) async {
         do {
             guard let rawImage = try await pickerItem.loadTransferable(type: Data.self) else { return }
-            let fullUIImage = UIImage(data: rawImage)?.resized(to: CGSize(width: 200, height: 200))
+            let fullUIImage = UIImage(data: rawImage)?.resized(to: CGSize(width: 400, height: 400))
             let photoData = fullUIImage?.jpeg(.low)
             let compressedUIImage = UIImage(data: photoData!)
             let image = Image(uiImage: compressedUIImage!)

@@ -111,7 +111,7 @@ struct EditItemView: View {
                         .padding(.horizontal)
                         viewModel.mapView // MapView
                             .id(mapID)
-                            .onChange(of: viewModel.mapView.viewModel.isIncludingLocation) { oldValue, newValue in
+                            .onChange(of: viewModel.mapView.viewModel.isIncludingLocation) {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     withOptionalAnimation {
                                         proxy.scrollTo(mapID)

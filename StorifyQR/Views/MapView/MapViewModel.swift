@@ -21,6 +21,12 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     static let shared = MapViewModel()
 
     var rawLocation = MapDetails.defaultRegion
+    var userCustomLocation: CLLocationCoordinate2D? { didSet {
+        getLocationName()
+    }}
+    var finalLocation: CLLocationCoordinate2D {
+        userCustomLocation ?? rawLocation
+    }
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: MapDetails.defaultRegion, span: MapDetails.defaultSpan))
     
     var isIncludingLocation = false
@@ -34,7 +40,7 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     var locationName = "Unknown location"
     
     func getLocationName() {
-        locationGeocoder.getLocationName(rawLocation: rawLocation) { place in
+        locationGeocoder.getLocationName(rawLocation: finalLocation) { place in
             self.locationName = place
         }
     }
@@ -80,9 +86,9 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
         checkLocationAuthorization()
     }
     
-    func appendLocation() -> Coordinate2D? {
+    func getCurrentLocation() -> Coordinate2D? {
         if isIncludingLocation {
-            let location = rawLocation
+            let location = finalLocation
             return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
         } else {
             return nil
@@ -92,6 +98,13 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     func alertUser(_ message: String) {
         alertMessage = message
         isShowingAlert = true
+    }
+    
+    func resetLocation() {
+        userCustomLocation = nil
+        withAnimation {
+            mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))
+        }
     }
     
 }

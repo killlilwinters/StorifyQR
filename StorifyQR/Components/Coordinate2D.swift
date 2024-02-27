@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import MapKit
 
 struct Coordinate2D: Codable {
     let latitude: Double
     let longitude: Double
+    
+    func getCLLocation() -> CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
 
     init(latitude: Double, longitude: Double) {
         self.latitude = latitude

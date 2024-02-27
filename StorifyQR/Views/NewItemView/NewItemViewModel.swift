@@ -24,7 +24,7 @@ class NewItemViewModel: BaseItemEditing {
     
     func saveToContext() {
         guard checkIsNameFilled() else { return }
-        let itemsLocation = mapView.viewModel.appendLocation()
+        let itemsLocation = mapView.viewModel.getCurrentLocation()
         let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: itemsLocation)
         dataSource.appendItem(item: newItem)
 //        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion

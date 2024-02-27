@@ -6,6 +6,8 @@
 //
 // https://www.hackingwithswift.com/quick-start/swiftui/how-to-animate-changes-in-binding-values
 //
+// https://www.hackingwithswift.com/books/ios-swiftui/adding-user-locations-to-a-map
+//
 
 import SwiftUI
 import MapKit
@@ -21,12 +23,34 @@ struct MapView: View {
                 .padding(.horizontal)
             if viewModel.isIncludingLocation {
                 VStack {
-                    Map(position: $viewModel.mapRegionPosition) {
-                        Marker("Item's location", coordinate: viewModel.rawLocation)
+                    ZStack(alignment: .bottomTrailing) {
+                        MapReader { proxy in
+                            Map(position: $viewModel.mapRegionPosition) {
+                                Marker("Item's location", coordinate: viewModel.finalLocation)
+                            }
+                            .onTapGesture { position in
+                                if let coordinate = proxy.convert(position, from: .local) {
+                                    viewModel.userCustomLocation = coordinate
+                                }
+                            }
+                        }
+                        if viewModel.userCustomLocation != nil {
+                            Button {
+                                viewModel.resetLocation()
+                            } label: {
+                                Image(systemName: "location.fill.viewfinder")
+                                    .padding(10)
+                                    .tint(.primary)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .tint(.contentPad)
+                                    )
+                            }
+                            .padding()
+                        }
                     }
                     .frame(height: 200)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .allowsHitTesting(false)
                     LocationNameBar(locationName: viewModel.locationName)
                         .onAppear(perform: viewModel.getLocationName)
                 }
@@ -50,6 +74,7 @@ struct MapView: View {
             Button("OK") { }
         }
     }
+    
 }
 
 #Preview {

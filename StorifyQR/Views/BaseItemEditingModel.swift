@@ -18,6 +18,7 @@ class BaseItemEditing {
     var name = ""
     var isShowingNameWarning = false
     var itemDescription = ""
+    var location: CLLocationCoordinate2D?
     
     var pickerItem: PhotosPickerItem?
     var photoData: Data?
@@ -55,25 +56,13 @@ class BaseItemEditing {
     }
     
     init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
-         name: String = "",
-         isShowingNameWarning: Bool = false,
-         itemDescription: String = "",
-         pickerItem: PhotosPickerItem? = nil,
-         photoData: Data? = nil,
-         image: Image? = nil,
-         isShowingSheet: Bool = false,
-         isShowingAlert: Bool = false,
-         tags: [Tag] = [Tag]()) {
+         item: StoredItem? = nil) {
         self.dataSource = dataSource
-        self.name = name
-        self.isShowingNameWarning = isShowingNameWarning
-        self.itemDescription = itemDescription
-        self.pickerItem = pickerItem
-        self.photoData = photoData
-        self.image = image
-        self.isShowingSheet = isShowingSheet
-        self.isShowingAlert = isShowingAlert
-        self.tags = tags
+        self.name = item?.name ?? ""
+        self.itemDescription = item?.itemDescription ?? ""
+        self.location = item?.location?.getCLLocation() ?? nil
+        self.image = item?.photo != nil ? Image(data: item!.photo!) : nil
+        self.tags = item?.tags ?? [Tag]()
     }
     
     func askToSave() {

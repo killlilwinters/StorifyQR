@@ -19,7 +19,7 @@ struct LocationGeocoder {
             if city == nil && country == nil {
                 completionHandler("Unknown area.")
             } else {
-                completionHandler("\(city!), \(country!)")
+                completionHandler("\(city ?? "Unknown city"), \(country ?? "unknown country")")
             }
         })
     }
