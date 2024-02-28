@@ -18,7 +18,7 @@ class NewItemViewModel: BaseItemEditing {
     
     static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
     
-    let mapView = MapView()
+    let mapView = MapView(userCustomLocation: nil)
     
     var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
     

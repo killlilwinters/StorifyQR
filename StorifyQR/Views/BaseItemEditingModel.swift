@@ -60,6 +60,7 @@ class BaseItemEditing {
         self.dataSource = dataSource
         self.name = item?.name ?? ""
         self.itemDescription = item?.itemDescription ?? ""
+        self.photoData = item?.photo
         self.location = item?.location?.getCLLocation() ?? nil
         self.image = item?.photo != nil ? Image(data: item!.photo!) : nil
         self.tags = item?.tags ?? [Tag]()

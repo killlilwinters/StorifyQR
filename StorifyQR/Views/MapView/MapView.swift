@@ -14,10 +14,10 @@ import MapKit
 
 struct MapView: View {
     
-    @Bindable var viewModel = MapViewModel.shared
+    @Bindable var viewModel: MapViewModel
     
     var body: some View {
-        VStack {
+        LazyVStack {
             Text("Location:")
                 .font(.system(.headline))
                 .padding(.horizontal)
@@ -34,7 +34,7 @@ struct MapView: View {
                                 }
                             }
                         }
-                        if viewModel.userCustomLocation != nil {
+                        if viewModel.userCustomLocation != nil || viewModel.editingLocation != nil {
                             Button {
                                 viewModel.resetLocation()
                             } label: {
@@ -61,18 +61,20 @@ struct MapView: View {
                 .disabled(!viewModel.isLocationAvailable)
                 .onTapGesture {
                     viewModel.showAlerts = true
-                    viewModel.checkIfLocationServicesIsEnabled()
                 }
         }
         .modifier(ContentPad())
         .padding(.horizontal)
         .onAppear {
             viewModel.showAlerts = false
-            viewModel.checkIfLocationServicesIsEnabled()
         }
         .alert(viewModel.alertMessage, isPresented: $viewModel.isShowingAlert) {
             Button("OK") { }
         }
+    }
+    
+    init(userCustomLocation: Coordinate2D? = nil) {
+        self.viewModel = MapViewModel(editingLocation: userCustomLocation)
     }
     
 }

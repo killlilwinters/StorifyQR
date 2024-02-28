@@ -14,7 +14,7 @@ final class EditItemViewModel: BaseItemEditing {
     
     static let saveButtonStyle = LinearGradient(colors: [.blue, .green], startPoint: .bottomLeading, endPoint: .topTrailing)
     
-    let mapView = MapView()
+    let mapView: MapView
     
     let item: StoredItem
     
@@ -22,6 +22,7 @@ final class EditItemViewModel: BaseItemEditing {
          isShowingNameWarning: Bool = false,
          isShowingAlert: Bool = false) {
         self.item = item
+        self.mapView = MapView(userCustomLocation: item.location)
         super.init(item: item)
     }
     

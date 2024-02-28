@@ -26,6 +26,7 @@
 		E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA32B435C3300856102 /* StoredItem.swift */; };
 		E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA52B435EAD00856102 /* QRGenerator.swift */; };
 		E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA72B43622100856102 /* ImageCoverter.swift */; };
+		E9754B902B8E8D4000197455 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9754B8F2B8E8D4000197455 /* LocationManager.swift */; };
 		E9ACB3442B5ADE7600BB1C5D /* StoredItemCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3432B5ADE7600BB1C5D /* StoredItemCodable.swift */; };
 		E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */; };
 		E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */; };
@@ -78,6 +79,7 @@
 		E95FFFA32B435C3300856102 /* StoredItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItem.swift; sourceTree = "<group>"; };
 		E95FFFA52B435EAD00856102 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		E95FFFA72B43622100856102 /* ImageCoverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoverter.swift; sourceTree = "<group>"; };
+		E9754B8F2B8E8D4000197455 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E9ACB3432B5ADE7600BB1C5D /* StoredItemCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItemCodable.swift; sourceTree = "<group>"; };
 		E9ACB3452B5ADEB700BB1C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCodable.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
 				E944E18B2B54B557003E5230 /* ColorComponents.swift */,
+				E9754B8F2B8E8D4000197455 /* LocationManager.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9754B902B8E8D4000197455 /* LocationManager.swift in Sources */,
 				E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */,
 				E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */,
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,

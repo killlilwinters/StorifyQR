@@ -33,7 +33,7 @@ struct NewItemView: View {
                             } else {
                                 EmptyPhotoView()
                             }
-                            PhotosPicker("Select a photo", selection: $viewModel.pickerItem)
+                            PhotosPicker("Select a photo", selection: $viewModel.pickerItem, matching: .images)
                                 .buttonStyle(.bordered)
                                 .clipShape(.capsule)
                                 .padding(.top)

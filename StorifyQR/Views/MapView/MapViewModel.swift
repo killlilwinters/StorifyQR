@@ -14,18 +14,17 @@ enum MapDetails {
 }
 
 @Observable
-final class MapViewModel: NSObject, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager?
+final class MapViewModel: LocationHandlerDelegate {
     let locationGeocoder = LocationGeocoder()
-    
-    static let shared = MapViewModel()
 
-    var rawLocation = MapDetails.defaultRegion
+    var gpsLocation = MapDetails.defaultRegion
+    var editingLocation: CLLocationCoordinate2D?
     var userCustomLocation: CLLocationCoordinate2D? { didSet {
         getLocationName()
     }}
+    
     var finalLocation: CLLocationCoordinate2D {
-        userCustomLocation ?? rawLocation
+        userCustomLocation ?? editingLocation ?? gpsLocation
     }
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: MapDetails.defaultRegion, span: MapDetails.defaultSpan))
     
@@ -39,59 +38,51 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     
     var locationName = "Unknown location"
     
-    func getLocationName() {
-        locationGeocoder.getLocationName(rawLocation: finalLocation) { place in
-            self.locationName = place
+    var locationManager: LocationManager!
+    
+    init(editingLocation: Coordinate2D?) {
+        if editingLocation != nil {
+            self.editingLocation = editingLocation?.getCLLocation()
+            self.isIncludingLocation = true
         }
+        self.locationManager = LocationManager(delegate: self)
+        self.locationManager.checkIfLocationServicesIsEnabled()
     }
     
-    func checkIfLocationServicesIsEnabled() {
-        DispatchQueue.global().async {
-            guard CLLocationManager.locationServicesEnabled() else {
-                self.alertUser("Location services seem to be turned off.")
-                return
-            }
-        }
-            self.locationManager = CLLocationManager()
-            self.locationManager!.desiredAccuracy = kCLLocationAccuracyBest
-            self.locationManager!.delegate = self
-    }
-    
-    private func checkLocationAuthorization() {
-        guard let locationManager = locationManager else { return }
-        switch locationManager.authorizationStatus {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            isIncludingLocation = false
-            showAlerts ? alertUser("Tour location is restricted likely due to parental controls.") : nil
-        case .denied:
-            isIncludingLocation = false
-            showAlerts ? alertUser("You have denied location permission, you can re-enable it in settings") : nil
-        case .authorizedAlways, .authorizedWhenInUse, .authorized:
-            handleAuthorizedLocation()
-        @unknown default:
-            isIncludingLocation = false
-            showAlerts ? alertUser("Unknown locationManager authrorization status, contact developer.") : nil
-        }
-    }
-    
-    private func handleAuthorizedLocation() {
-        rawLocation = locationManager?.location?.coordinate ?? MapDetails.defaultRegion
-        mapRegionPosition = .region(MKCoordinateRegion(center: rawLocation, span: MapDetails.defaultSpan))
+    func didUpdateLocation() {
+        gpsLocation = locationManager.getCurrentLocation() ?? MapDetails.defaultRegion
+        mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))
         isLocationAvailable = true
     }
     
-    internal func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
+    func didFailWithError(error: Error) {
+        switch error {
+        case LocationError.locationServicesDisabled:
+            alertUser("Location services seem to be turned off.")
+        case LocationError.locationRestricted:
+            isIncludingLocation = false
+            showAlerts ? alertUser("Tour location is restricted likely due to parental controls.") : nil
+        case LocationError.locationDenied:
+            isIncludingLocation = false
+            showAlerts ? alertUser("You have denied location permission, you can re-enable it in settings") : nil
+        case LocationError.unknownAuthorizationStatus:
+            isIncludingLocation = false
+            showAlerts ? alertUser("Unknown locationManager authrorization status, contact developer.") : nil
+        case LocationError.locationNotAvailable:
+            isIncludingLocation = false
+            showAlerts ? alertUser("Location not available.") : nil
+        default:
+            break
+        }
+    }
+
+    func getCurrentLocation() -> Coordinate2D? {
+        isIncludingLocation ? finalLocation.toCoordinate2D() : nil
     }
     
-    func getCurrentLocation() -> Coordinate2D? {
-        if isIncludingLocation {
-            let location = finalLocation
-            return Coordinate2D(latitude: location.latitude, longitude: location.longitude)
-        } else {
-            return nil
+    func getLocationName() {
+        locationGeocoder.getLocationName(rawLocation: finalLocation) { place in
+            self.locationName = place
         }
     }
     
@@ -101,6 +92,7 @@ final class MapViewModel: NSObject, CLLocationManagerDelegate {
     }
     
     func resetLocation() {
+        editingLocation = nil
         userCustomLocation = nil
         withAnimation {
             mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))

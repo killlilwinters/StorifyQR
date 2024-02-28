@@ -21,3 +21,9 @@ struct Coordinate2D: Codable {
         self.longitude = longitude
     }
 }
+
+extension CLLocationCoordinate2D {
+    func toCoordinate2D() -> Coordinate2D {
+        Coordinate2D(latitude: self.latitude, longitude: self.longitude)
+    }
+}
