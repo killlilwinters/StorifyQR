@@ -58,22 +58,28 @@ final class MapViewModel: LocationHandlerDelegate {
     func didFailWithError(error: Error) {
         switch error {
         case LocationError.locationServicesDisabled:
-            alertUser("Location services seem to be turned off.")
+            disableLocation()
+            showAlerts ? alertUser("Location services seem to be turned off.") : nil
         case LocationError.locationRestricted:
-            isIncludingLocation = false
+            disableLocation()
             showAlerts ? alertUser("Tour location is restricted likely due to parental controls.") : nil
         case LocationError.locationDenied:
-            isIncludingLocation = false
+            disableLocation()
             showAlerts ? alertUser("You have denied location permission, you can re-enable it in settings") : nil
         case LocationError.unknownAuthorizationStatus:
-            isIncludingLocation = false
+            disableLocation()
             showAlerts ? alertUser("Unknown locationManager authrorization status, contact developer.") : nil
         case LocationError.locationNotAvailable:
-            isIncludingLocation = false
+            disableLocation()
             showAlerts ? alertUser("Location not available.") : nil
         default:
             break
         }
+    }
+    
+    func disableLocation() {
+        isIncludingLocation = false
+        isLocationAvailable = false
     }
 
     func getCurrentLocation() -> Coordinate2D? {

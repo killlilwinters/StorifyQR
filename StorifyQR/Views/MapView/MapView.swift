@@ -60,7 +60,9 @@ struct MapView: View {
                 .padding(.horizontal, 5)
                 .disabled(!viewModel.isLocationAvailable)
                 .onTapGesture {
+                    print("Tapped")
                     viewModel.showAlerts = true
+                    viewModel.locationManager.checkLocationAuthorization()
                 }
         }
         .modifier(ContentPad())
