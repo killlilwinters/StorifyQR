@@ -14,7 +14,7 @@ class ItemDetailViewModel {
     static let imageConverter = ImageCoverter()
     let qrTip = QRCodeShareTip()
 
-    let dataSource: StoredItemDataSource
+    @MainActor let dataSource = StoredItemDataSource.shared
     
     let item: StoredItem
     var image: Image? {
@@ -43,9 +43,7 @@ class ItemDetailViewModel {
         dataSource.removeItem(item)
     }
     
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
-         item: StoredItem) {
-        self.dataSource = dataSource
+    init(item: StoredItem) {
         self.item = item
     }
 }

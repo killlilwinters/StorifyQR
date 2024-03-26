@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 import PhotosUI
+import Observation
 
 @Observable
 class BaseItemEditing {
     
     @ObservationIgnored
-    let dataSource: StoredItemDataSource
+    @MainActor let dataSource = StoredItemDataSource.shared
     
     var name = ""
     var isShowingNameWarning = false
@@ -55,9 +56,7 @@ class BaseItemEditing {
         return true
     }
     
-    init(dataSource: StoredItemDataSource = StoredItemDataSource.shared,
-         item: StoredItem? = nil) {
-        self.dataSource = dataSource
+    init(item: StoredItem? = nil) {
         self.name = item?.name ?? ""
         self.itemDescription = item?.itemDescription ?? ""
         self.photoData = item?.photo

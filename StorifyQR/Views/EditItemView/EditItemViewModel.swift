@@ -26,6 +26,7 @@ final class EditItemViewModel: BaseItemEditing {
         super.init(item: item)
     }
     
+    @MainActor
     func saveChanges() {
         let itemDescChecked = itemDescription.isEmpty ? nil : itemDescription
         let itemsLocation = mapView.viewModel.getCurrentLocation()

@@ -17,8 +17,9 @@ struct Tags: Codable {
 @Observable
 final class ContentViewModel {
     static let imageConverter = ImageCoverter()
-    let dataSource = StoredItemDataSource.shared
-    let tagDataSource = TagDataSource.shared
+    
+    @MainActor let dataSource = StoredItemDataSource.shared
+    @MainActor let tagDataSource = TagDataSource.shared
     
     var storedItems = [StoredItem]()
     var filteredItems: [StoredItem] {

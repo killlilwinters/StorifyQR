@@ -22,6 +22,7 @@ class NewItemViewModel: BaseItemEditing {
     
     var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
     
+    @MainActor
     func saveToContext() {
         guard checkIsNameFilled() else { return }
         let itemsLocation = mapView.viewModel.getCurrentLocation()

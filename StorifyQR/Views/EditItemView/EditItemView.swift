@@ -14,6 +14,7 @@ import PhotosUI
 
 struct EditItemView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(MapViewModel.self) var mapViewModel
     @Bindable var viewModel: EditItemViewModel
     @Namespace var mapID
     
@@ -111,7 +112,7 @@ struct EditItemView: View {
                         .padding(.horizontal)
                         viewModel.mapView // MapView
                             .id(mapID)
-                            .onChange(of: viewModel.mapView.viewModel.isIncludingLocation) {
+                            .onChange(of: mapViewModel.isIncludingLocation) {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     withOptionalAnimation {
                                         proxy.scrollTo(mapID)

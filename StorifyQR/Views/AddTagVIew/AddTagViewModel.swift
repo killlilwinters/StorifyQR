@@ -12,7 +12,7 @@ import SwiftUI
 final class AddTagViewModel {
     
     @ObservationIgnored
-    private let dataSource: TagDataSource
+    @MainActor private let dataSource = TagDataSource.shared
     
     var saveTo: (Tag) -> Void
     
@@ -87,10 +87,13 @@ final class AddTagViewModel {
         getTags()
     }
     
-    init(dataSource: TagDataSource = TagDataSource.shared, saveTo: @escaping (Tag) -> Void) {
-        self.dataSource = dataSource
+    func fetchTags() {
+        tags = dataSource.fetchItems()
+    }
+    
+    init(saveTo: @escaping (Tag) -> Void) {
         self.saveTo = saveTo
-        self.tags = dataSource.fetchItems()
+        fetchTags()
         getTags()
     }
 }
