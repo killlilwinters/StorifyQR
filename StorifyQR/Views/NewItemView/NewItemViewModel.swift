@@ -31,6 +31,9 @@ class NewItemViewModel: BaseItemEditing {
 //        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
 //        Above commented code causes duplicate values and crashes the app
 //        TODO: Find a better way to insert MLModel result tag
+//        if mlTagSuggestion != nil {
+//            dataSource.appendTagToItem(item: newItem, tags: [mlTagSuggestion!])
+//        }
         dataSource.appendTagToItem(item: newItem, tags: tags)
     }
     

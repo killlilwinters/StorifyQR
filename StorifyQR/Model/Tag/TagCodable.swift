@@ -11,6 +11,7 @@ extension Tag: Codable {
     enum CodingKeys: CodingKey {
         case title
         case size
+        case isMLSuggested
         case colorComponent
     }
     
@@ -18,6 +19,7 @@ extension Tag: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)
         try container.encode(size, forKey: .size)
+        try container.encode(isMLSuggested, forKey: .isMLSuggested)
         try container.encode(colorComponent, forKey: .colorComponent)
         // Not encoding items since Many to Many relationships cause circular refernces and loops whipe exporting leading to a crash
     }

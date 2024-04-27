@@ -78,7 +78,7 @@ struct EditItemView: View {
                         .modifier(ContentPad())
                         .padding(.horizontal)
                         .sheet(isPresented: $viewModel.isShowingSheet) {
-                            AddTagView { tag in
+                            AddTagView(classifierInstance: viewModel.classifier) { tag in
                                 print("saveTo appending a Tag")
                                 viewModel.tags.append(tag)
                             }

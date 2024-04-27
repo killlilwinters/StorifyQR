@@ -37,6 +37,18 @@ struct TagView: View {
     }
 }
 
+struct MLTagVIew: View {
+    var title: String
+    
+    var body: some View {
+        Text(title)
+            .padding(10)
+            .foregroundStyle(.white)
+            .background(LinearGradient(colors: [.red, .blue], startPoint: .leading, endPoint: .trailing))
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+    }
+}
+
 struct ActionButton: View {
     
     let sfImage: String?

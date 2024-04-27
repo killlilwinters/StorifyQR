@@ -12,6 +12,7 @@ import Observation
 
 @Observable
 class BaseItemEditing {
+    let classifier = AbstractClassifier()
     
     @ObservationIgnored
     @MainActor let dataSource = StoredItemDataSource.shared
@@ -36,11 +37,25 @@ class BaseItemEditing {
                 if error == nil {
                     self.photoData = photoData
                     self.image = image
+                    do {
+                        try self.initializeDetection()
+                    } catch {
+                        print(error)
+                    }
                 } else {
                     print(error ?? "Unknown error")
                 }
             }
         }
+    }
+    
+    private func initializeDetection() throws {
+        print("Get suggested tags CALLED!")
+        guard let data = photoData else {
+            throw MLError.noData
+        }
+        let uiImage = UIImage(data: data) ?? UIImage()
+        classifier.detect(uiImage: uiImage)
     }
     
     func endEditing() {

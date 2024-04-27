@@ -35,6 +35,9 @@
 		E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */; };
 		E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D22B6ACE3C001063A9 /* Image-from.swift */; };
 		E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */; };
+		E9B7A7482BDD3FA600D885AF /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B7A7472BDD3FA600D885AF /* Classifier.swift */; };
+		E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B7A7492BDD401800D885AF /* AbstractClassifier.swift */; };
+		E9B7A7562BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E9B7A7552BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel */; };
 		E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C272B460F6A002753A7 /* MapView.swift */; };
 		E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C292B460FB3002753A7 /* MapViewModel.swift */; };
 		E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */; };
@@ -89,6 +92,9 @@
 		E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewModel.swift; sourceTree = "<group>"; };
 		E9AF53D22B6ACE3C001063A9 /* Image-from.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-from.swift"; sourceTree = "<group>"; };
 		E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemEditingModel.swift; sourceTree = "<group>"; };
+		E9B7A7472BDD3FA600D885AF /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
+		E9B7A7492BDD401800D885AF /* AbstractClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractClassifier.swift; sourceTree = "<group>"; };
+		E9B7A7552BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = StorifyQRImageClassifierV2.3.mlmodel; sourceTree = "<group>"; };
 		E9BB2C272B460F6A002753A7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E9BB2C292B460FB3002753A7 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		E9BB2C2C2B4712C9002753A7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
@@ -198,8 +204,9 @@
 		E95FFF942B4350CA00856102 /* StorifyQR */ = {
 			isa = PBXGroup;
 			children = (
-				E9ACB3452B5ADEB700BB1C5D /* Info.plist */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
+				E9B7A7442BDD3EA900D885AF /* ML */,
+				E9ACB3452B5ADEB700BB1C5D /* Info.plist */,
 				E936355F2B4C922800882CF5 /* Model */,
 				E944E18A2B54B545003E5230 /* Components */,
 				E944E1832B54B214003E5230 /* Extensions */,
@@ -253,6 +260,16 @@
 				E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */,
 			);
 			path = EditItemView;
+			sourceTree = "<group>";
+		};
+		E9B7A7442BDD3EA900D885AF /* ML */ = {
+			isa = PBXGroup;
+			children = (
+				E9B7A7552BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel */,
+				E9B7A7472BDD3FA600D885AF /* Classifier.swift */,
+				E9B7A7492BDD401800D885AF /* AbstractClassifier.swift */,
+			);
+			path = ML;
 			sourceTree = "<group>";
 		};
 		E9BB2C262B460F52002753A7 /* MapView */ = {
@@ -409,6 +426,7 @@
 				E9BBFF3F2B5840200031BEB6 /* ItemDetailComponents.swift in Sources */,
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
+				E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */,
 				E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
 				E9ACB34C2B5AF6AE00BB1C5D /* UIImageCompress.swift in Sources */,
@@ -428,8 +446,10 @@
 				E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
 				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
+				E9B7A7482BDD3FA600D885AF /* Classifier.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
 				E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */,
+				E9B7A7562BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel in Sources */,
 				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
 				E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,

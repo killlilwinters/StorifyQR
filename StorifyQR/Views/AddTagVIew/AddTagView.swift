@@ -12,13 +12,18 @@ import SwiftUI
 struct AddTagView: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var viewModel: AddTagViewModel
+    @State var classifierInstance: AbstractClassifier
     
     var body: some View {
     NavigationStack {
         Background {
                 ZStack(alignment: .bottom) {
                     ScrollView(.vertical) {
-                        chipsView
+                        VStack {
+                            suggestionView
+                            Divider()
+                            chipsView
+                        }
                     }
                     VStack {
                         if viewModel.isShowingSelectior {
@@ -123,11 +128,39 @@ struct AddTagView: View {
         }
     }
     
-    init(saveTo: @escaping (Tag) -> Void) {
+    var suggestionView: some View {
+        VStack {
+            HStack {
+                Image(systemName: "wand.and.stars")
+                Text("Suggestions")
+            }
+            HStack {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(classifierInstance.otherResults, id: \.self) { str in
+                            MLTagVIew(title: str)
+                        }
+                    }
+                }
+                .scrollIndicators(.hidden)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 10)
+            }
+        }
+    }
+    
+    init(
+        classifierInstance: AbstractClassifier,
+        saveTo: @escaping (Tag) -> Void
+    ) {
+        self.classifierInstance = classifierInstance
         self.viewModel = AddTagViewModel(saveTo: saveTo)
     }
 }
 
 #Preview {
-    AddTagView(saveTo: { _ in })
+    AddTagView(
+        classifierInstance: AbstractClassifier(),
+        saveTo: { _ in }
+    )
 }

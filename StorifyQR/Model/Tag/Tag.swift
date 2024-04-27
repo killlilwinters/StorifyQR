@@ -19,11 +19,15 @@ class Tag {
     @Attribute(.unique)
     let title: String
     var size: CGFloat = 0
+    let isMLSuggested = false
     var colorComponent: ColorComponents
     var items: [StoredItem]?
     
-    init(title: String, colorComponent: ColorComponents) {
+    init(title: String, 
+         isMLSuggested: Bool = false,
+         colorComponent: ColorComponents) {
         self.title = title
+        self.isMLSuggested = isMLSuggested
         self.colorComponent = colorComponent
     }
     
@@ -31,6 +35,7 @@ class Tag {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         title = try container.decode(String.self, forKey: .title)
         size = try container.decode(CGFloat.self, forKey: .size)
+        isMLSuggested = try container.decode(Bool.self, forKey: .isMLSuggested)
         colorComponent = try container.decode(ColorComponents.self, forKey: .colorComponent)
     }
 }
