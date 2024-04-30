@@ -33,8 +33,10 @@ struct NewItemView: View {
                             } else {
                                 EmptyPhotoView()
                             }
-                            PhotosPicker("Select a photo", selection: $viewModel.pickerItem, matching: .images)
-                                .buttonStyle(.bordered)
+                            PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
+                                SelectPhotoButtonView()
+                            }
+                                .buttonStyle(.plain)
                                 .clipShape(.capsule)
                                 .padding(.top)
                                 .onChange(of: viewModel.pickerItem, viewModel.loadImage)
@@ -46,8 +48,10 @@ struct NewItemView: View {
                                 .padding(.horizontal)
                             ScrollView(.horizontal) {
                                 HStack {
-                                    ForEach(viewModel.tags) { tag in
-                                        TagView(tag: tag)
+                                    ForEach(Array(viewModel.tags.enumerated()), id: \.offset) { index, tag in
+                                        DeletableTagView(tag: tag) {
+                                            viewModel.removeTag(at: index)
+                                        }
                                     }
                                     Button {
                                         viewModel.isShowingSheet.toggle()
@@ -67,7 +71,7 @@ struct NewItemView: View {
                         .sheet(isPresented: $viewModel.isShowingSheet) {
                             AddTagView(classifierInstance: viewModel.classifier) { tag in
                                 print("saveTo appending a Tag")
-                                viewModel.tags.append(tag)
+                                viewModel.addTagToItem(tag: tag)
                             }
                             .presentationDetents([.medium, .large])
                         }
@@ -114,7 +118,7 @@ struct NewItemView: View {
                 Button {
                     viewModel.askToSave()
                 } label: {
-                    StyledButtonComponent(title: "Create item", foregroundStyle: NewItemViewModel.saveButtonStyle)
+                    StyledButtonComponent(title: "Create item", foregroundStyle: Color.createItemButton.gradient)
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }

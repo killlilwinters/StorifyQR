@@ -44,7 +44,7 @@ final class StoredItemDataSource {
     func editItem(item: StoredItem, 
                   photo: Data?,
                   name: String,
-                  itemDescription: String?,
+                  itemDescription: String,
                   tags: [Tag],
                   location: Coordinate2D?) 
     {

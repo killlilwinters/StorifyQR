@@ -24,27 +24,80 @@ struct ContentPad: ViewModifier {
     }
 }
 
+struct SelectPhotoButtonView: View {
+    var body: some View {
+        HStack {
+            Image(systemName: "plus.circle.fill")
+            Text("Select a photo")
+        }
+        .foregroundStyle(.reversed)
+        .font(.system(size: 15))
+        .padding(10)
+        .background(.themeRelative)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+    }
+}
+
+struct DeletableTagView: View {
+    
+    let tag: Tag
+    var pingRemove: () -> Void
+    
+    var body: some View {
+        if tag.isMLSuggested {
+            viewItself
+                .background(LinearGradient(colors: [.tagRed, .tagBlue], startPoint: .bottomLeading, endPoint: .topTrailing))
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        } else {
+            viewItself
+                .background(tag.tagColor.gradient)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        }
+    }
+    
+    var viewItself: some View {
+        HStack {
+            Text(tag.title)
+                .foregroundStyle(.themeRelative)
+            Button {
+                pingRemove()
+                
+            } label: {
+                Image(systemName: "xmark")
+                    .frame(width: 15, height: 15)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(10)
+        .foregroundStyle(.white)
+    }
+}
+
 struct TagView: View {
     
     var tag: Tag
     
     var body: some View {
-        Text(tag.title)
-            .padding(10)
-            .foregroundStyle(.white)
-            .background(tag.colorComponent.getColor.gradient)
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        if !tag.isMLSuggested {
+            Text(tag.title)
+                .padding(10)
+                .foregroundStyle(.themeRelative)
+                .background(tag.tagColor.gradient)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        } else {
+            MLTagView(title: tag.title)
+        }
     }
 }
 
-struct MLTagVIew: View {
+struct MLTagView: View {
     var title: String
     
     var body: some View {
         Text(title)
             .padding(10)
-            .foregroundStyle(.white)
-            .background(LinearGradient(colors: [.red, .blue], startPoint: .leading, endPoint: .trailing))
+            .foregroundStyle(.themeRelative)
+            .background(LinearGradient(colors: [.tagRed, .tagBlue], startPoint: .bottomLeading, endPoint: .topTrailing))
             .clipShape(RoundedRectangle(cornerRadius: 25.0))
     }
 }
@@ -79,7 +132,7 @@ struct StyledButtonComponent<Style: ShapeStyle>: View {
             .overlay (
                 Text(title)
                     .font(.headline)
-                    .foregroundStyle(.white)
+                    .foregroundStyle(.black)
             )
             .frame(height: 50)
             .makeiPadScreenCompatible()

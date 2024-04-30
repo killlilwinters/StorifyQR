@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CustomColorPickerView: View {
     @Binding var selectedColor: Color
-    let colors: [Color] = [.purple,
-                           .red,
-                           .orange,
-                           .yellow,
-                           .green,
-                           .blue]
+    let colors: [Color] = [.tagPurple,
+                           .tagRed,
+                           .tagOrange,
+                           .tagYellow,
+                           .tagGreen,
+                           .tagBlue]
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 20) {

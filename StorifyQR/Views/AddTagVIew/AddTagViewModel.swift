@@ -21,7 +21,10 @@ final class AddTagViewModel {
     var tagText = ""
     var tagTextLength = 10
     
-    var selectedColor = Color.red
+    var tagToDelete: Tag?
+    var isShowingDeleteAlert = false
+    
+    var selectedColor = Color.tagRed
     var isShowingSelectior = false
     
     func getTags() {
@@ -74,7 +77,7 @@ final class AddTagViewModel {
     func addTag() {
         print("Adding a tag")
         guard !tagText.isEmpty else { return }
-        let newTag = Tag(title: tagText, colorComponent: ColorComponents.fromColor(selectedColor))
+        let newTag = Tag(title: tagText, tagColor: selectedColor)
         dataSource.appendItem(tag: newTag)
         getTags()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -82,13 +85,19 @@ final class AddTagViewModel {
         }
     }
     
-    func removeTag(tag: Tag) {
+    func requestDelete(tag: Tag) {
+        print("Requested deletion")
+        tagToDelete = tag
+        isShowingDeleteAlert = true
+    }
+    
+    func deleteTag(tag: Tag) {
         dataSource.removeItem(tag)
         getTags()
     }
     
     func fetchTags() {
-        tags = dataSource.fetchItems()
+        tags = dataSource.fetchItems().filter { $0.isMLSuggested == false}
     }
     
     init(saveTo: @escaping (Tag) -> Void) {

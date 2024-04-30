@@ -58,7 +58,7 @@ struct ItemDetailView: View {
                         VStack {
                             Text("Description:")
                                 .foregroundStyle(.secondary)
-                            Text(viewModel.item.itemDescription ?? "No description")
+                            Text(viewModel.item.itemDescription)
                         }
                         .modifier(ContentPad())
                         .padding()

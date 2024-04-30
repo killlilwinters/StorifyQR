@@ -91,7 +91,7 @@ struct AddTagView: View {
                         ForEach(rows){ row in
                             Text(row.title)
                                 .fixedSize()
-                                .foregroundStyle(.white)
+                                .foregroundStyle(.themeRelative)
                                 .font(.system(size: 16))
                                 .padding(.leading, 14)
                                 .padding(.trailing, 30)
@@ -103,18 +103,17 @@ struct AddTagView: View {
                                 .background(
                                     ZStack(alignment: .trailing){
                                         Capsule()
-                                            .fill(row.colorComponent.getColor.gradient)
+                                            .fill(row.tagColor.gradient)
                                         Button {
-                                            viewModel.removeTag(tag: row)
+                                            viewModel.requestDelete(tag: row)
                                         } label:{
-                                            Image(systemName: "xmark")
+                                            Image(systemName: "trash")
                                                 .frame(width: 15, height: 15)
                                                 .padding(.trailing, 10)
-                                                .foregroundColor(.white)
+                                                .foregroundColor(.secondary)
                                         }
                                     }
                                 )
-                                .shadow(radius: 3)
                         }
                         Spacer()
                     }
@@ -126,6 +125,13 @@ struct AddTagView: View {
             
             Spacer()
         }
+        .alert("Are you sure?", isPresented: $viewModel.isShowingDeleteAlert) {
+            Button("Confirm", role: .destructive) {
+                viewModel.deleteTag(tag: viewModel.tagToDelete!)
+            }
+        } message: {
+            Text("This action will delete: \(viewModel.tagToDelete?.title ?? "Unknown")")
+        }
     }
     
     var suggestionView: some View {
@@ -135,16 +141,25 @@ struct AddTagView: View {
                 Text("Suggestions")
             }
             HStack {
+                lazy var results = classifierInstance.otherResults
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(classifierInstance.otherResults, id: \.self) { str in
-                            MLTagVIew(title: str)
+                        ForEach(results, id: \.self) { str in
+                            MLTagView(title: str)
+                                .onTapGesture {
+                                    let newTag = Tag(title: str, isMLSuggested: true, tagColor: .gray)
+                                    viewModel.saveTo(newTag)
+                                    dismiss()
+                                }
                         }
                     }
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
                 }
                 .scrollIndicators(.hidden)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
+                .overlay (
+                    results.isEmpty ? Text("Choose a photo or use another one to start").foregroundStyle(.secondary) : nil
+                )
             }
         }
     }

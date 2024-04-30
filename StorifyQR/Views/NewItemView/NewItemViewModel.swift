@@ -16,17 +16,17 @@ import PhotosUI
 @Observable
 class NewItemViewModel: BaseItemEditing {
     
-    static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
+//    static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
     
     let mapView = MapView(userCustomLocation: nil)
     
-    var mlModelTag = Tag(title: "ExampleML", colorComponent: ColorComponents.fromColor(.blue))
+    var mlModelTag = Tag(title: "ExampleML", tagColor: .tagBlue)
     
     @MainActor
     func saveToContext() {
         guard checkIsNameFilled() else { return }
         let itemsLocation = mapView.viewModel.getCurrentLocation()
-        let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? nil : itemDescription, location: itemsLocation)
+        let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
         dataSource.appendItem(item: newItem)
 //        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
 //        Above commented code causes duplicate values and crashes the app

@@ -31,6 +31,18 @@ class BaseItemEditing {
     
     var tags = [Tag]()
     
+    func addTagToItem(tag: Tag) {
+        let isTagRepeated = tags.contains { $0.title == tag.title }
+        
+        if !isTagRepeated {
+            if tag.isMLSuggested {
+                tags.insert(tag, at: 0)
+            } else {
+                tags.append(tag)
+            }
+        }
+    }
+    
     func loadImage() {
         Task {
             await ImageCoverter.shared.loadImage(pickerItem: pickerItem!) { photoData, image, error in
@@ -83,6 +95,10 @@ class BaseItemEditing {
     func askToSave() {
         guard checkIsNameFilled() else { return }
         isShowingAlert = true
+    }
+    
+    func removeTag(at index: Int) {
+        tags.remove(at: index)
     }
     
 }

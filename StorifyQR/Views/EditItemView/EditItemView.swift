@@ -32,8 +32,10 @@ struct EditItemView: View {
                             } else {
                                 EmptyPhotoView()
                             }
-                            PhotosPicker("Select a photo", selection: $viewModel.pickerItem)
-                                .buttonStyle(.bordered)
+                            PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
+                                SelectPhotoButtonView()
+                            }
+                                .buttonStyle(.plain)
                                 .clipShape(.capsule)
                                 .padding(.top)
                                 .onChange(of: viewModel.pickerItem, viewModel.loadImage)
@@ -46,21 +48,9 @@ struct EditItemView: View {
                             ScrollView(.horizontal) {
                                 HStack {
                                     ForEach(Array(viewModel.tags.enumerated()), id: \.offset) { index, tag in
-                                        HStack {
-                                            Text(tag.title)
-                                            Button {
-                                                viewModel.removeTag(at: index)
-                                                
-                                            } label: {
-                                                Image(systemName: "xmark")
-                                                    .frame(width: 15, height: 15)
-                                                    .foregroundColor(.white)
-                                            }
+                                        DeletableTagView(tag: tag) {
+                                            viewModel.removeTag(at: index)
                                         }
-                                        .padding(10)
-                                        .foregroundStyle(.white)
-                                        .background(tag.colorComponent.getColor.gradient)
-                                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                     }
                                     Button {
                                         viewModel.isShowingSheet.toggle()
@@ -80,7 +70,7 @@ struct EditItemView: View {
                         .sheet(isPresented: $viewModel.isShowingSheet) {
                             AddTagView(classifierInstance: viewModel.classifier) { tag in
                                 print("saveTo appending a Tag")
-                                viewModel.tags.append(tag)
+                                viewModel.addTagToItem(tag: tag)
                             }
                             .presentationDetents([.medium, .large])
                         }

@@ -8,6 +8,6 @@
 import Foundation
 import UIKit
 
-extension UIScreen{
+extension UIScreen {
     static let screenWidth = UIScreen.main.bounds.width
 }

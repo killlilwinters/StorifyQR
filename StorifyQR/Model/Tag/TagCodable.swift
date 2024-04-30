@@ -12,7 +12,7 @@ extension Tag: Codable {
         case title
         case size
         case isMLSuggested
-        case colorComponent
+        case tagColor
     }
     
     func encode(to encoder: Encoder) throws {
@@ -20,7 +20,7 @@ extension Tag: Codable {
         try container.encode(title, forKey: .title)
         try container.encode(size, forKey: .size)
         try container.encode(isMLSuggested, forKey: .isMLSuggested)
-        try container.encode(colorComponent, forKey: .colorComponent)
+        try container.encode(color, forKey: .tagColor)
         // Not encoding items since Many to Many relationships cause circular refernces and loops whipe exporting leading to a crash
     }
 }

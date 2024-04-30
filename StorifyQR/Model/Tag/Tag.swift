@@ -20,15 +20,25 @@ class Tag {
     let title: String
     var size: CGFloat = 0
     let isMLSuggested = false
-    var colorComponent: ColorComponents
+    var color: String
+    var tagColor: Color {
+        get {
+            // Convert tagColor string to Color
+            return ColorComponents.decodeTagColor(colorString: color)
+        }
+        set {
+            // Convert Color to string and assign to tagColor
+            color = ColorComponents.encodeTagColor(color: newValue)
+        }
+    }
     var items: [StoredItem]?
     
     init(title: String, 
          isMLSuggested: Bool = false,
-         colorComponent: ColorComponents) {
+         tagColor: Color) {
         self.title = title
         self.isMLSuggested = isMLSuggested
-        self.colorComponent = colorComponent
+        self.color = ColorComponents.encodeTagColor(color: tagColor)
     }
     
     required init(from decoder: Decoder) throws {
@@ -36,6 +46,6 @@ class Tag {
         title = try container.decode(String.self, forKey: .title)
         size = try container.decode(CGFloat.self, forKey: .size)
         isMLSuggested = try container.decode(Bool.self, forKey: .isMLSuggested)
-        colorComponent = try container.decode(ColorComponents.self, forKey: .colorComponent)
+        color = try container.decode(String.self, forKey: .tagColor)
     }
 }

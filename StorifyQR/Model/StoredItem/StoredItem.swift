@@ -18,7 +18,7 @@ final class StoredItem: Identifiable, Transferable {
     @Attribute(.externalStorage)
     var photo: Data?
     var name: String
-    var itemDescription: String?
+    var itemDescription: String
     @Relationship(inverse: \Tag.items)
     var tags = [Tag]()
     let dateCreated: Date
@@ -30,7 +30,7 @@ final class StoredItem: Identifiable, Transferable {
     
     init(photo: Data? = nil,
          name: String,
-         itemDescription: String?,
+         itemDescription: String,
          location: Coordinate2D?) {
         self.id = UUID()
         self.photo = photo

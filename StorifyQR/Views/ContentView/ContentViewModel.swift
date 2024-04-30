@@ -6,6 +6,8 @@
 //
 // https://www.youtube.com/watch?v=-Tx5BLhcdEk
 //
+// https://stackoverflow.com/a/28781171
+//
 
 import Foundation
 import SwiftUI
@@ -68,6 +70,7 @@ final class ContentViewModel {
             importingAlert = true
         } catch {
             errorMessage = error.localizedDescription
+            print(error)
             errorAlert = true
         }
     }
@@ -78,7 +81,7 @@ final class ContentViewModel {
     
     func fetchItems() {
         storedItems = dataSource.fetchItems()
-        tags = tagDataSource.fetchItems()
+        tags = tagDataSource.fetchItems().sorted { $0.isMLSuggested && !$1.isMLSuggested }
     }
     
     func filterTag(tag: Tag) {

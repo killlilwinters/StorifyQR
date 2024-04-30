@@ -10,21 +10,52 @@
 import Foundation
 import SwiftUI
 
-struct ColorComponents: Codable {
-    let red: Float
-    let green: Float
-    let blue: Float
+enum TagColors: String, Codable {
+    case tagPurple = "tagPurple"
+    case tagRed = "tagRed"
+    case tagOrange = "tagOrange"
+    case tagYellow = "tagYellow"
+    case tagGreen = "tagGreen"
+    case tagBlue = "tagBlue"
+}
 
-    var getColor: Color {
-        Color(red: Double(red), green: Double(green), blue: Double(blue))
+struct ColorComponents {
+    
+    static func decodeTagColor(colorString: String) -> Color {
+        switch colorString {
+        case "tagPurple":
+            return Color.tagPurple
+        case "tagRed":
+            return Color.tagRed
+        case "tagOrange":
+            return Color.tagOrange
+        case "tagYellow":
+            return Color.tagYellow
+        case "tagGreen":
+            return Color.tagGreen
+        case "tagBlue":
+            return Color.tagBlue
+        default:
+            return Color.gray
+        }
     }
 
-    static func fromColor(_ color: Color) -> ColorComponents {
-        let resolved = color.resolve(in: EnvironmentValues())
-        return ColorComponents(
-            red: resolved.red,
-            green: resolved.green,
-            blue: resolved.blue
-        )
+    static func encodeTagColor(color: Color) -> String {
+        switch color {
+        case Color.tagPurple:
+            return "tagPurple"
+        case Color.tagRed:
+            return "tagRed"
+        case Color.tagOrange:
+            return "tagOrange"
+        case Color.tagYellow:
+            return "tagYellow"
+        case Color.tagGreen:
+            return "tagGreen"
+        case Color.tagBlue:
+            return "tagBlue"
+        default:
+            return "gray"
+        }
     }
 }
