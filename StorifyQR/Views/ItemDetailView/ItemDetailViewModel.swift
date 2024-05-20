@@ -31,12 +31,16 @@ class ItemDetailViewModel {
         return dateConverter.format()
     }
     
-    func getQR() -> UIImage {
-        ItemDetailViewModel.imageConverter.convertImage(ciImage: item.qrCode)
+    func getQR() -> Image {
+        let uiImage = ItemDetailViewModel.imageConverter.convertImage(ciImage: item.qrCode)
+        return Image(uiImage: uiImage.resize())
     }
     
-    func shareQR() -> Image {
-        return Image(uiImage: getQR().resize(1500, 1500))
+    @MainActor
+    func shareQR() -> ShareableImage {
+        let renderer = ImageRenderer(content: SQRWatermark(item: item))
+        let uiImage = renderer.uiImage
+        return ShareableImage(image: uiImage!, filename: item.name)
     }
     
     func deleteCurrentItem() {

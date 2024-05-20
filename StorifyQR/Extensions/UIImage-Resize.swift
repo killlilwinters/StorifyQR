@@ -12,7 +12,7 @@ import UIKit
 import AVFoundation
 
 public extension UIImage {
-    func resize(_ width: Int, _ height: Int) -> UIImage {
+    func resize(_ width: Int = 1024, _ height: Int = 1024) -> UIImage {
         let maxSize = CGSize(width: width, height: height)
 
         let availableRect = AVFoundation.AVMakeRect(

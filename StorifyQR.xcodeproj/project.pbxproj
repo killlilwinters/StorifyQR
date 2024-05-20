@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
+		E913C23F2BFB68A600DEE35E /* SQRWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C23E2BFB68A600DEE35E /* SQRWatermark.swift */; };
+		E913C2412BFB73BF00DEE35E /* StringLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C2402BFB73BF00DEE35E /* StringLimiter.swift */; };
 		E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */; };
 		E93354E02B8269B700602047 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354DF2B8269B700602047 /* SearchBar.swift */; };
 		E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354E12B82990A00602047 /* ContentViewExtensions.swift */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
+		E913C23E2BFB68A600DEE35E /* SQRWatermark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQRWatermark.swift; sourceTree = "<group>"; };
+		E913C2402BFB73BF00DEE35E /* StringLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLimiter.swift; sourceTree = "<group>"; };
 		E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withOptionalAnimation.swift; sourceTree = "<group>"; };
 		E93354DF2B8269B700602047 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		E93354E12B82990A00602047 /* ContentViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExtensions.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */,
 				E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */,
 				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
+				E913C2402BFB73BF00DEE35E /* StringLimiter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				E9C130802B448D79004011E3 /* ItemDetailView.swift */,
 				E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */,
 				E9BBFF3E2B5840200031BEB6 /* ItemDetailComponents.swift */,
+				E913C23E2BFB68A600DEE35E /* SQRWatermark.swift */,
 			);
 			path = ItemDetailView;
 			sourceTree = "<group>";
@@ -434,6 +440,7 @@
 				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */,
+				E913C2412BFB73BF00DEE35E /* StringLimiter.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */,
 				E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */,
@@ -451,6 +458,7 @@
 				E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */,
 				E9B7A7562BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel in Sources */,
 				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
+				E913C23F2BFB68A600DEE35E /* SQRWatermark.swift in Sources */,
 				E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
 				E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */,

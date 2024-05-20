@@ -67,12 +67,12 @@ struct ItemDetailView: View {
                         }
                         Text("QR Code:")
                         if viewModel.isShowingQR {
-                            let image = viewModel.shareQR()
+                            let image = viewModel.getQR()
                             
                             let preview = SharePreview("QRCode for \(viewModel.item.name)",
                                                        image: image)
                             
-                            ShareLink(item: image, preview: preview) {
+                            ShareLink(item: viewModel.shareQR(), preview: preview) {
                                 image
                                     .resizable()
                                     .scaledToFit()

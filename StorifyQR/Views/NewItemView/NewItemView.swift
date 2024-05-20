@@ -141,5 +141,6 @@ struct NewItemView: View {
 }
 
 #Preview {
-    NewItemView()
+    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    return NewItemView()
 }

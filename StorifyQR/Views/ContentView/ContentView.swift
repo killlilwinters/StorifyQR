@@ -134,10 +134,7 @@ struct ContentView: View {
                         VStack(alignment: .leading) {
                             Text(item.name)
                                 .bold()
-                            let append = item.itemDescription.count > 20
-                            Text(item.itemDescription.prefix(20).appending(
-                                append ? "..." : ""
-                            ))
+                            Text(item.itemDescription.limit(limit: 20))
                         }
                         .padding(.horizontal)
                         Spacer()
