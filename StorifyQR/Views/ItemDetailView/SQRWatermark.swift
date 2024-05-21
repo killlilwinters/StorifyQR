@@ -45,7 +45,7 @@ struct SQRWatermark: View {
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                         .padding(10)
-                        .padding(.leading, 15)
+                        .padding(.leading, 5)
                     Text("StorifyQR")
                         .foregroundStyle(.black.opacity(0.8))
                         .font(.system(size: 50, weight: .bold))

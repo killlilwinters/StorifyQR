@@ -10,6 +10,24 @@
 import Foundation
 import SwiftUI
 
+extension View {
+    func makeMLTag() -> some View {
+        modifier(MLTagModifier())
+    }
+}
+
+struct MLTagModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(.tagBlue.gradient).overlay {
+                RoundedRectangle(cornerRadius: 25.0)
+                    .stroke(lineWidth: 5)
+                    .foregroundStyle(LinearGradient(colors: [.mlTagLeft, .mlTagRight], startPoint: .bottomLeading, endPoint: .topTrailing))
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+    }
+}
+
 struct ContentPad: ViewModifier {
     var cornerRaduius: Double = 25
     var enablePadding: Bool = true
@@ -46,8 +64,7 @@ struct DeletableTagView: View {
     var body: some View {
         if tag.isMLSuggested {
             viewItself
-                .background(LinearGradient(colors: [.tagRed, .tagBlue], startPoint: .bottomLeading, endPoint: .topTrailing))
-                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .makeMLTag()
         } else {
             viewItself
                 .background(tag.tagColor.gradient)
@@ -97,8 +114,7 @@ struct MLTagView: View {
         Text(title)
             .padding(10)
             .foregroundStyle(.themeRelative)
-            .background(LinearGradient(colors: [.tagRed, .tagBlue], startPoint: .bottomLeading, endPoint: .topTrailing))
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .makeMLTag()
     }
 }
 

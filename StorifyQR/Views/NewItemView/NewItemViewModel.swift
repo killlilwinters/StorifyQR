@@ -34,6 +34,7 @@ class NewItemViewModel: BaseItemEditing {
 //        if mlTagSuggestion != nil {
 //            dataSource.appendTagToItem(item: newItem, tags: [mlTagSuggestion!])
 //        }
+        tags.sort()
         dataSource.appendTagToItem(item: newItem, tags: tags)
     }
     

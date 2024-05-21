@@ -26,12 +26,21 @@ class BaseItemEditing {
     var photoData: Data?
     var image: Image?
     
+    // Save alert
     var isShowingSheet = false
     var isShowingAlert = false
+    
+    // Tag manipulation alert
+    var isShowingTagAlert = false
     
     var tags = [Tag]()
     
     func addTagToItem(tag: Tag) {
+        if tag.isMLSuggested && tags.contains(where: { $0.isMLSuggested }) {
+            isShowingTagAlert = true
+            return
+        }
+        
         let isTagRepeated = tags.contains { $0.title == tag.title }
         
         if !isTagRepeated {

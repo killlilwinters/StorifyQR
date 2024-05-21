@@ -15,8 +15,8 @@ import SwiftUI
 import CoreTransferable
 
 @Model
-class Tag {
-    @Attribute(.unique)
+class Tag: Comparable {
+//    @Attribute(.unique) // using unique crashes app when adding multiple items with the same ML tag!!!
     let title: String
     var size: CGFloat = 0
     let isMLSuggested = false
@@ -47,5 +47,13 @@ class Tag {
         size = try container.decode(CGFloat.self, forKey: .size)
         isMLSuggested = try container.decode(Bool.self, forKey: .isMLSuggested)
         color = try container.decode(String.self, forKey: .tagColor)
+    }
+    
+    static func <(lhs: Tag, rhs: Tag) -> Bool {
+        !lhs.isMLSuggested && rhs.isMLSuggested
+    }
+    
+    static func == (lhs: Tag, rhs: Tag) -> Bool {
+        lhs.title == rhs.title && lhs.isMLSuggested == rhs.isMLSuggested
     }
 }

@@ -137,6 +137,11 @@ struct NewItemView: View {
                 dismiss()
             }
         }
+        .alert("Can't perform this action.", isPresented: $viewModel.isShowingTagAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("You can only add one ML-generated tag to your item, try removing the previous one first.")
+        }
     }
 }
 
