@@ -16,7 +16,7 @@ import CoreTransferable
 
 @Model
 class Tag: Comparable {
-//    @Attribute(.unique) // using unique crashes app when adding multiple items with the same ML tag!!!
+    @Attribute(.unique)
     let title: String
     var size: CGFloat = 0
     let isMLSuggested = false

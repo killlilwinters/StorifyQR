@@ -20,8 +20,6 @@ class NewItemViewModel: BaseItemEditing {
     
     let mapView = MapView(userCustomLocation: nil)
     
-    var mlModelTag = Tag(title: "ExampleML", tagColor: .tagBlue)
-    
     @MainActor
     func saveToContext() {
         guard checkIsNameFilled() else { return }

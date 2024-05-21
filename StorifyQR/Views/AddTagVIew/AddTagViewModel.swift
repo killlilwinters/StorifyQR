@@ -100,6 +100,17 @@ final class AddTagViewModel {
         tags = dataSource.fetchItems().filter { $0.isMLSuggested == false}
     }
     
+    func sendMLTagOut(title: String) {
+        if let matchingTag = tags.first(where: { $0.title == title }) {
+            print("Found tag: \(matchingTag.title)")
+            saveTo(matchingTag)
+        } else {
+            print("Tag not found with title: \(title), creating a new one instead")
+            let newTag = Tag(title: title, isMLSuggested: true, tagColor: .gray)
+            saveTo(newTag)
+        }
+    }
+    
     init(saveTo: @escaping (Tag) -> Void) {
         self.saveTo = saveTo
         fetchTags()

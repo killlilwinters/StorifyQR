@@ -147,8 +147,7 @@ struct AddTagView: View {
                         ForEach(results, id: \.self) { str in
                             MLTagView(title: str)
                                 .onTapGesture {
-                                    let newTag = Tag(title: str, isMLSuggested: true, tagColor: .gray)
-                                    viewModel.saveTo(newTag)
+                                    viewModel.sendMLTagOut(title: str)
                                     dismiss()
                                 }
                         }
