@@ -26,6 +26,23 @@ struct ContentView: View {
                             .padding()
                         items
                             .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
+                         
+                        if viewModel.storedItems.isEmpty {
+                            ContentUnavailableView(
+                                "No items",
+                                systemImage: "shippingbox.circle.fill",
+                                description: Text("Press \"+\" to add items")
+                            )
+                        }
+                        
+                        if viewModel.isSearching && viewModel.filteredItems.isEmpty {
+                            ContentUnavailableView(
+                                "Nothing found",
+                                systemImage: "magnifyingglass",
+                                description: Text("Try changing your search query.")
+                            )
+                        }
+
                     }
                 }
                 .onAppear {

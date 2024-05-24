@@ -12,7 +12,7 @@ import PhotosUI
 @Observable
 final class EditItemViewModel: BaseItemEditing {
     
-    static let saveButtonStyle = LinearGradient(colors: [.blue, .green], startPoint: .bottomLeading, endPoint: .topTrailing)
+    static let saveButtonStyle = Color.blue.gradient
     
     let mapView: MapView
     
