@@ -14,4 +14,10 @@ extension String {
             append ? "..." : ""
         )
     }
+    
+    mutating func limitTextField(limit: Int) {
+        if self.count > limit {
+            self = String(self.prefix(limit))
+        }
+    }
 }

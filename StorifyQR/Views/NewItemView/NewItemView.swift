@@ -82,6 +82,15 @@ struct NewItemView: View {
                                 .padding(.horizontal)
                             TextField("Enter your item's name", text: $viewModel.name)
                                 .frame(height: 50)
+                                .onChange(of: viewModel.name) {
+                                    viewModel.limitName()
+                                }
+                            if !viewModel.name.isEmpty {
+                                HStack {
+                                    Spacer()
+                                    Text(viewModel.nameCharactersLeft)
+                                }
+                            }
                             if viewModel.isShowingNameWarning {
                                 Text("Name is required to proceed!")
                                     .foregroundStyle(.red)
@@ -98,6 +107,15 @@ struct NewItemView: View {
                             TextField("Enter your item's name", text: $viewModel.itemDescription, axis: .vertical)
                                 .frame(height: 100)
                                 .lineLimit(2...5)
+                                .onChange(of: viewModel.itemDescription) {
+                                    viewModel.limitDescription()
+                                }
+                            if !viewModel.itemDescription.isEmpty {
+                                HStack {
+                                    Spacer()
+                                    Text(viewModel.descCharactersLeft)
+                                }
+                            }
                         }
                         .modifier(ContentPad())
                         .padding(.horizontal)

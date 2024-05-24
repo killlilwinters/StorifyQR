@@ -19,7 +19,6 @@ final class AddTagViewModel {
     var rows: [[Tag]] = []
     var tags = [Tag]()
     var tagText = ""
-    var tagTextLength = 10
     
     var tagToDelete: Tag?
     var isShowingDeleteAlert = false
@@ -69,9 +68,7 @@ final class AddTagViewModel {
     }
     
     func limitTextField() {
-        if tagText.count > tagTextLength {
-            tagText = String(tagText.prefix(tagTextLength))
-        }
+        tagText.limitTextField(limit: 10)
     }
     
     func addTag() {

@@ -35,6 +35,22 @@ class BaseItemEditing {
     
     var tags = [Tag]()
     
+    // Input
+    let maxNameLenght = 30
+    let maxDescLenght = 300
+    var nameCharactersLeft: String {
+        "\(name.count) / \(maxNameLenght)"
+    }
+    var descCharactersLeft: String {
+        "\(itemDescription.count) / \(maxDescLenght)"
+    }
+    func limitName() {
+        name.limitTextField(limit: maxNameLenght)
+    }
+    func limitDescription() {
+        itemDescription.limitTextField(limit: maxDescLenght)
+    }
+    
     func addTagToItem(tag: Tag) {
         if tag.isMLSuggested && tags.contains(where: { $0.isMLSuggested }) {
             isShowingTagAlert = true
