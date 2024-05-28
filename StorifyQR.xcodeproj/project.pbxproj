@@ -16,11 +16,13 @@
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
+		E940445F2C065BB900B03956 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940445E2C065BB900B03956 /* QRScannerView.swift */; };
 		E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */; };
 		E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */; };
 		E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1862B54B2FD003E5230 /* StringGetSize.swift */; };
 		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
 		E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* ColorComponents.swift */; };
+		E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9586D272C06829000909DEB /* QRScannerBackend.swift */; };
 		E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF952B4350CA00856102 /* StorifyQRApp.swift */; };
 		E95FFF982B4350CA00856102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF972B4350CA00856102 /* ContentView.swift */; };
 		E95FFF9A2B4350CB00856102 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E95FFF992B4350CB00856102 /* Assets.xcassets */; };
@@ -73,11 +75,13 @@
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
+		E940445E2C065BB900B03956 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadCompatibilityModifier.swift; sourceTree = "<group>"; };
 		E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenWidth.swift; sourceTree = "<group>"; };
 		E944E1862B54B2FD003E5230 /* StringGetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGetSize.swift; sourceTree = "<group>"; };
 		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
 		E944E18B2B54B557003E5230 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
+		E9586D272C06829000909DEB /* QRScannerBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerBackend.swift; sourceTree = "<group>"; };
 		E95FFF922B4350CA00856102 /* StorifyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorifyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95FFF952B4350CA00856102 /* StorifyQRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyQRApp.swift; sourceTree = "<group>"; };
 		E95FFF972B4350CA00856102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +165,15 @@
 			path = AddTagVIew;
 			sourceTree = "<group>";
 		};
+		E940445D2C065B8D00B03956 /* QRScannerView */ = {
+			isa = PBXGroup;
+			children = (
+				E940445E2C065BB900B03956 /* QRScannerView.swift */,
+				E9586D272C06829000909DEB /* QRScannerBackend.swift */,
+			);
+			path = QRScannerView;
+			sourceTree = "<group>";
+		};
 		E944E1832B54B214003E5230 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +248,7 @@
 		E95FFFA92B436F6700856102 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E940445D2C065B8D00B03956 /* QRScannerView */,
 				E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */,
 				E9AF53CD2B6AAF23001063A9 /* EditItemView */,
 				E93635632B4C977600882CF5 /* AddTagVIew */,
@@ -448,6 +462,8 @@
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
 				E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */,
 				E9E833662B4B4E60009BADB5 /* Coordinate2DMapViewModel.swift in Sources */,
+				E940445F2C065BB900B03956 /* QRScannerView.swift in Sources */,
+				E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
 				E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */,
@@ -606,6 +622,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StorifyQR/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access camera to scan codes.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Let us add this picture to your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -638,6 +655,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StorifyQR/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access camera to scan codes.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to use it in item's description.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Let us add this picture to your photo library.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

@@ -81,6 +81,21 @@ struct ContentView: View {
                     Text(viewModel.errorMessage)
                 }
             }
+            .safeAreaInset(edge: .bottom, alignment: .trailing) {
+                NavigationLink {
+                    QRScannerView()
+                } label: {
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(width: 60, height: 60)
+                        .overlay {
+                            Image(systemName: "qrcode.viewfinder")
+                                .font(.system(size: 25))
+                                .foregroundStyle(.reversed)
+                        }
+                }
+                .padding()
+                .shadow(radius: 5)
+            }
         }
     }
     
