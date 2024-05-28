@@ -4,6 +4,10 @@
 //
 //  Created by Maks Winters on 29.05.2024.
 //
+// https://medium.com/ciandt-techblog/live-data-scanning-on-ios-a-quick-look-at-apples-visionkit-framework-682ea50fa04b
+// https://apps.apple.com/ua/app/companion-for-swiftui/id6475761721
+// https://developer.apple.com/documentation/avfoundation/capture_setup/requesting_authorization_to_capture_and_save_media
+//
 
 import SwiftUI
 import UIKit
