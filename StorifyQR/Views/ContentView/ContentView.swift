@@ -35,7 +35,7 @@ struct ContentView: View {
                             )
                         }
                         
-                        if viewModel.isSearching && viewModel.filteredItems.isEmpty {
+                        if viewModel.isShowingNothingFoundCUV {
                             ContentUnavailableView(
                                 "Nothing found",
                                 systemImage: "magnifyingglass",

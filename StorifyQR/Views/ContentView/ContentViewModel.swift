@@ -38,6 +38,9 @@ final class ContentViewModel {
     }}
     var searchText = ""
     var isSearching = false
+    var isShowingNothingFoundCUV: Bool {
+        isSearching && filteredItems.isEmpty && !storedItems.isEmpty
+    }
     
     var path = NavigationPath()
     
