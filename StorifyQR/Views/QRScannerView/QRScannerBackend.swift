@@ -96,16 +96,16 @@ class Coordinator: NSObject, DataScannerViewControllerDelegate {
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, didRemove removedItems: [RecognizedItem], allItems: [RecognizedItem]) {
-        let removedItemsStrings = removedItems.compactMap { recognizedItem in
-            switch recognizedItem {
-            case .barcode(let barcode):
-                barcode.payloadStringValue
-            case .text(let text):
-                text.transcript
-            default:
-                "Unknown case"
-            }
-        }
+//        let removedItemsStrings = removedItems.compactMap { recognizedItem in
+//            switch recognizedItem {
+//            case .barcode(let barcode):
+//                barcode.payloadStringValue
+//            case .text(let text):
+//                text.transcript
+//            default:
+//                "Unknown case"
+//            }
+//        }
 //        self.recognizedItems = recognizedItems.filter { item in
 //            !removedItemsStrings.contains(where: { $0 == item })
 //        }
