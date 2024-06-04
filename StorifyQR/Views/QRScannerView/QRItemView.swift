@@ -25,7 +25,15 @@ struct QRItemView: View {
                         .scaledToFill()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
-                    RoundedRectangle(cornerRadius: 10)
+                    Rectangle()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius: 35,
+                                bottomLeadingRadius: 0,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 35
+                            )
+                        )
                         .foregroundStyle(.contentPad)
                         .frame(width: proxyWidth / 4, height: proxyWidth / 4)
                         .overlay {
@@ -58,9 +66,7 @@ struct QRItemView: View {
                                     Text("Delete")
                                 }
                         }
-                        Button {
-                            // goto item's view
-                        } label: {
+                        NavigationLink(value: item) {
                             Capsule()
                                 .foregroundStyle(.tagBlue)
                                 .containerRelativeFrame(.vertical) { height, axis in

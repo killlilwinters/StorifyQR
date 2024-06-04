@@ -48,9 +48,9 @@ struct ContentView: View {
                 .onAppear {
                     viewModel.fetchItems()
                 }
-                .navigationDestination(for: StoredItem.self, destination: { item in
+                .navigationDestination(for: StoredItem.self) { item in
                     ItemDetailView(item: item)
-                })
+                }
                 .navigationTitle("StorifyQR")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -82,9 +82,7 @@ struct ContentView: View {
                 }
             }
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                NavigationLink {
-                    QRScannerView()
-                } label: {
+                NavigationLink(value: "") {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 60, height: 60)
                         .overlay {
@@ -95,6 +93,9 @@ struct ContentView: View {
                 }
                 .padding()
                 .shadow(radius: 5)
+            }
+            .navigationDestination(for: String.self) { item in
+                QRScannerView()
             }
         }
     }

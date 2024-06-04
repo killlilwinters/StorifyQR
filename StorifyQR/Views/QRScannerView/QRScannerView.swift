@@ -4,12 +4,15 @@
 //
 //  Created by Maks Winters on 28.05.2024.
 //
+// https://stackoverflow.com/a/65095862
+//
 
 import SwiftUI
 
 struct QRScannerView: View {
     
     @State private var viewModel = QRScanneerViewModel()
+    @State private var scannerID = UUID()
     
     var body: some View {
         GeometryReader { proxy in
@@ -21,9 +24,18 @@ struct QRScannerView: View {
                     recognizedDataType: .barcode(),
                     recognizesMultipleItems: false)
                 .ignoresSafeArea()
+                .id(scannerID)
                 VStack {
                     Spacer()
-                    RoundedRectangle(cornerRadius: 40)
+                    Rectangle()
+                        .clipShape(
+                            .rect(
+                                topLeadingRadius:35,
+                                bottomLeadingRadius: 0,
+                                bottomTrailingRadius: 0,
+                                topTrailingRadius: 35
+                            )
+                        )
                         .foregroundStyle(Color.contentPad)
                         .ignoresSafeArea()
                         .frame(height: proxy.size.height / 4)
@@ -49,6 +61,9 @@ struct QRScannerView: View {
             withOptionalAnimation() {
                 viewModel.updateItemToShow()
             }
+        }
+        .onAppear {
+            scannerID = UUID()
         }
     }
 }
