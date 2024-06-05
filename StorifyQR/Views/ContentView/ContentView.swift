@@ -26,8 +26,16 @@ struct ContentView: View {
                             .padding()
                         items
                             .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
+                        
+                        if viewModel.isShowingNoItemsForTagCUV {
+                            ContentUnavailableView(
+                                "No items",
+                                systemImage: "tag.slash",
+                                description: Text("There are no items associated with this tag.")
+                            )
+                        }
                          
-                        if viewModel.storedItems.isEmpty {
+                        if viewModel.isShowingNoItemsCUV {
                             ContentUnavailableView(
                                 "No items",
                                 systemImage: "shippingbox.circle.fill",
@@ -46,6 +54,8 @@ struct ContentView: View {
                     }
                 }
                 .onAppear {
+                    print(viewModel.path.count)
+                    print("ContentView appeared")
                     viewModel.fetchItems()
                 }
                 .navigationDestination(for: StoredItem.self) { item in

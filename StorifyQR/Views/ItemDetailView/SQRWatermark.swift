@@ -28,7 +28,7 @@ struct SQRWatermark: View {
     let converter = ImageCoverter()
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Image(uiImage: converter.convertImage(ciImage: item.qrCode).resize())
             bar()
         }

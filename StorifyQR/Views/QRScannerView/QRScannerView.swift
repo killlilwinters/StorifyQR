@@ -42,8 +42,10 @@ struct QRScannerView: View {
                         .overlay {
                             switch viewModel.itemToShow {
                             case .success(let item):
-                                QRItemView(item: item)
-                                    .transition(.scale)
+                                QRItemView(item: item) { item in
+                                    viewModel.deleteItem(item: item)
+                                }
+                                .transition(.scale)
                             case .failure(let failure):
                                 failure as! ScanErrors == ScanErrors.insufficientQRCode
                                 ?

@@ -38,8 +38,16 @@ final class ContentViewModel {
     }}
     var searchText = ""
     var isSearching = false
+    
+    // Items unavailable content unavailable views
     var isShowingNothingFoundCUV: Bool {
         isSearching && filteredItems.isEmpty && !storedItems.isEmpty
+    }
+    var isShowingNoItemsCUV: Bool {
+        storedItems.isEmpty && selectedTag == nil
+    }
+    var isShowingNoItemsForTagCUV: Bool {
+        storedItems.isEmpty && selectedTag != nil
     }
     
     var path = NavigationPath()

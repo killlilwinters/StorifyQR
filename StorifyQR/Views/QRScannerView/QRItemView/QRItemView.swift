@@ -8,32 +8,24 @@
 import SwiftUI
 
 struct QRItemView: View {
-    let item: StoredItem
+    
+    @Bindable var viewModel: QRItemViewModel
     
     @State private var endpoint1: UnitPoint = .bottomLeading
     @State private var endpoint2: UnitPoint = .topTrailing
-    
     
     var body: some View {
         GeometryReader { proxy in
             let proxyWidth = proxy.size.width
             HStack {
-                if let photo = item.photo {
+                if let photo = viewModel.item.photo {
                     Image(data: photo)!
                         .resizable()
-                        .frame(width: proxyWidth / 4, height: proxyWidth / 4)
                         .scaledToFill()
+                        .frame(width: proxyWidth / 4, height: proxyWidth / 4)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
-                    Rectangle()
-                        .clipShape(
-                            .rect(
-                                topLeadingRadius: 35,
-                                bottomLeadingRadius: 0,
-                                bottomTrailingRadius: 0,
-                                topTrailingRadius: 35
-                            )
-                        )
+                    RoundedRectangle(cornerRadius: 15)
                         .foregroundStyle(.contentPad)
                         .frame(width: proxyWidth / 4, height: proxyWidth / 4)
                         .overlay {
@@ -51,11 +43,11 @@ struct QRItemView: View {
                         }
                 }
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(item.name)
+                    Text(viewModel.item.name.limit(limit: 15))
                         .font(.title)
                     HStack {
                         Button {
-                            // delete an item
+                            viewModel.isShowingAlert.toggle()
                         } label: {
                             Capsule()
                                 .foregroundStyle(.tagRed)
@@ -66,7 +58,14 @@ struct QRItemView: View {
                                     Text("Delete")
                                 }
                         }
-                        NavigationLink(value: item) {
+                        .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
+                            Button("Delete", role: .destructive) {
+                                viewModel.removeCurrentItem(viewModel.item)
+                            }
+                        })
+                        NavigationLink {
+                            ItemDetailView(item: viewModel.item)
+                        } label: {
                             Capsule()
                                 .foregroundStyle(.tagBlue)
                                 .containerRelativeFrame(.vertical) { height, axis in
@@ -87,9 +86,17 @@ struct QRItemView: View {
             .position(x: proxy.size.width / 2, y: proxy.size.height / 2)
         }
     }
+    
+    init(
+        item: StoredItem,
+        removeCurrentItem: @escaping (StoredItem) -> Void
+    ) {
+        self.viewModel = QRItemViewModel(item: item, removeCurrentItem: removeCurrentItem)
+    }
+    
 }
 
 #Preview {
-    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
-    return QRItemView(item: StoredItemDataSource.shared.fetchItems().first!)
+    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item, additional text", itemDescription: "This item is used for testing", location: nil))
+    return QRItemView(item: StoredItemDataSource.shared.fetchItems().first!, removeCurrentItem: { _ in })
 }
