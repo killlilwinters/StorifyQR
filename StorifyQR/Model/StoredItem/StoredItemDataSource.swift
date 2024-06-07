@@ -10,7 +10,7 @@
 import Foundation
 import SwiftData
 
-final class StoredItemDataSource {
+final class StoredItemDataSource: DataSource {
     let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
@@ -32,7 +32,7 @@ final class StoredItemDataSource {
         }
     }
 
-    func appendItem(item: StoredItem) {
+    func appendItem(_ item: StoredItem) {
         modelContext.insert(item)
         do {
             try modelContext.save()

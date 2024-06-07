@@ -97,6 +97,6 @@ struct QRItemView: View {
 }
 
 #Preview {
-    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item, additional text", itemDescription: "This item is used for testing", location: nil))
+    StoredItemDataSource.shared.appendItem(StoredItem(name: "Testing item, additional text", itemDescription: "This item is used for testing", location: nil))
     return QRItemView(item: StoredItemDataSource.shared.fetchItems().first!, removeCurrentItem: { _ in })
 }

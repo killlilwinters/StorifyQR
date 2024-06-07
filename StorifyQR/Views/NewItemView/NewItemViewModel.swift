@@ -25,7 +25,7 @@ class NewItemViewModel: BaseItemEditing {
         guard checkIsNameFilled() else { return }
         let itemsLocation = mapView.viewModel.getCurrentLocation()
         let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
-        dataSource.appendItem(item: newItem)
+        dataSource.appendItem(newItem)
 //        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
 //        Above commented code causes duplicate values and crashes the app
 //        TODO: Find a better way to insert MLModel result tag

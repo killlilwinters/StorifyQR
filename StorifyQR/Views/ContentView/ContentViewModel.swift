@@ -62,7 +62,7 @@ final class ContentViewModel {
     var importItemTags: [Tag]?
     
     func saveItem() {
-        dataSource.appendItem(item: importItem!)
+        dataSource.appendItem(importItem!)
         dataSource.appendTagToItem(item: importItem!, tags: importItemTags!)
         fetchItems()
     }

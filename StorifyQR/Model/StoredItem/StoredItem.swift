@@ -13,7 +13,7 @@ import MapKit
 import CoreTransferable
 
 @Model
-final class StoredItem: Identifiable, Transferable {
+final class StoredItem: SwiftDataItem {
     let id: UUID
     @Attribute(.externalStorage)
     var photo: Data?

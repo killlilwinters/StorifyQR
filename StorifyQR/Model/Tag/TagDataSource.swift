@@ -10,7 +10,8 @@
 import Foundation
 import SwiftData
 
-final class TagDataSource {
+final class TagDataSource: DataSource {
+    
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
@@ -23,8 +24,8 @@ final class TagDataSource {
         self.modelContext = modelContainer.mainContext
     }
 
-    func appendItem(tag: Tag) {
-        modelContext.insert(tag)
+    func appendItem(_ item: Tag) {
+        modelContext.insert(item)
         do {
             try modelContext.save()
         } catch {
@@ -40,7 +41,7 @@ final class TagDataSource {
         }
     }
 
-    func removeItem(_ tag: Tag) {
-        modelContext.delete(tag)
+    func removeItem(_ item: Tag) {
+        modelContext.delete(item)
     }
 }

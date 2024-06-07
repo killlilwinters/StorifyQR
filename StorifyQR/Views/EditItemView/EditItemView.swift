@@ -164,6 +164,6 @@ struct EditItemView: View {
 }
 
 #Preview {
-    StoredItemDataSource.shared.appendItem(item: StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    StoredItemDataSource.shared.appendItem(StoredItem(name: "Testing item", itemDescription: "This item is used for testing", location: nil))
     return EditItemView(item: StoredItemDataSource.shared.fetchItems().first!)
 }

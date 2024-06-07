@@ -23,4 +23,12 @@ extension Tag: Codable {
         try container.encode(color, forKey: .tagColor)
         // Not encoding items since Many to Many relationships cause circular refernces and loops whipe exporting leading to a crash
     }
+    
+    static func <(lhs: Tag, rhs: Tag) -> Bool {
+        !lhs.isMLSuggested && rhs.isMLSuggested
+    }
+    
+    static func == (lhs: Tag, rhs: Tag) -> Bool {
+        lhs.title == rhs.title && lhs.isMLSuggested == rhs.isMLSuggested
+    }
 }

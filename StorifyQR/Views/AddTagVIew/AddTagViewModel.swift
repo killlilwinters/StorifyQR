@@ -75,7 +75,7 @@ final class AddTagViewModel {
         print("Adding a tag")
         guard !tagText.isEmpty else { return }
         let newTag = Tag(title: tagText, tagColor: selectedColor)
-        dataSource.appendItem(tag: newTag)
+        dataSource.appendItem(newTag)
         getTags()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.tagText = ""
