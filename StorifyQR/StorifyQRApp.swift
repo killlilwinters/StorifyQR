@@ -14,6 +14,7 @@ import TipKit
 struct StorifyQRApp: App {
     
     @State private var mapViewModel = MapViewModel(editingLocation: nil)
+    @AppStorage("ONBOARDING") var showOnboarding = true
     
     var body: some Scene {
         WindowGroup {
@@ -22,6 +23,9 @@ struct StorifyQRApp: App {
                     try? Tips.configure([
                         .datastoreLocation(.applicationDefault)
                     ])
+                }
+                .sheet(isPresented: $showOnboarding) {
+                    OnboardingView()
                 }
         }
         .environment(mapViewModel)
