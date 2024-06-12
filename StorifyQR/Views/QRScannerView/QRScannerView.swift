@@ -36,7 +36,7 @@ struct QRScannerView: View {
                                 topTrailingRadius: 35
                             )
                         )
-                        .foregroundStyle(Color.contentPad)
+                        .foregroundStyle(Color.background)
                         .ignoresSafeArea()
                         .frame(height: proxy.size.height / 4)
                         .overlay {

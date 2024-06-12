@@ -15,17 +15,17 @@ extension ItemDetailView {
                 NavigationLink {
                     EditItemView(item: viewModel.item)
                 } label: {
-                    ActionButton(sfImage: "pencil", buttonText: "Edit", color: .blue)
+                    ActionButton(sfImage: "pencil", buttonText: Text("Edit"), color: .blue)
                 }
                 ShareLink(item: viewModel.item,
                           preview: SharePreview(viewModel.item.name,
                           image: viewModel.image ?? Image(systemName: "shippingbox.fill"))) {
-                    ActionButton(sfImage: "square.and.arrow.up", buttonText: "Share", color: .green)
+                    ActionButton(sfImage: "square.and.arrow.up", buttonText: Text("Share"), color: .green)
                 }
                 Button(role: .destructive) {
                     viewModel.isShowingAlert = true
                 } label: {
-                    ActionButton(sfImage: "trash", buttonText: "Delete", color: .red)
+                    ActionButton(sfImage: "trash", buttonText: Text("Delete"), color: .red)
                 }
             }
             .buttonStyle(.bordered)

@@ -35,6 +35,7 @@ struct ItemDetailView: View {
                             ScrollView(.horizontal) {
                                 actionButtons
                             }
+                            .scrollIndicators(.hidden)
                         }
                         VStack {
                             Text("Tags:")

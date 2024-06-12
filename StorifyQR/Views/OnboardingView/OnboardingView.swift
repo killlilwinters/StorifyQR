@@ -45,7 +45,7 @@ struct OnboardingView: View {
                 Button {
                     dismiss()
                 } label: {
-                    StyledButtonComponent(title: "Continue", foregroundStyle: Color.tagBlue)
+                    StyledButtonComponent(foregroundStyle: Color.tagBlue, title: Text("Continue"))
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }

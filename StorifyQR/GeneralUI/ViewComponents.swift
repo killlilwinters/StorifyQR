@@ -121,7 +121,7 @@ struct MLTagView: View {
 struct ActionButton: View {
     
     let sfImage: String?
-    let buttonText: String
+    let buttonText: Text
     let color: Color
     
     var body: some View {
@@ -131,7 +131,7 @@ struct ActionButton: View {
                     .foregroundStyle(color)
                     .frame(width: 20, height: 20)
             }
-            Text(buttonText)
+            buttonText
                 .foregroundStyle(.themeRelative)
         }
     }
@@ -139,14 +139,14 @@ struct ActionButton: View {
 
 struct StyledButtonComponent<Style: ShapeStyle>: View {
     
-    let title: String
     var foregroundStyle: Style
+    let title: Text
     
     var body: some View {
         RoundedRectangle(cornerRadius: 20)
             .foregroundStyle(foregroundStyle)
             .overlay (
-                Text(title)
+                title
                     .font(.headline)
                     .foregroundStyle(.black)
             )

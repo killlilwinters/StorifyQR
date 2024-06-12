@@ -136,7 +136,7 @@ struct EditItemView: View {
                 Button {
                     viewModel.askToSave()
                 } label: {
-                    StyledButtonComponent(title: "Save changes", foregroundStyle: EditItemViewModel.saveButtonStyle)
+                    StyledButtonComponent(foregroundStyle: EditItemViewModel.saveButtonStyle, title: Text("Save changes"))
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }

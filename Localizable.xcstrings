@@ -1,0 +1,616 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Add new item" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати новий запис"
+          }
+        }
+      }
+    },
+    "Are you sure you want to delete \"%@\"?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевнені що хочете видалити \"%@\"?"
+          }
+        }
+      }
+    },
+    "Are you sure?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви впевненi?"
+          }
+        }
+      }
+    },
+    "Can't perform this action." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо вiдтворити цю дiю."
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрити"
+          }
+        }
+      }
+    },
+    "Cannot recognize this QR Code..." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неможливо розпiзнати цей QR-код."
+          }
+        }
+      }
+    },
+    "Choose a photo or use another one to start" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виберiть фото або використайте iнше щоб почати"
+          }
+        }
+      }
+    },
+    "Confirm" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пiдтвердити"
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Продовжити"
+          }
+        }
+      }
+    },
+    "Create item" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створити запис"
+          }
+        }
+      }
+    },
+    "Create items" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте записи"
+          }
+        }
+      }
+    },
+    "Create, view, modify any item in your storage!" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створюйте, переглядайте та редагуйте любий запис!"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити"
+          }
+        }
+      }
+    },
+    "Description:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Опис:"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редагувати"
+          }
+        }
+      }
+    },
+    "Editing - %@" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редагування - %@"
+          }
+        }
+      }
+    },
+    "Enter tag" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введiть тег"
+          }
+        }
+      }
+    },
+    "Enter your item's name" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введiть назву свому запису"
+          }
+        }
+      }
+    },
+    "Hide" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Приховати"
+          }
+        }
+      }
+    },
+    "Import" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iмпортувати"
+          }
+        }
+      }
+    },
+    "Import %@?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iмпортувати %@?"
+          }
+        }
+      }
+    },
+    "Include location?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати мiсцезнаходження?"
+          }
+        }
+      }
+    },
+    "Item's location" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мiсцезнаходження запису"
+          }
+        }
+      }
+    },
+    "Location:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мiсцезнаходження:"
+          }
+        }
+      }
+    },
+    "Looking for QR Codes..." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук QR-кодiв:"
+          }
+        }
+      }
+    },
+    "More >" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бiльше >"
+          }
+        }
+      }
+    },
+    "Name is required to proceed!" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Потрiбно ввести iм'я!"
+          }
+        }
+      }
+    },
+    "Name:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Iм'я:"
+          }
+        }
+      }
+    },
+    "No items" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нема записiв."
+          }
+        }
+      }
+    },
+    "Nothing found" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нiчого не знайдено"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОК"
+          }
+        }
+      }
+    },
+    "Press \"+\" to add items" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натиснiть \"+\" щоб створити записи"
+          }
+        }
+      }
+    },
+    "Print QR Codes" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Роздруковуйте QR-коди"
+          }
+        }
+      }
+    },
+    "Print the generated QR codes to quickly locate any item!" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Роздруковуйте згенерованi застосунком QR-коди щоб швидко знаходити ваші речі!"
+          }
+        }
+      }
+    },
+    "QR Code:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-код:"
+          }
+        }
+      }
+    },
+    "QRCode for %@" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-код для %@"
+          }
+        }
+      }
+    },
+    "Registered location:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збережене мiсцезнаходження:"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти"
+          }
+        }
+      }
+    },
+    "Save \"%@\"?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти \"%@\"?"
+          }
+        }
+      }
+    },
+    "Save changes" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти змiни"
+          }
+        }
+      }
+    },
+    "Save changes to \"%@\"?" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти змiни до \"%@\"?"
+          }
+        }
+      }
+    },
+    "Scan to peek inside" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скануйте щоб заглянути всередину"
+          }
+        }
+      }
+    },
+    "Search..." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошук..."
+          }
+        }
+      }
+    },
+    "Select a photo" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати фото"
+          }
+        }
+      }
+    },
+    "Share" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поділитися"
+          }
+        }
+      }
+    },
+    "Share or save QR code!" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дiлiться або зберiгайте QR-код!"
+          }
+        }
+      }
+    },
+    "Show" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати"
+          }
+        }
+      }
+    },
+    "StorifyQR" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "StorifyQR"
+          }
+        }
+      }
+    },
+    "Suggestions" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рекомендації"
+          }
+        }
+      }
+    },
+    "Tag picker" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати тег"
+          }
+        }
+      }
+    },
+    "Tags:" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Теги:"
+          }
+        }
+      }
+    },
+    "Tap on QR code to bring up sharing menu for generated QR code." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Натисніть на QR-код, щоб відкрити меню експорту згенерованого QR-коду."
+          }
+        }
+      }
+    },
+    "There are no items associated with this tag." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Записiв пiд цим тегом не знайдено."
+          }
+        }
+      }
+    },
+    "There was an error" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сталася помилка"
+          }
+        }
+      }
+    },
+    "This action will delete: %@" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ця дiя видалить: %@"
+          }
+        }
+      }
+    },
+    "Try changing your search query." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спробуйте змiнити пошуковий запит."
+          }
+        }
+      }
+    },
+    "Unknown error" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Невiдома помилка"
+          }
+        }
+      }
+    },
+    "Use in-app's scanner to identify the contents of your storage unit!" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використовуйте сканер у додатку, щоб визначити вміст вашого контейнеру для зберігання!"
+          }
+        }
+      }
+    },
+    "Welcome to" : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вітаємо в"
+          }
+        }
+      }
+    },
+    "You can only add one ML-generated tag to your item, try removing the previous one first." : {
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви можете застосувати лише один тег, згенерований за допомогою штучного iнтелекту, перед цим видаліть попередній тег."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

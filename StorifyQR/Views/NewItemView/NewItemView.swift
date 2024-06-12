@@ -136,7 +136,7 @@ struct NewItemView: View {
                 Button {
                     viewModel.askToSave()
                 } label: {
-                    StyledButtonComponent(title: "Create item", foregroundStyle: Color.createItemButton.gradient)
+                    StyledButtonComponent(foregroundStyle: Color.createItemButton.gradient, title: Text("Create item"))
                         .containerRelativeFrame(.horizontal) { width, axis in
                             width * 0.7
                         }
