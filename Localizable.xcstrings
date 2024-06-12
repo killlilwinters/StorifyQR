@@ -3,6 +3,12 @@
   "strings" : {
     "" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : ""
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13,6 +19,12 @@
     },
     "Add new item" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ajouter un nouvel élément"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -23,6 +35,12 @@
     },
     "Are you sure you want to delete \"%@\"?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Êtes-vous sûr de vouloir supprimer \"%@\" ?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -33,6 +51,12 @@
     },
     "Are you sure?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Êtes-vous sûr ?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -43,6 +67,12 @@
     },
     "Can't perform this action." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Impossible d'effectuer cette action."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -53,6 +83,12 @@
     },
     "Cancel" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -63,6 +99,12 @@
     },
     "Cannot recognize this QR Code..." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Impossible de reconnaître ce code QR..."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -73,6 +115,12 @@
     },
     "Choose a photo or use another one to start" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Choisissez une photo ou utilisez-en une autre pour commencer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -83,6 +131,12 @@
     },
     "Confirm" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -93,6 +147,12 @@
     },
     "Continue" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Continuer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -103,6 +163,12 @@
     },
     "Create item" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Créer un élément"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -113,6 +179,12 @@
     },
     "Create items" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Créer des éléments"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -123,6 +195,12 @@
     },
     "Create, view, modify any item in your storage!" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Créez, affichez, modifiez n'importe quel élément dans votre stockage !"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -133,6 +211,12 @@
     },
     "Delete" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supprimer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -143,6 +227,12 @@
     },
     "Description:" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description :"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -153,6 +243,12 @@
     },
     "Edit" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -163,6 +259,12 @@
     },
     "Editing - %@" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modification - %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -173,6 +275,12 @@
     },
     "Enter tag" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entrez un tag"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -183,6 +291,12 @@
     },
     "Enter your item's name" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Entrez le nom de votre élément"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -193,6 +307,12 @@
     },
     "Hide" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masquer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -203,6 +323,12 @@
     },
     "Import" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -213,6 +339,12 @@
     },
     "Import %@?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer %@ ?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -223,6 +355,12 @@
     },
     "Include location?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Inclure l'emplacement ?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -233,6 +371,12 @@
     },
     "Item's location" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Emplacement de l'élément"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -243,6 +387,12 @@
     },
     "Location:" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Emplacement :"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -253,6 +403,12 @@
     },
     "Looking for QR Codes..." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Recherche de codes QR..."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -263,6 +419,12 @@
     },
     "More >" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus >"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -273,6 +435,12 @@
     },
     "Name is required to proceed!" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Le nom est obligatoire pour continuer !"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -283,6 +451,12 @@
     },
     "Name:" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom :"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -293,6 +467,12 @@
     },
     "No items" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aucun élément"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -303,6 +483,12 @@
     },
     "Nothing found" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Rien trouvé"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -313,6 +499,12 @@
     },
     "OK" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -323,6 +515,12 @@
     },
     "Press \"+\" to add items" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Appuyez sur \"+\" pour ajouter des éléments"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -333,6 +531,12 @@
     },
     "Print QR Codes" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Imprimer les codes QR"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -343,6 +547,12 @@
     },
     "Print the generated QR codes to quickly locate any item!" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Imprimez les codes QR générés pour localiser rapidement n'importe quel article !"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -351,18 +561,14 @@
         }
       }
     },
-    "QR Code:" : {
+    "QR Code for %@" : {
       "localizations" : {
-        "uk" : {
+        "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "QR-код:"
+            "value" : "Code QR pour %@"
           }
-        }
-      }
-    },
-    "QRCode for %@" : {
-      "localizations" : {
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -371,8 +577,30 @@
         }
       }
     },
+    "QR Code:" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code QR:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "QR-код:"
+          }
+        }
+      }
+    },
     "Registered location:" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lieu d'enregistrement :"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -383,6 +611,12 @@
     },
     "Save" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -393,6 +627,12 @@
     },
     "Save \"%@\"?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer \"%@\"?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -403,6 +643,12 @@
     },
     "Save changes" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer les modifications"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -413,6 +659,12 @@
     },
     "Save changes to \"%@\"?" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer les modifications dans \"%@\"?"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -423,6 +675,12 @@
     },
     "Scan to peek inside" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scannez pour voir l'intérieur"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -433,6 +691,12 @@
     },
     "Search..." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recherche"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -443,6 +707,12 @@
     },
     "Select a photo" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionner une photo"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -453,6 +723,12 @@
     },
     "Share" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partager"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -463,6 +739,12 @@
     },
     "Share or save QR code!" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partagez ou enregistrez le code QR !"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -473,6 +755,12 @@
     },
     "Show" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -483,6 +771,12 @@
     },
     "StorifyQR" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "StorifyQR"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -493,6 +787,12 @@
     },
     "Suggestions" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suggestions"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -503,6 +803,12 @@
     },
     "Tag picker" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélecteur de tags"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -513,6 +819,12 @@
     },
     "Tags:" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tags:"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -523,6 +835,12 @@
     },
     "Tap on QR code to bring up sharing menu for generated QR code." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tapez sur le code QR pour faire apparaître le menu de partage du code QR généré."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -533,6 +851,12 @@
     },
     "There are no items associated with this tag." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aucun élément n'est associé à cette étiquette."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -543,6 +867,12 @@
     },
     "There was an error" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Il y a eu une erreur"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -553,6 +883,12 @@
     },
     "This action will delete: %@" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cette action supprime : %@"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -563,6 +899,12 @@
     },
     "Try changing your search query." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Essayez de modifier votre requête de recherche."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -573,6 +915,12 @@
     },
     "Unknown error" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Erreur inconnue"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -583,6 +931,12 @@
     },
     "Use in-app's scanner to identify the contents of your storage unit!" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Utilisez le scanner de l'application pour identifier le contenu de votre unité de stockage !"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -593,6 +947,12 @@
     },
     "Welcome to" : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bienvenue à"
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
@@ -603,6 +963,12 @@
     },
     "You can only add one ML-generated tag to your item, try removing the previous one first." : {
       "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vous ne pouvez ajouter qu'une seule étiquette générée par l'IA à votre article, essayez d'abord de supprimer l'étiquette précédente."
+          }
+        },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",

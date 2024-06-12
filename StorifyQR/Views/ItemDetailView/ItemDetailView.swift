@@ -70,7 +70,7 @@ struct ItemDetailView: View {
                         if viewModel.isShowingQR {
                             let image = viewModel.getQR()
                             
-                            let preview = SharePreview("QRCode for \(viewModel.item.name)",
+                            let preview = SharePreview("QR Code for \(viewModel.item.name)",
                                                        image: image)
                             
                             ShareLink(item: viewModel.shareQR(), preview: preview) {
