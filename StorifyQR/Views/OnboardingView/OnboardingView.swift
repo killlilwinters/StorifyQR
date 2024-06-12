@@ -41,7 +41,6 @@ struct OnboardingView: View {
                 bulletPoints
                     .padding(40)
                 Spacer()
-                Spacer()
                 Button {
                     dismiss()
                 } label: {
