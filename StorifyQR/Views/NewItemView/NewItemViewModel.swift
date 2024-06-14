@@ -16,8 +16,6 @@ import PhotosUI
 @Observable
 class NewItemViewModel: BaseItemEditing {
     
-//    static let saveButtonStyle = LinearGradient(colors: [.blue, .yellow], startPoint: .bottomLeading, endPoint: .topTrailing)
-    
     let mapView = MapView(userCustomLocation: nil)
     
     @MainActor
@@ -26,12 +24,6 @@ class NewItemViewModel: BaseItemEditing {
         let itemsLocation = mapView.viewModel.getCurrentLocation()
         let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
         dataSource.appendItem(newItem)
-//        tags.insert(mlModelTag, at: 0) // MLModel computed tag insertion
-//        Above commented code causes duplicate values and crashes the app
-//        TODO: Find a better way to insert MLModel result tag
-//        if mlTagSuggestion != nil {
-//            dataSource.appendTagToItem(item: newItem, tags: [mlTagSuggestion!])
-//        }
         tags.sort()
         dataSource.appendTagToItem(item: newItem, tags: tags)
     }
