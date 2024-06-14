@@ -15,7 +15,7 @@ import SwiftUI
 import CoreTransferable
 
 @Model
-class Tag: SwiftDataItem, Comparable {
+final class Tag: SwiftDataItem, Comparable {
     @Attribute(.unique)
     let title: String
     var size: CGFloat = 0
