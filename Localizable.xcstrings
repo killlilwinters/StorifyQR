@@ -5,7 +5,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : ""
           }
         },
@@ -21,7 +21,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ajouter un nouvel élément"
           }
         },
@@ -37,7 +37,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Êtes-vous sûr de vouloir supprimer \"%@\" ?"
           }
         },
@@ -53,7 +53,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Êtes-vous sûr ?"
           }
         },
@@ -69,7 +69,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Impossible d'effectuer cette action."
           }
         },
@@ -101,7 +101,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Impossible de reconnaître ce code QR..."
           }
         },
@@ -117,7 +117,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Choisissez une photo ou utilisez-en une autre pour commencer"
           }
         },
@@ -165,7 +165,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Créer un élément"
           }
         },
@@ -181,7 +181,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Créer des éléments"
           }
         },
@@ -197,7 +197,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Créez, affichez, modifiez n'importe quel élément dans votre stockage !"
           }
         },
@@ -293,7 +293,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Entrez le nom de votre élément"
           }
         },
@@ -342,7 +342,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Importer %@ ?"
+            "value" : "Importer %@  ?"
           }
         },
         "uk" : {
@@ -357,8 +357,8 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Inclure l'emplacement ?"
+            "state" : "translated",
+            "value" : "Inclure la localisation ?"
           }
         },
         "uk" : {
@@ -373,7 +373,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Emplacement de l'élément"
           }
         },
@@ -389,7 +389,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Emplacement :"
           }
         },
@@ -405,7 +405,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Recherche de codes QR..."
           }
         },
@@ -437,7 +437,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Le nom est obligatoire pour continuer !"
           }
         },
@@ -469,7 +469,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Aucun élément"
           }
         },
@@ -485,8 +485,8 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Rien trouvé"
+            "state" : "translated",
+            "value" : "Introuvable rien"
           }
         },
         "uk" : {
@@ -517,7 +517,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Appuyez sur \"+\" pour ajouter des éléments"
           }
         },
@@ -533,7 +533,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Imprimer les codes QR"
           }
         },
@@ -549,7 +549,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Imprimez les codes QR générés pour localiser rapidement n'importe quel article !"
           }
         },
@@ -597,7 +597,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Lieu d'enregistrement :"
           }
         },
@@ -837,7 +837,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Tapez sur le code QR pour faire apparaître le menu de partage du code QR généré."
           }
         },
@@ -853,7 +853,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Aucun élément n'est associé à cette étiquette."
           }
         },
@@ -869,7 +869,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Il y a eu une erreur"
           }
         },
@@ -885,7 +885,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cette action supprime : %@"
           }
         },
@@ -901,7 +901,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Essayez de modifier votre requête de recherche."
           }
         },
@@ -917,7 +917,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Erreur inconnue"
           }
         },
@@ -933,7 +933,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Utilisez le scanner de l'application pour identifier le contenu de votre unité de stockage !"
           }
         },
@@ -949,8 +949,8 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Bienvenue à"
+            "state" : "translated",
+            "value" : "Bienvenue dans"
           }
         },
         "uk" : {
@@ -965,7 +965,7 @@
       "localizations" : {
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Vous ne pouvez ajouter qu'une seule étiquette générée par l'IA à votre article, essayez d'abord de supprimer l'étiquette précédente."
           }
         },
