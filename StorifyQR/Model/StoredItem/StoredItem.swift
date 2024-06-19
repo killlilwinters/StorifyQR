@@ -48,7 +48,7 @@ final class StoredItem: SwiftDataItem {
         itemDescription = try container.decode(String.self, forKey: .itemDescription)
         tags = try container.decode([Tag].self, forKey: .tags)
         dateCreated = try container.decode(Date.self, forKey: .dateCreated)
-        location = try container.decode(Coordinate2D.self, forKey: .location)
+        location = try container.decode(Coordinate2D?.self, forKey: .location)
     }
     
 }
