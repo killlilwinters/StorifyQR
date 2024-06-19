@@ -80,7 +80,7 @@ struct ContentView: View {
                     viewModel.processImport(result: result)
                 }
                 .alert("Import \(viewModel.importItem?.name ?? "")?", isPresented: $viewModel.importingAlert) {
-                    Button("Cancel") { }
+                    Button("Cancel", role: .cancel) { }
                     Button("Save") {
                         viewModel.saveItem()
                     }
