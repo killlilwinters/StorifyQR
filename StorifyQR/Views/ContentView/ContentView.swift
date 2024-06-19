@@ -79,7 +79,7 @@ struct ContentView: View {
                 .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
                     viewModel.processImport(result: result)
                 }
-                .alert("Import \(viewModel.importItem?.name ?? "")?", isPresented: $viewModel.importingAlert) {
+                .alert("Import \"\(viewModel.importItem?.name ?? "")\"?", isPresented: $viewModel.importingAlert) {
                     Button("Cancel", role: .cancel) { }
                     Button("Save") {
                         viewModel.saveItem()

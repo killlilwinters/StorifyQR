@@ -337,7 +337,11 @@
         }
       }
     },
+    "Import \"%@\"?" : {
+
+    },
     "Import %@?" : {
+      "extractionState" : "stale",
       "localizations" : {
         "fr" : {
           "stringUnit" : {
