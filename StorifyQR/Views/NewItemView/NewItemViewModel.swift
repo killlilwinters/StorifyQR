@@ -22,7 +22,7 @@ class NewItemViewModel: BaseItemEditing {
     func saveToContext() {
         guard checkIsNameFilled() else { return }
         let itemsLocation = mapView.viewModel.getCurrentLocation()
-        let newItem = StoredItem(photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
+        let newItem = StoredItem(id: UUID(), photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
         dataSource.appendItem(newItem)
         tags.sort()
         dataSource.appendTagToItem(item: newItem, tags: tags)

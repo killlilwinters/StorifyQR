@@ -8,6 +8,8 @@
 //
 // https://stackoverflow.com/a/28781171
 //
+// https://stackoverflow.com/questions/49054485/file-couldn-t-be-opened-because-you-don-t-have-permission-to-view-it-error
+//
 
 import Foundation
 import SwiftUI
@@ -73,7 +75,7 @@ final class ContentViewModel {
             let decoded: StoredItem = try Bundle.main.decode(success)
             let rawTags: Tags = try Bundle.main.decode(success)
             
-            let taglessObject = StoredItem(photo: decoded.photo, name: decoded.name, itemDescription: decoded.itemDescription, location: decoded.location)
+            let taglessObject = StoredItem(id: decoded.id, photo: decoded.photo, name: decoded.name, itemDescription: decoded.itemDescription, location: decoded.location)
             
             importItem = taglessObject
             importItemTags = rawTags.tags
@@ -121,6 +123,9 @@ final class ContentViewModel {
     func processImport(result: Result<URL, any Error>) {
         switch result {
         case .success(let success):
+            guard success.startAccessingSecurityScopedResource() else {
+                return
+            }
             saveImport(success)
         case .failure(let failure):
             print(failure.localizedDescription)

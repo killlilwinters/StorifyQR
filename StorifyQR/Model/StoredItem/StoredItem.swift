@@ -28,11 +28,12 @@ final class StoredItem: SwiftDataItem {
         return qrGenerator.generateQRCode()
     }
     
-    init(photo: Data? = nil,
+    init(id: UUID?,
+        photo: Data? = nil,
          name: String,
          itemDescription: String,
          location: Coordinate2D?) {
-        self.id = UUID()
+        self.id = id ?? UUID()
         self.photo = photo
         self.name = name
         self.itemDescription = itemDescription
