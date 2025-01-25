@@ -26,6 +26,7 @@ final class AddTagViewModel {
     var selectedColor = Color.tagRed
     var isShowingSelectior = false
     
+    @MainActor
     func getTags() {
         var rows: [[Tag]] = []
         var currentRow: [Tag] = []
@@ -71,6 +72,7 @@ final class AddTagViewModel {
         tagText.limitTextField(limit: 10)
     }
     
+    @MainActor
     func addTag() {
         print("Adding a tag")
         guard !tagText.isEmpty else { return }
@@ -88,11 +90,13 @@ final class AddTagViewModel {
         isShowingDeleteAlert = true
     }
     
+    @MainActor
     func deleteTag(tag: Tag) {
         dataSource.removeItem(tag)
         getTags()
     }
     
+    @MainActor
     func fetchTags() {
         tags = dataSource.fetchItems().filter { $0.isMLSuggested == false}
     }
@@ -108,6 +112,7 @@ final class AddTagViewModel {
         }
     }
     
+    @MainActor
     init(saveTo: @escaping (Tag) -> Void) {
         self.saveTo = saveTo
         fetchTags()

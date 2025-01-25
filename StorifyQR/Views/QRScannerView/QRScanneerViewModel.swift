@@ -20,16 +20,19 @@ class QRScanneerViewModel {
     
     var itemToShow: Result<StoredItem, Error>?
     
+    @MainActor
     func updateItemToShow() {
         let currentItem = recognizedItems.last ?? ""
         itemToShow = findItemInDataSource(uuidString: currentItem)
     }
     
+    @MainActor
     func deleteItem(item: StoredItem) {
         dataSource.removeItem(item)
         recognizedItems.removeAll()
     }
     
+    @MainActor
     private func findItemInDataSource(uuidString: String) -> Result<StoredItem, Error> {
         let storedItems = dataSource.fetchItems()
         

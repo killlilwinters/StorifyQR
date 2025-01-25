@@ -43,6 +43,7 @@ class ItemDetailViewModel {
         return ShareableImage(image: uiImage!, filename: item.name)
     }
     
+    @MainActor
     func deleteCurrentItem() {
         dataSource.removeItem(item)
     }

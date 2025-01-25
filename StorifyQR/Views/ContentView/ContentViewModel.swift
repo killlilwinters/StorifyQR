@@ -35,7 +35,7 @@ final class ContentViewModel {
         return filteredItems
     }
     var tags = [Tag]()
-    var selectedTag: Tag? { didSet {
+    @MainActor var selectedTag: Tag? { didSet {
         fetchFiltered()
     }}
     var searchText = ""
@@ -45,10 +45,10 @@ final class ContentViewModel {
     var isShowingNothingFoundCUV: Bool {
         isSearching && filteredItems.isEmpty && !storedItems.isEmpty
     }
-    var isShowingNoItemsCUV: Bool {
+    @MainActor var isShowingNoItemsCUV: Bool {
         storedItems.isEmpty && selectedTag == nil
     }
-    var isShowingNoItemsForTagCUV: Bool {
+    @MainActor var isShowingNoItemsForTagCUV: Bool {
         storedItems.isEmpty && selectedTag != nil
     }
     
@@ -63,6 +63,7 @@ final class ContentViewModel {
     var importItem: StoredItem?
     var importItemTags: [Tag]?
     
+    @MainActor
     func saveItem() {
         dataSource.appendItem(importItem!)
         dataSource.appendTagToItem(item: importItem!, tags: importItemTags!)
@@ -92,11 +93,13 @@ final class ContentViewModel {
         return item.photo.flatMap { Image(data: $0) }
     }
     
+    @MainActor
     func fetchItems() {
         storedItems = dataSource.fetchItems()
         tags = tagDataSource.fetchItems().sorted { $0.isMLSuggested && !$1.isMLSuggested }
     }
     
+    @MainActor
     func filterTag(tag: Tag) {
         if tag == selectedTag {
             fetchItems()
@@ -107,6 +110,7 @@ final class ContentViewModel {
 
     }
     
+    @MainActor
     func fetchFiltered() {
         guard selectedTag != nil else { return }
         do {

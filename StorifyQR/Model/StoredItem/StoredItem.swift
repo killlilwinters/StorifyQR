@@ -14,14 +14,14 @@ import CoreTransferable
 
 @Model
 final class StoredItem: SwiftDataItem {
-    let id: UUID
+    var id: UUID
     @Attribute(.externalStorage)
     var photo: Data?
     var name: String
     var itemDescription: String
     @Relationship(inverse: \Tag.items)
     var tags = [Tag]()
-    let dateCreated: Date
+    var dateCreated: Date
     var location: Coordinate2D?
     var qrCode: CIImage {
         let qrGenerator = QRGenerator(inputID: id)

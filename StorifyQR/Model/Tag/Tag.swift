@@ -17,9 +17,9 @@ import CoreTransferable
 @Model
 final class Tag: SwiftDataItem, Comparable {
     @Attribute(.unique)
-    let title: String
+    var title: String
     var size: CGFloat = 0
-    let isMLSuggested = false
+    var isMLSuggested = false
     var color: String
     var tagColor: Color {
         get {
