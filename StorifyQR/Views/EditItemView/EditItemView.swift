@@ -14,7 +14,7 @@ import PhotosUI
 
 struct EditItemView: View {
     @Environment(\.dismiss) var dismiss
-    @Environment(MapViewModel.self) var mapViewModel
+//    @Environment(MapViewModel.self) var mapViewModel
     @Bindable var viewModel: EditItemViewModel
     @Namespace var mapID
     
@@ -120,7 +120,7 @@ struct EditItemView: View {
                         .padding(.horizontal)
                         viewModel.mapView // MapView
                             .id(mapID)
-                            .onChange(of: mapViewModel.isIncludingLocation) {
+                            .onChange(of: viewModel.mapView.isIncludingLocation) {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                     withOptionalAnimation {
                                         proxy.scrollTo(mapID)
@@ -130,7 +130,6 @@ struct EditItemView: View {
                     }
                 }
             }
-            .onAppear(perform: viewModel.checkLocation)
             // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {

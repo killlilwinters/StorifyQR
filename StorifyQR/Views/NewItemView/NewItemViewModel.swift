@@ -14,14 +14,14 @@ import SwiftUI
 import PhotosUI
 
 @Observable
-class NewItemViewModel: BaseItemEditing {
+final class NewItemViewModel: BaseItemEditing {
     
     let mapView = MapView(userCustomLocation: nil)
     
     @MainActor
     func saveToContext() {
         guard checkIsNameFilled() else { return }
-        let itemsLocation = mapView.viewModel.getCurrentLocation()
+        let itemsLocation = mapView.latestLocation
         let newItem = StoredItem(id: UUID(), photo: photoData, name: name, itemDescription: itemDescription.isEmpty ? "No description." : itemDescription, location: itemsLocation)
         dataSource.appendItem(newItem)
         tags.sort()

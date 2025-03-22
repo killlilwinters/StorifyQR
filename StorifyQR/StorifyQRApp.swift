@@ -17,7 +17,7 @@ import TipKit
 @main
 struct StorifyQRApp: App {
     
-    @State private var mapViewModel = MapViewModel(editingLocation: nil)
+//    @State private var mapViewModel = MapViewModel(editingLocation: nil)
     @AppStorage("ONBOARDING") var showOnboarding = true
     @AppStorage("LANGUAGE") var savedLanguage = ""
     
@@ -34,7 +34,7 @@ struct StorifyQRApp: App {
                     OnboardingView()
                 }
         }
-        .environment(mapViewModel)
+//        .environment(mapViewModel)
 //        .modelContainer(for: StoredItem.self) this is the cause of Sheet closing automatically when using MVVM SwiftData implementation.
     }
     

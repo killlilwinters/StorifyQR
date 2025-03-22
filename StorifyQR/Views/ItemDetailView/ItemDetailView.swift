@@ -9,7 +9,6 @@
 
 import SwiftUI
 import SwiftData
-import MapKit
 
 struct ItemDetailView: View {
     

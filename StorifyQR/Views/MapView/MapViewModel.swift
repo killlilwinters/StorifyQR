@@ -28,7 +28,7 @@ final class MapViewModel: LocationHandlerDelegate {
     }
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: MapDetails.defaultRegion, span: MapDetails.defaultSpan))
     
-    var isIncludingLocation = false
+    var isIncludingLocation: Bool
     var isLocationAvailable = false
     
     var showAlerts = false
@@ -40,17 +40,20 @@ final class MapViewModel: LocationHandlerDelegate {
     
     var locationManager: LocationManager!
     
-    init(editingLocation: Coordinate2D?) {
+    init(editingLocation: Coordinate2D?, isIncludingLocation: Bool = false) {
+        print("Initialized MapViewModel")
         if editingLocation != nil {
             self.editingLocation = editingLocation?.getCLLocation()
             self.isIncludingLocation = true
         }
+        self.isIncludingLocation = isIncludingLocation
         self.locationManager = LocationManager(delegate: self)
         self.locationManager.checkIfLocationServicesIsEnabled()
     }
     
-    func didUpdateLocation() {
-        gpsLocation = locationManager.getCurrentLocation() ?? MapDetails.defaultRegion
+    func didUpdateLocation(_ location: CLLocationCoordinate2D?) {
+        print("Updating locaiton to: \(location ?? MapDetails.defaultRegion)")
+        gpsLocation = location ?? MapDetails.defaultRegion
         mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))
         isLocationAvailable = true
     }

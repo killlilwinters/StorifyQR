@@ -14,7 +14,18 @@ import MapKit
 
 struct MapView: View {
     
-    @Bindable var viewModel: MapViewModel
+    @Bindable private var viewModel: MapViewModel
+    
+    var isIncludingLocation: Bool {
+        viewModel.isIncludingLocation
+    }
+    var latestLocation: Coordinate2D? {
+        viewModel.getCurrentLocation()
+    }
+    
+    func includeLocation() {
+        viewModel.isIncludingLocation.toggle()
+    }
     
     var body: some View {
         LazyVStack {
@@ -76,7 +87,11 @@ struct MapView: View {
     }
     
     init(userCustomLocation: Coordinate2D? = nil) {
-        self.viewModel = MapViewModel(editingLocation: userCustomLocation)
+        guard let userCustomLocation else {
+            self.viewModel = MapViewModel(editingLocation: userCustomLocation)
+            return
+        }
+        self.viewModel = MapViewModel(editingLocation: userCustomLocation, isIncludingLocation: true)
     }
     
 }

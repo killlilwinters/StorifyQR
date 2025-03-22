@@ -8,6 +8,13 @@
 import SwiftUI
 import SwiftData
 
+enum ContentViewDestination: Hashable {
+    case newItemView
+    case scannerView
+    case detailView(StoredItem)
+    case editView(StoredItem)
+}
+
 struct ContentView: View {
     
     @Environment(\.accessibilityReduceMotion) var reduceMotion
@@ -58,15 +65,10 @@ struct ContentView: View {
                     print("ContentView appeared")
                     viewModel.fetchItems()
                 }
-                .navigationDestination(for: StoredItem.self) { item in
-                    ItemDetailView(item: item)
-                }
                 .navigationTitle("StorifyQR")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink {
-                            NewItemView()
-                        } label: {
+                        NavigationLink(value: ContentViewDestination.newItemView) {
                             Image(systemName: "plus")
                         }
                     }
@@ -92,7 +94,7 @@ struct ContentView: View {
                 }
             }
             .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                NavigationLink(value: "") {
+                NavigationLink(value: ContentViewDestination.scannerView) {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 60, height: 60)
                         .overlay {
@@ -104,8 +106,17 @@ struct ContentView: View {
                 .padding()
                 .shadow(radius: 5)
             }
-            .navigationDestination(for: String.self) { item in
-                QRScannerView()
+            .navigationDestination(for: ContentViewDestination.self) { destination in
+                switch destination {
+                case .scannerView:
+                    QRScannerView()
+                case .newItemView:
+                    NewItemView()
+                case .detailView(let item):
+                    ItemDetailView(item: item)
+                case .editView(let item):
+                    EditItemView(item: item)
+                }
             }
         }
     }
@@ -155,7 +166,7 @@ struct ContentView: View {
     
     var items: some View {
         ForEach(viewModel.filteredItems) { item in
-            NavigationLink(value: item) {
+            NavigationLink(value: ContentViewDestination.detailView(item)) {
                 LazyVStack {
                     HStack {
                         let image = viewModel.getImage(item: item)

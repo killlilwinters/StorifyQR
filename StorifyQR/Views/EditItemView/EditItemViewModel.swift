@@ -29,13 +29,7 @@ final class EditItemViewModel: BaseItemEditing {
     @MainActor
     func saveChanges() {
         let itemDescChecked = itemDescription.isEmpty ? "No description." : itemDescription
-        let itemsLocation = mapView.viewModel.getCurrentLocation()
+        let itemsLocation = mapView.latestLocation
         dataSource.editItem(item: item, photo: photoData, name: name, itemDescription: itemDescChecked, tags: tags, location: itemsLocation)
-    }
-    
-    func checkLocation() {
-        if item.location != nil {
-            mapView.viewModel.isIncludingLocation = true
-        }
     }
 }
