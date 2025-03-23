@@ -11,20 +11,21 @@ import SwiftUI
 
 @Observable
 class ItemDetailViewModel {
-    static let imageConverter = ImageCoverter()
-    let qrTip = QRCodeShareTip()
-
     @MainActor let dataSource = StoredItemDataSource.shared
+    static let imageConverter = ImageCoverter()
+    
+    let qrTip = QRCodeShareTip()
     
     let item: StoredItem
-    var image: Image? {
-        return item.photo.flatMap { Image(data: $0) }
-    }
     
     var isShowingQR = false
     
     var isShowingAlert = false
     var alertMessage = ""
+    
+    var image: Image? {
+        item.image
+    }
     
     func getDate() -> String {
         let dateConverter = DateConverter(date: item.dateCreated)

@@ -13,8 +13,8 @@ enum ScanErrors: Error {
 
 @Observable
 class QRScanneerViewModel {
-    @MainActor
-    private let dataSource = StoredItemDataSource.shared
+    
+    @MainActor private let dataSource = StoredItemDataSource.shared
     
     var recognizedItems: [String] = []
     

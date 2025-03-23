@@ -18,12 +18,6 @@ func withOptionalAnimation<Result>(_ animation: Animation? = .default, _ body: (
     }
 }
 
-extension View {
-    func optionalTrnsition(transition: AnyTransition) -> some View {
-        modifier(OptionalTranstion(transition: transition))
-    }
-}
-
 struct OptionalTranstion: ViewModifier {
     let transition: AnyTransition
     

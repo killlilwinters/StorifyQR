@@ -28,30 +28,13 @@ struct QRScannerView: View {
                 VStack {
                     Spacer()
                     Rectangle()
-                        .clipShape(
-                            .rect(
-                                topLeadingRadius:35,
-                                bottomLeadingRadius: 0,
-                                bottomTrailingRadius: 0,
-                                topTrailingRadius: 35
-                            )
-                        )
-                        .foregroundStyle(Color.background)
-                        .ignoresSafeArea()
-                        .frame(height: proxy.size.height / 4)
+                        .scanningPad(proxy: proxy)
                         .overlay {
                             switch viewModel.itemToShow {
                             case .success(let item):
-                                QRItemView(item: item) { item in
-                                    viewModel.deleteItem(item: item)
-                                }
-                                .transition(.scale)
-                            case .failure(let failure):
-                                failure as! ScanErrors == ScanErrors.insufficientQRCode
-                                ?
-                                ContentUnavailableView("Cannot recognize this QR Code...", systemImage: "info.circle")
-                                :
-                                ContentUnavailableView("Unknown error", systemImage: "exclamationmark.triangle", description: Text(failure.localizedDescription))
+                                handleScanningSuccess(item: item)
+                            case .failure(let error):
+                                handleScanningError(error: error)
                             default:
                                 ContentUnavailableView("Looking for QR Codes...", systemImage: "qrcode.viewfinder")
                             }
@@ -68,6 +51,22 @@ struct QRScannerView: View {
             scannerID = UUID()
         }
     }
+    
+    func handleScanningSuccess(item: StoredItem) -> some View {
+        QRItemView(item: item) { item in
+            viewModel.deleteItem(item: item)
+        }
+        .transition(.scale)
+    }
+    
+    func handleScanningError(error: any Error) -> some View {
+        if error as! ScanErrors == ScanErrors.insufficientQRCode {
+            ContentUnavailableView("Cannot recognize this QR Code...", systemImage: "info.circle")
+        } else {
+            ContentUnavailableView("Unknown error", systemImage: "exclamationmark.triangle", description: Text(error.localizedDescription))
+        }
+    }
+    
 }
 
 #Preview {

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */; };
 		E913C23F2BFB68A600DEE35E /* SQRWatermark.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C23E2BFB68A600DEE35E /* SQRWatermark.swift */; };
-		E913C2412BFB73BF00DEE35E /* StringLimiter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C2402BFB73BF00DEE35E /* StringLimiter.swift */; };
+		E913C2412BFB73BF00DEE35E /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E913C2402BFB73BF00DEE35E /* String+Ext.swift */; };
 		E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */; };
 		E9284CC92D467C1B00E97799 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E9284CC82D467C1B00E97799 /* README.md */; };
 		E930067D2C0DCF3700B78642 /* QRScanneerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930067C2C0DCF3700B78642 /* QRScanneerViewModel.swift */; };
@@ -20,9 +20,8 @@
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
 		E940445F2C065BB900B03956 /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940445E2C065BB900B03956 /* QRScannerView.swift */; };
-		E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */; };
-		E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */; };
-		E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1862B54B2FD003E5230 /* StringGetSize.swift */; };
+		E940B0F02B71762F00030605 /* iPadScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */; };
+		E944E1852B54B2DC003E5230 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */; };
 		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
 		E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* ColorComponents.swift */; };
 		E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9586D272C06829000909DEB /* QRScannerBackend.swift */; };
@@ -35,13 +34,15 @@
 		E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA72B43622100856102 /* ImageCoverter.swift */; };
 		E9754B902B8E8D4000197455 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9754B8F2B8E8D4000197455 /* LocationManager.swift */; };
 		E986C62C2C10A56C00233CA3 /* QRItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */; };
+		E9A9CBFA2D9050CB00AC0A0D /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */; };
+		E9A9CBFC2D90511500AC0A0D /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBFB2D90511500AC0A0D /* View+Ext.swift */; };
+		E9A9CBFE2D9058F600AC0A0D /* Shape+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBFD2D9058F600AC0A0D /* Shape+Ext.swift */; };
 		E9ACB3442B5ADE7600BB1C5D /* StoredItemCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3432B5ADE7600BB1C5D /* StoredItemCodable.swift */; };
 		E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */; };
-		E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */; };
-		E9ACB34C2B5AF6AE00BB1C5D /* UIImageCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */; };
+		E9ACB3492B5AE63200BB1C5D /* UTType+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9ACB3482B5AE63200BB1C5D /* UTType+Ext.swift */; };
 		E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */; };
 		E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */; };
-		E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D22B6ACE3C001063A9 /* Image-from.swift */; };
+		E9AF53D32B6ACE3C001063A9 /* Image+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AF53D22B6ACE3C001063A9 /* Image+Ext.swift */; };
 		E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */; };
 		E9B7A7482BDD3FA600D885AF /* Classifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B7A7472BDD3FA600D885AF /* Classifier.swift */; };
 		E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B7A7492BDD401800D885AF /* AbstractClassifier.swift */; };
@@ -58,13 +59,13 @@
 		E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */; };
 		E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C130892B44B369004011E3 /* ViewComponents.swift */; };
 		E9C1308D2B44B683004011E3 /* Tips.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308C2B44B683004011E3 /* Tips.swift */; };
-		E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */; };
+		E9C1308F2B44C391004011E3 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C1308E2B44C391004011E3 /* UIImage+Ext.swift */; };
 		E9CD49EE2C19E2D30088EB28 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E9CD49ED2C19E2D30088EB28 /* Localizable.xcstrings */; };
 		E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D722B5589BD00ECC51D /* TagDataSource.swift */; };
 		E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */; };
 		E9DC1C652C187179003A7F47 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1C642C187179003A7F47 /* OnboardingView.swift */; };
 		E9DC1C682C18BD95003A7F47 /* AuroraEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC1C672C18BD95003A7F47 /* AuroraEffectView.swift */; };
-		E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */; };
+		E9E2BF5F2B77EC02001A234E /* ProcessInfo+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E2BF5E2B77EC02001A234E /* ProcessInfo+Ext.swift */; };
 		E9E450172C1373890046C465 /* DataSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E450162C1373890046C465 /* DataSourceProtocol.swift */; };
 		E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */; };
 		E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E833672B4B620B009BADB5 /* Coordinate2D.swift */; };
@@ -75,7 +76,7 @@
 /* Begin PBXFileReference section */
 		E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		E913C23E2BFB68A600DEE35E /* SQRWatermark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQRWatermark.swift; sourceTree = "<group>"; };
-		E913C2402BFB73BF00DEE35E /* StringLimiter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringLimiter.swift; sourceTree = "<group>"; };
+		E913C2402BFB73BF00DEE35E /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withOptionalAnimation.swift; sourceTree = "<group>"; };
 		E9284CC82D467C1B00E97799 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E930067C2C0DCF3700B78642 /* QRScanneerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanneerViewModel.swift; sourceTree = "<group>"; };
@@ -86,9 +87,8 @@
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
 		E940445E2C065BB900B03956 /* QRScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
-		E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadCompatibilityModifier.swift; sourceTree = "<group>"; };
-		E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenWidth.swift; sourceTree = "<group>"; };
-		E944E1862B54B2FD003E5230 /* StringGetSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringGetSize.swift; sourceTree = "<group>"; };
+		E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadScreenContainer.swift; sourceTree = "<group>"; };
+		E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
 		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
 		E944E18B2B54B557003E5230 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
 		E9586D272C06829000909DEB /* QRScannerBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerBackend.swift; sourceTree = "<group>"; };
@@ -102,14 +102,16 @@
 		E95FFFA72B43622100856102 /* ImageCoverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoverter.swift; sourceTree = "<group>"; };
 		E9754B8F2B8E8D4000197455 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRItemViewModel.swift; sourceTree = "<group>"; };
+		E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
+		E9A9CBFB2D90511500AC0A0D /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
+		E9A9CBFD2D9058F600AC0A0D /* Shape+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shape+Ext.swift"; sourceTree = "<group>"; };
 		E9ACB3432B5ADE7600BB1C5D /* StoredItemCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItemCodable.swift; sourceTree = "<group>"; };
 		E9ACB3452B5ADEB700BB1C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCodable.swift; sourceTree = "<group>"; };
-		E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTExportType.swift; sourceTree = "<group>"; };
-		E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageCompress.swift; sourceTree = "<group>"; };
+		E9ACB3482B5AE63200BB1C5D /* UTType+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType+Ext.swift"; sourceTree = "<group>"; };
 		E9AF53CE2B6AAF67001063A9 /* EditItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemView.swift; sourceTree = "<group>"; };
 		E9AF53D02B6AB45B001063A9 /* EditItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemViewModel.swift; sourceTree = "<group>"; };
-		E9AF53D22B6ACE3C001063A9 /* Image-from.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image-from.swift"; sourceTree = "<group>"; };
+		E9AF53D22B6ACE3C001063A9 /* Image+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Ext.swift"; sourceTree = "<group>"; };
 		E9B6D5E82B6C418600B6B47F /* BaseItemEditingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemEditingModel.swift; sourceTree = "<group>"; };
 		E9B7A7472BDD3FA600D885AF /* Classifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classifier.swift; sourceTree = "<group>"; };
 		E9B7A7492BDD401800D885AF /* AbstractClassifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractClassifier.swift; sourceTree = "<group>"; };
@@ -126,13 +128,13 @@
 		E9C130842B449A23004011E3 /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		E9C130892B44B369004011E3 /* ViewComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewComponents.swift; sourceTree = "<group>"; };
 		E9C1308C2B44B683004011E3 /* Tips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tips.swift; sourceTree = "<group>"; };
-		E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-Resize.swift"; sourceTree = "<group>"; };
+		E9C1308E2B44C391004011E3 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		E9CD49ED2C19E2D30088EB28 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		E9D06D722B5589BD00ECC51D /* TagDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataSource.swift; sourceTree = "<group>"; };
 		E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		E9DC1C642C187179003A7F47 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		E9DC1C672C18BD95003A7F47 /* AuroraEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraEffectView.swift; sourceTree = "<group>"; };
-		E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessInfo.swift; sourceTree = "<group>"; };
+		E9E2BF5E2B77EC02001A234E /* ProcessInfo+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+Ext.swift"; sourceTree = "<group>"; };
 		E9E450162C1373890046C465 /* DataSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceProtocol.swift; sourceTree = "<group>"; };
 		E9E833632B4B4DBC009BADB5 /* Coordinate2DMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2DMapView.swift; sourceTree = "<group>"; };
 		E9E833672B4B620B009BADB5 /* Coordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinate2D.swift; sourceTree = "<group>"; };
@@ -154,7 +156,6 @@
 		E936355F2B4C922800882CF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E9E450162C1373890046C465 /* DataSourceProtocol.swift */,
 				E9D06D712B5589A800ECC51D /* Tag */,
 				E93635602B4C923100882CF5 /* StoredItem */,
 			);
@@ -166,7 +167,6 @@
 			children = (
 				E95FFFA32B435C3300856102 /* StoredItem.swift */,
 				E9ACB3432B5ADE7600BB1C5D /* StoredItemCodable.swift */,
-				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
 			);
 			path = StoredItem;
 			sourceTree = "<group>";
@@ -194,18 +194,16 @@
 		E944E1832B54B214003E5230 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E9C1308E2B44C391004011E3 /* UIImage-Resize.swift */,
-				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
-				E944E1842B54B2DC003E5230 /* UIScreenWidth.swift */,
-				E944E1862B54B2FD003E5230 /* StringGetSize.swift */,
-				E9ACB3482B5AE63200BB1C5D /* UTExportType.swift */,
-				E9ACB34B2B5AF6AE00BB1C5D /* UIImageCompress.swift */,
+				E9C1308E2B44C391004011E3 /* UIImage+Ext.swift */,
+				E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */,
+				E9ACB3482B5AE63200BB1C5D /* UTType+Ext.swift */,
 				E903341C2B618FB5003CA1F2 /* Bundle-Decodable.swift */,
-				E9AF53D22B6ACE3C001063A9 /* Image-from.swift */,
-				E940B0EF2B71762F00030605 /* iPadCompatibilityModifier.swift */,
-				E9E2BF5E2B77EC02001A234E /* ProcessInfo.swift */,
-				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
-				E913C2402BFB73BF00DEE35E /* StringLimiter.swift */,
+				E9AF53D22B6ACE3C001063A9 /* Image+Ext.swift */,
+				E9E2BF5E2B77EC02001A234E /* ProcessInfo+Ext.swift */,
+				E913C2402BFB73BF00DEE35E /* String+Ext.swift */,
+				E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */,
+				E9A9CBFB2D90511500AC0A0D /* View+Ext.swift */,
+				E9A9CBFD2D9058F600AC0A0D /* Shape+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +214,9 @@
 				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
 				E944E18B2B54B557003E5230 /* ColorComponents.swift */,
 				E9754B8F2B8E8D4000197455 /* LocationManager.swift */,
+				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
+				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
+				E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -241,11 +242,11 @@
 		E95FFF942B4350CA00856102 /* StorifyQR */ = {
 			isa = PBXGroup;
 			children = (
+				E9A9CBF82D90506800AC0A0D /* Repository */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
 				E9B7A7442BDD3EA900D885AF /* ML */,
 				E9ACB3452B5ADEB700BB1C5D /* Info.plist */,
 				E936355F2B4C922800882CF5 /* Model */,
-				E944E18A2B54B545003E5230 /* Components */,
 				E944E1832B54B214003E5230 /* Extensions */,
 				E9C1308B2B44B666004011E3 /* GeneralUI */,
 				E95FFFAA2B436F8200856102 /* Tools */,
@@ -300,6 +301,17 @@
 				E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */,
 			);
 			path = QRItemView;
+			sourceTree = "<group>";
+		};
+		E9A9CBF82D90506800AC0A0D /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E9E450162C1373890046C465 /* DataSourceProtocol.swift */,
+				E9D06D722B5589BD00ECC51D /* TagDataSource.swift */,
+				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
+				E944E18A2B54B545003E5230 /* Components */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		E9AF53CD2B6AAF23001063A9 /* EditItemView */ = {
@@ -377,7 +389,6 @@
 			children = (
 				E93635612B4C93C500882CF5 /* Tag.swift */,
 				E9ACB3462B5AE1CE00BB1C5D /* TagCodable.swift */,
-				E9D06D722B5589BD00ECC51D /* TagDataSource.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -484,12 +495,11 @@
 				E9BB2C332B478A5F002753A7 /* StoredItemDataSource.swift in Sources */,
 				E9D06D732B5589BD00ECC51D /* TagDataSource.swift in Sources */,
 				E9C1308A2B44B369004011E3 /* ViewComponents.swift in Sources */,
-				E9AF53D32B6ACE3C001063A9 /* Image-from.swift in Sources */,
+				E9AF53D32B6ACE3C001063A9 /* Image+Ext.swift in Sources */,
 				E9DC1C652C187179003A7F47 /* OnboardingView.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
 				E9F5FF212B7D045D00794F34 /* EmptyPhotoView.swift in Sources */,
-				E944E1872B54B2FD003E5230 /* StringGetSize.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E93354E02B8269B700602047 /* SearchBar.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
@@ -497,14 +507,13 @@
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
 				E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */,
-				E940B0F02B71762F00030605 /* iPadCompatibilityModifier.swift in Sources */,
+				E940B0F02B71762F00030605 /* iPadScreenContainer.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
-				E9ACB34C2B5AF6AE00BB1C5D /* UIImageCompress.swift in Sources */,
-				E944E1852B54B2DC003E5230 /* UIScreenWidth.swift in Sources */,
+				E944E1852B54B2DC003E5230 /* UIScreen+Ext.swift in Sources */,
 				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
 				E9AF53D12B6AB45B001063A9 /* EditItemViewModel.swift in Sources */,
-				E913C2412BFB73BF00DEE35E /* StringLimiter.swift in Sources */,
+				E913C2412BFB73BF00DEE35E /* String+Ext.swift in Sources */,
 				E930067F2C0DE77200B78642 /* QRItemView.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
 				E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */,
@@ -517,6 +526,7 @@
 				E940445F2C065BB900B03956 /* QRScannerView.swift in Sources */,
 				E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */,
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
+				E9A9CBFE2D9058F600AC0A0D /* Shape+Ext.swift in Sources */,
 				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
 				E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
@@ -524,21 +534,23 @@
 				E9E833682B4B620B009BADB5 /* Coordinate2D.swift in Sources */,
 				E9B7A7482BDD3FA600D885AF /* Classifier.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
-				E9E2BF5F2B77EC02001A234E /* ProcessInfo.swift in Sources */,
+				E9E2BF5F2B77EC02001A234E /* ProcessInfo+Ext.swift in Sources */,
 				E9E450172C1373890046C465 /* DataSourceProtocol.swift in Sources */,
 				E9B7A7562BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel in Sources */,
 				E9D06D752B55A66C00ECC51D /* ContentViewModel.swift in Sources */,
 				E913C23F2BFB68A600DEE35E /* SQRWatermark.swift in Sources */,
-				E9ACB3492B5AE63200BB1C5D /* UTExportType.swift in Sources */,
+				E9ACB3492B5AE63200BB1C5D /* UTType+Ext.swift in Sources */,
 				E9BB2C312B476E9A002753A7 /* NewItemViewModel.swift in Sources */,
 				E923BD592B8B9EB70013BF88 /* withOptionalAnimation.swift in Sources */,
+				E9A9CBFC2D90511500AC0A0D /* View+Ext.swift in Sources */,
+				E9A9CBFA2D9050CB00AC0A0D /* UIApplication+Ext.swift in Sources */,
 				E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */,
 				E9BB2C2A2B460FB3002753A7 /* MapViewModel.swift in Sources */,
 				E9F363652B6EDE270055BF88 /* LocationGeocoder.swift in Sources */,
 				E9ACB3442B5ADE7600BB1C5D /* StoredItemCodable.swift in Sources */,
 				E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */,
 				E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */,
-				E9C1308F2B44C391004011E3 /* UIImage-Resize.swift in Sources */,
+				E9C1308F2B44C391004011E3 /* UIImage+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

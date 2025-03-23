@@ -8,9 +8,7 @@
 //
 
 import SwiftData
-import CoreImage
-import MapKit
-import CoreTransferable
+import SwiftUI
 
 @Model
 final class StoredItem: SwiftDataItem {
@@ -26,6 +24,9 @@ final class StoredItem: SwiftDataItem {
     var qrCode: CIImage {
         let qrGenerator = QRGenerator(inputID: id)
         return qrGenerator.generateQRCode()
+    }
+    var image: Image? {
+        return photo.flatMap { Image(data: $0) }
     }
     
     init(id: UUID?,

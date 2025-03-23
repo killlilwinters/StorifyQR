@@ -1,5 +1,5 @@
 //
-//  ProcessInfo.swift
+//  ProcessInfo+Ext.swift
 //  StorifyQR
 //
 //  Created by Maks Winters on 10.02.2024.

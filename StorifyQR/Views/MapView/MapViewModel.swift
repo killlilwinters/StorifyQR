@@ -14,8 +14,14 @@ enum MapDetails {
 }
 
 @Observable
-final class MapViewModel: LocationHandlerDelegate {
+final class MapViewModel {
+    
+    // MARK: - Location
+    var locationManager: LocationManager!
     let locationGeocoder = LocationGeocoder()
+    
+    var isIncludingLocation: Bool
+    var isLocationAvailable = false
 
     var gpsLocation = MapDetails.defaultRegion
     var editingLocation: CLLocationCoordinate2D?
@@ -28,18 +34,14 @@ final class MapViewModel: LocationHandlerDelegate {
     }
     var mapRegionPosition: MapCameraPosition = .region(MKCoordinateRegion(center: MapDetails.defaultRegion, span: MapDetails.defaultSpan))
     
-    var isIncludingLocation: Bool
-    var isLocationAvailable = false
-    
-    var showAlerts = false
-    var isShowingAlert = false
-    
-    var alertMessage = ""
-    
     var locationName = "Unknown location"
     
-    var locationManager: LocationManager!
+    // MARK: - Alert
+    var showAlerts = false
+    var isShowingAlert = false
+    var alertMessage = ""
     
+    // MARK: - Initializer
     init(editingLocation: Coordinate2D?, isIncludingLocation: Bool = false) {
         print("Initialized MapViewModel")
         if editingLocation != nil {
@@ -50,6 +52,41 @@ final class MapViewModel: LocationHandlerDelegate {
         self.locationManager = LocationManager(delegate: self)
         self.locationManager.checkIfLocationServicesIsEnabled()
     }
+    
+    // MARK: - Alert methods
+    func alertUser(_ message: String) {
+        alertMessage = message
+        isShowingAlert = true
+    }
+    
+    // MARK: - Location methods
+    func disableLocation() {
+        isIncludingLocation = false
+        isLocationAvailable = false
+    }
+
+    func getCurrentLocation() -> Coordinate2D? {
+        isIncludingLocation ? finalLocation.toCoordinate2D() : nil
+    }
+    
+    func getLocationName() {
+        locationGeocoder.getLocationName(rawLocation: finalLocation) { place in
+            self.locationName = place
+        }
+    }
+    
+    func resetLocation() {
+        editingLocation = nil
+        userCustomLocation = nil
+        withAnimation {
+            mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))
+        }
+    }
+    
+}
+
+// MARK: - LocationHandlerDelegate conformance
+extension MapViewModel: LocationHandlerDelegate {
     
     func didUpdateLocation(_ location: CLLocationCoordinate2D?) {
         print("Updating locaiton to: \(location ?? MapDetails.defaultRegion)")
@@ -77,34 +114,6 @@ final class MapViewModel: LocationHandlerDelegate {
             showAlerts ? alertUser("Location not available.") : nil
         default:
             break
-        }
-    }
-    
-    func disableLocation() {
-        isIncludingLocation = false
-        isLocationAvailable = false
-    }
-
-    func getCurrentLocation() -> Coordinate2D? {
-        isIncludingLocation ? finalLocation.toCoordinate2D() : nil
-    }
-    
-    func getLocationName() {
-        locationGeocoder.getLocationName(rawLocation: finalLocation) { place in
-            self.locationName = place
-        }
-    }
-    
-    func alertUser(_ message: String) {
-        alertMessage = message
-        isShowingAlert = true
-    }
-    
-    func resetLocation() {
-        editingLocation = nil
-        userCustomLocation = nil
-        withAnimation {
-            mapRegionPosition = .region(MKCoordinateRegion(center: finalLocation, span: MapDetails.defaultSpan))
         }
     }
     

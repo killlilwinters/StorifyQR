@@ -58,8 +58,8 @@ struct DataScannerViewRepresentable: UIViewControllerRepresentable {
         }
     }
     
-    func makeCoordinator() -> Coordinator {
-        Coordinator(recognizedItems: $recognizedItems)
+    func makeCoordinator() -> DataScannerCoordinator {
+        DataScannerCoordinator(recognizedItems: $recognizedItems)
     }
     
     static func dismantleUIViewController(_ uiViewController: DataScannerViewController, coordinator: Coordinator) {
@@ -67,7 +67,7 @@ struct DataScannerViewRepresentable: UIViewControllerRepresentable {
     }
 }
 
-class Coordinator: NSObject, DataScannerViewControllerDelegate {
+final class DataScannerCoordinator: NSObject, DataScannerViewControllerDelegate {
     
     @Binding var recognizedItems: [String]
 
@@ -109,10 +109,10 @@ class Coordinator: NSObject, DataScannerViewControllerDelegate {
 //        self.recognizedItems = recognizedItems.filter { item in
 //            !removedItemsStrings.contains(where: { $0 == item })
 //        }
-        print("didRemovedItems")
+        print("didRemoveItems")
     }
     
     func dataScanner(_ dataScanner: DataScannerViewController, becameUnavailableWithError error: DataScannerViewController.ScanningUnavailable) {
-        print("became unavailable with error \(error.localizedDescription)")
+        print("Became unavailable with error \(error.localizedDescription)")
     }
 }

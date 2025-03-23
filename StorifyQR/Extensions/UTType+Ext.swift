@@ -1,5 +1,5 @@
 //
-//  UTExportType.swift
+//  UTType+Ext.swift
 //  StorifyQR
 //
 //  Created by Maks Winters on 19.01.2024.

@@ -1,5 +1,5 @@
 //
-//  UIScreenWidth.swift
+//  UIScreen+Ext.swift
 //  StorifyQR
 //
 //  Created by Maks Winters on 15.01.2024.

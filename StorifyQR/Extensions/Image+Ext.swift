@@ -1,12 +1,10 @@
 //
-//  Image-from.swift
+//  Image+Ext.swift
 //  StorifyQR
 //
 //  Created by Maks Winters on 31.01.2024.
 //
 
-import Foundation
-import UIKit
 import SwiftUI
 
 extension Image {
