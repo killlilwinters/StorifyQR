@@ -8,13 +8,11 @@
 //
 
 import SwiftUI
-
-import SwiftUI
 import PhotosUI
 
 struct EditItemView: View {
     @Environment(\.dismiss) var dismiss
-//    @Environment(MapViewModel.self) var mapViewModel
+    @Environment(Coordinator.self) var coordinator
     @Bindable var viewModel: EditItemViewModel
     @Namespace var mapID
     

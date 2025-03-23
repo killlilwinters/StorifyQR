@@ -13,6 +13,7 @@ import SwiftData
 struct ItemDetailView: View {
     
     @Environment(\.dismiss) var dismiss
+    @Environment(Coordinator.self) var coordinator
     @Bindable var viewModel: ItemDetailViewModel
     @Namespace var qrCodeID
     

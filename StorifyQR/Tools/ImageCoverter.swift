@@ -7,7 +7,6 @@
 // https://www.hackingwithswift.com/quick-start/beginners/how-to-return-multiple-values-from-functions
 //
 
-import Foundation
 import CoreImage
 import UIKit
 import SwiftUI

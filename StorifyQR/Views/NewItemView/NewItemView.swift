@@ -16,7 +16,7 @@ import PhotosUI
 
 struct NewItemView: View {
     @Environment(\.dismiss) var dismiss
-    @Bindable var viewModel = NewItemViewModel()
+    @State var viewModel = NewItemViewModel()
     @Namespace var mapID
     
     var body: some View {

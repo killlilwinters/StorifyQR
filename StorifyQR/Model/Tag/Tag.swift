@@ -9,7 +9,6 @@
 // https://www.youtube.com/watch?v=lHdBkXp3j74
 //
 
-import Foundation
 import SwiftData
 import SwiftUI
 import CoreTransferable

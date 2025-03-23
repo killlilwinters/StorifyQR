@@ -11,7 +11,6 @@
 // https://stackoverflow.com/questions/49054485/file-couldn-t-be-opened-because-you-don-t-have-permission-to-view-it-error
 //
 
-import Foundation
 import SwiftUI
 
 struct Tags: Codable {
@@ -51,8 +50,6 @@ final class ContentViewModel {
     @MainActor var isShowingNoItemsForTagCUV: Bool {
         storedItems.isEmpty && selectedTag != nil
     }
-    
-    var path = NavigationPath()
     
     var importingData = false
     

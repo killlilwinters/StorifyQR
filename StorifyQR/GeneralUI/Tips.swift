@@ -5,7 +5,6 @@
 //  Created by Maks Winters on 02.01.2024.
 //
 
-import Foundation
 import TipKit
 
 struct QRCodeShareTip: Tip {

@@ -8,116 +8,101 @@
 import SwiftUI
 import SwiftData
 
-enum ContentViewDestination: Hashable {
-    case newItemView
-    case scannerView
-    case detailView(StoredItem)
-    case editView(StoredItem)
-}
-
 struct ContentView: View {
     
     @Environment(\.accessibilityReduceMotion) var reduceMotion
-    @Bindable var viewModel = ContentViewModel()
+    @Environment(Coordinator.self) var coordinator
+    
+    // Bindable property wrapper causes ContentView to re-render endlessly
+    @State var viewModel = ContentViewModel()
     
     var body: some View {
-        NavigationStack(path: $viewModel.path) {
-            Background {
-                ScrollView(.vertical) {
-                    VStack {
-//                        if viewModel.isSearching {
-//                            SearchBar(searchText: $viewModel.searchText)
-//                                .padding()
-//                        }
-                        tags
-                            .padding()
-                        items
-                            .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
-                        
-                        if viewModel.isShowingNoItemsForTagCUV {
-                            ContentUnavailableView(
-                                "No items",
-                                systemImage: "tag.slash",
-                                description: Text("There are no items associated with this tag.")
-                            )
-                        }
-                         
-                        if viewModel.isShowingNoItemsCUV {
-                            ContentUnavailableView(
-                                "No items",
-                                systemImage: "shippingbox.circle.fill",
-                                description: Text("Press \"+\" to add items")
-                            )
-                        }
-                        
-                        if viewModel.isShowingNothingFoundCUV {
-                            ContentUnavailableView(
-                                "Nothing found",
-                                systemImage: "magnifyingglass",
-                                description: Text("Try changing your search query.")
-                            )
-                        }
-
+        Background {
+            ScrollView(.vertical) {
+                VStack {
+                    //  if viewModel.isSearching {
+                    //       SearchBar(searchText: $viewModel.searchText)
+                    //             .padding()
+                    //  }
+                    tags
+                        .padding()
+                    items
+                        .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
+                    
+                    if viewModel.isShowingNoItemsForTagCUV {
+                        ContentUnavailableView(
+                            "No items",
+                            systemImage: "tag.slash",
+                            description: Text("There are no items associated with this tag.")
+                        )
                     }
-                }
-                .onAppear {
-                    print(viewModel.path.count)
-                    print("ContentView appeared")
-                    viewModel.fetchItems()
-                }
-                .navigationTitle("StorifyQR")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        NavigationLink(value: ContentViewDestination.newItemView) {
-                            Image(systemName: "plus")
-                        }
+                    
+                    if viewModel.isShowingNoItemsCUV {
+                        ContentUnavailableView(
+                            "No items",
+                            systemImage: "shippingbox.circle.fill",
+                            description: Text("Press \"+\" to add items")
+                        )
                     }
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Import", systemImage: "square.and.arrow.down") {
-                            viewModel.importingData.toggle()
-                        }
+                    
+                    if viewModel.isShowingNothingFoundCUV {
+                        ContentUnavailableView(
+                            "Nothing found",
+                            systemImage: "magnifyingglass",
+                            description: Text("Try changing your search query.")
+                        )
                     }
-                }
-                .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
-                    viewModel.processImport(result: result)
-                }
-                .alert("Import \"\(viewModel.importItem?.name ?? "")\"?", isPresented: $viewModel.importingAlert) {
-                    Button("Cancel", role: .cancel) { }
-                    Button("Save") {
-                        viewModel.saveItem()
-                    }
-                }
-                .alert("There was an error", isPresented: $viewModel.errorAlert) {
-                    Button("OK") { }
-                } message: {
-                    Text(viewModel.errorMessage)
+                    
                 }
             }
-            .safeAreaInset(edge: .bottom, alignment: .trailing) {
-                NavigationLink(value: ContentViewDestination.scannerView) {
-                    RoundedRectangle(cornerRadius: 20)
-                        .frame(width: 60, height: 60)
-                        .overlay {
-                            Image(systemName: "qrcode.viewfinder")
-                                .font(.system(size: 25))
-                                .foregroundStyle(.reversed)
-                        }
-                }
-                .padding()
-                .shadow(radius: 5)
+            .onAppear {
+                print("ContentView appeared")
+                viewModel.fetchItems()
             }
-            .navigationDestination(for: ContentViewDestination.self) { destination in
-                switch destination {
-                case .scannerView:
-                    QRScannerView()
-                case .newItemView:
-                    NewItemView()
-                case .detailView(let item):
-                    ItemDetailView(item: item)
-                case .editView(let item):
-                    EditItemView(item: item)
+            .navigationTitle("StorifyQR")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        coordinator.push(.newItemView)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("Import", systemImage: "square.and.arrow.down") {
+                        viewModel.importingData.toggle()
+                    }
                 }
             }
+            .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
+                viewModel.processImport(result: result)
+            }
+            .alert("Import \"\(viewModel.importItem?.name ?? "")\"?", isPresented: $viewModel.importingAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Save") {
+                    viewModel.saveItem()
+                }
+            }
+            .alert("There was an error", isPresented: $viewModel.errorAlert) {
+                Button("OK") { }
+            } message: {
+                Text(viewModel.errorMessage)
+            }
+        }
+        .safeAreaInset(edge: .bottom, alignment: .trailing) {
+            Button {
+                coordinator.push(.scannerView)
+            } label: {
+                RoundedRectangle(cornerRadius: 20)
+                    .frame(width: 60, height: 60)
+                    .overlay {
+                        Image(systemName: "qrcode.viewfinder")
+                            .font(.system(size: 25))
+                            .foregroundStyle(.reversed)
+                    }
+            }
+            .padding()
+            .shadow(radius: 5)
         }
     }
     
@@ -166,7 +151,9 @@ struct ContentView: View {
     
     var items: some View {
         ForEach(viewModel.filteredItems) { item in
-            NavigationLink(value: ContentViewDestination.detailView(item)) {
+            Button {
+                coordinator.push(.detailView(item))
+            } label: {
                 LazyVStack {
                     HStack {
                         let image = viewModel.getImage(item: item)

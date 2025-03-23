@@ -5,10 +5,8 @@
 //  Created by Maks Winters on 01.02.2024.
 //
 
-import Foundation
 import SwiftUI
 import PhotosUI
-import Observation
 
 @Observable
 class BaseItemEditing {

@@ -5,7 +5,6 @@
 //  Created by Maks Winters on 03.02.2024.
 //
 
-import Foundation
 import MapKit
 
 struct LocationGeocoder {

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct QRItemView: View {
     
-    @Bindable var viewModel: QRItemViewModel
+    @State var viewModel: QRItemViewModel
+    @Environment(Coordinator.self) var coordinator
     
     @State private var endpoint1: UnitPoint = .bottomLeading
     @State private var endpoint2: UnitPoint = .topTrailing
@@ -63,8 +64,8 @@ struct QRItemView: View {
                                 viewModel.removeCurrentItem(viewModel.item)
                             }
                         })
-                        NavigationLink {
-                            ItemDetailView(item: viewModel.item)
+                        Button {
+                            coordinator.push(.detailView(viewModel.item))
                         } label: {
                             Capsule()
                                 .foregroundStyle(.tagBlue)

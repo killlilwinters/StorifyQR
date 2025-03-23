@@ -5,7 +5,6 @@
 //  Created by Maks Winters on 31.01.2024.
 //
 
-import Foundation
 import SwiftUI
 import PhotosUI
 

@@ -24,6 +24,9 @@
 		E944E1852B54B2DC003E5230 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */; };
 		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
 		E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* ColorComponents.swift */; };
+		E946E6EC2D908526008DFAEE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EB2D908526008DFAEE /* Coordinator.swift */; };
+		E946E6F02D9085C9008DFAEE /* ViewDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */; };
+		E946E6F42D9087D2008DFAEE /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */; };
 		E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9586D272C06829000909DEB /* QRScannerBackend.swift */; };
 		E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF952B4350CA00856102 /* StorifyQRApp.swift */; };
 		E95FFF982B4350CA00856102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF972B4350CA00856102 /* ContentView.swift */; };
@@ -91,6 +94,9 @@
 		E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
 		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
 		E944E18B2B54B557003E5230 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
+		E946E6EB2D908526008DFAEE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDestination.swift; sourceTree = "<group>"; };
+		E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		E9586D272C06829000909DEB /* QRScannerBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerBackend.swift; sourceTree = "<group>"; };
 		E95FFF922B4350CA00856102 /* StorifyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorifyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95FFF952B4350CA00856102 /* StorifyQRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyQRApp.swift; sourceTree = "<group>"; };
@@ -221,6 +227,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		E946E6EA2D90851A008DFAEE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E946E6EB2D908526008DFAEE /* Coordinator.swift */,
+				E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */,
+				E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		E95FFF892B4350CA00856102 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +258,7 @@
 		E95FFF942B4350CA00856102 /* StorifyQR */ = {
 			isa = PBXGroup;
 			children = (
+				E946E6EA2D90851A008DFAEE /* Coordinator */,
 				E9A9CBF82D90506800AC0A0D /* Repository */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
 				E9B7A7442BDD3EA900D885AF /* ML */,
@@ -499,12 +516,14 @@
 				E9DC1C652C187179003A7F47 /* OnboardingView.swift in Sources */,
 				E9C1308D2B44B683004011E3 /* Tips.swift in Sources */,
 				E9C130832B449127004011E3 /* DateConverter.swift in Sources */,
+				E946E6F02D9085C9008DFAEE /* ViewDestination.swift in Sources */,
 				E9F5FF212B7D045D00794F34 /* EmptyPhotoView.swift in Sources */,
 				E9C130812B448D79004011E3 /* ItemDetailView.swift in Sources */,
 				E93354E02B8269B700602047 /* SearchBar.swift in Sources */,
 				E9C130852B449A23004011E3 /* ItemDetailViewModel.swift in Sources */,
 				E9BBFF3F2B5840200031BEB6 /* ItemDetailComponents.swift in Sources */,
 				E9AF53CF2B6AAF67001063A9 /* EditItemView.swift in Sources */,
+				E946E6F42D9087D2008DFAEE /* CoordinatorView.swift in Sources */,
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
 				E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */,
 				E940B0F02B71762F00030605 /* iPadScreenContainer.swift in Sources */,
@@ -550,6 +569,7 @@
 				E9ACB3442B5ADE7600BB1C5D /* StoredItemCodable.swift in Sources */,
 				E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */,
 				E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */,
+				E946E6EC2D908526008DFAEE /* Coordinator.swift in Sources */,
 				E9C1308F2B44C391004011E3 /* UIImage+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

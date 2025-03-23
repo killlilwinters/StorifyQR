@@ -7,7 +7,6 @@
 // https://stackoverflow.com/questions/70528374/how-do-i-define-a-struct-property-to-accept-linear-or-angular-gradients-in-swift
 //
 
-import Foundation
 import SwiftUI
 
 extension View {

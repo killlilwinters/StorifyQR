@@ -5,7 +5,6 @@
 //  Created by Maks Winters on 01.01.2024.
 //
 
-import Foundation
 import CoreImage
 import CoreImage.CIFilterBuiltins
 
