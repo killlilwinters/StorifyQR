@@ -128,4 +128,5 @@ struct ItemDetailView: View {
 #Preview {
     StoredItemDataSource.shared.appendItem(StoredItem(id: UUID(), name: "Testing item", itemDescription: "This item is used for testing", location: nil))
     return ItemDetailView(item: StoredItemDataSource.shared.fetchItems().first!)
+        .environment(Coordinator())
 }

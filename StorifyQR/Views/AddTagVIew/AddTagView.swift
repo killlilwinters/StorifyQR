@@ -178,4 +178,5 @@ struct AddTagView: View {
         classifierInstance: AbstractClassifier(),
         saveTo: { _ in }
     )
+    .environment(Coordinator())
 }

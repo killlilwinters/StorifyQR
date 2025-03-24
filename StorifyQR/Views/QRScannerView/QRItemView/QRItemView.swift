@@ -100,4 +100,5 @@ struct QRItemView: View {
 #Preview {
     StoredItemDataSource.shared.appendItem(StoredItem(id: UUID(), name: "Testing item, additional text", itemDescription: "This item is used for testing", location: nil))
     return QRItemView(item: StoredItemDataSource.shared.fetchItems().first!, removeCurrentItem: { _ in })
+        .environment(Coordinator())
 }

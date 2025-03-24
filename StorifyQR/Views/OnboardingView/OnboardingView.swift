@@ -95,4 +95,5 @@ struct OnboardingView: View {
 
 #Preview {
     OnboardingView()
+        .environment(Coordinator())
 }

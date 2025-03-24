@@ -162,4 +162,5 @@ struct NewItemView: View {
 #Preview {
     StoredItemDataSource.shared.appendItem(StoredItem(id: UUID(), name: "Testing item", itemDescription: "This item is used for testing", location: nil))
     return NewItemView()
+        .environment(Coordinator())
 }
