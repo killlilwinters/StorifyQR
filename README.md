@@ -2,7 +2,7 @@
 
 <h2 align="center">Inventory manager based on QR Codes for iOS and iPad OS.</h2>
 
-> *Note:* This project is no longer actively maintained. It was created as a showcase of the author's learning and skills developed during the _100 Days of SwiftUI_ course. While no further updates are planned, the code remains available as a reference for educational and exploratory purposes.
+> *Note:* This project was originally created as a showcase of the author's learning and skills developed during the _100 Days of SwiftUI_ course. While no further feature updates are planned, the project is occasionally updated and improved code-wise as per the author's inspiration.
 
 The goal of this project was to develop an app leveraging the device's camera to scan QR codes affixed to storage containers, enabling users to quickly view their contents and streamline the search process. The project incorporates modern machine learning techniques and advanced storage features to deliver a comprehensive and efficient solution.
 
