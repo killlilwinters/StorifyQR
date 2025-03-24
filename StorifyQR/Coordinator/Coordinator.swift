@@ -13,6 +13,7 @@ import SwiftUI
 final class Coordinator {
     
     var path = NavigationPath()
+    var sheet: SheetPresentation?
     
     func push(_ destination: ViewDestination) {
         path.append(destination)
@@ -24,6 +25,14 @@ final class Coordinator {
     
     func popAll() {
         path.removeLast(path.count)
+    }
+    
+    func push(_ presentation: SheetPresentation) {
+        sheet = presentation
+    }
+    
+    func dismissSheet() {
+        sheet = nil
     }
     
     @ViewBuilder
@@ -40,6 +49,19 @@ final class Coordinator {
                 .environment(self)
         case .editView(let item):
             EditItemView(item: item)
+                .environment(self)
+        }
+    }
+    
+    @ViewBuilder
+    func build(presentation: SheetPresentation) -> some View {
+        switch presentation {
+        case .onboardingView:
+            OnboardingView()
+                .environment(self)
+        case .addTagView(let classifier, let completion):
+            AddTagView(classifierInstance: classifier, saveTo: completion)
+                .presentationDetents([.medium, .large])
                 .environment(self)
         }
     }

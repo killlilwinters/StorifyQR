@@ -27,6 +27,7 @@
 		E946E6EC2D908526008DFAEE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EB2D908526008DFAEE /* Coordinator.swift */; };
 		E946E6F02D9085C9008DFAEE /* ViewDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */; };
 		E946E6F42D9087D2008DFAEE /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */; };
+		E946E7192D91689C008DFAEE /* SheetPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E7182D91689C008DFAEE /* SheetPresentation.swift */; };
 		E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9586D272C06829000909DEB /* QRScannerBackend.swift */; };
 		E95FFF962B4350CA00856102 /* StorifyQRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF952B4350CA00856102 /* StorifyQRApp.swift */; };
 		E95FFF982B4350CA00856102 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFF972B4350CA00856102 /* ContentView.swift */; };
@@ -97,6 +98,7 @@
 		E946E6EB2D908526008DFAEE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDestination.swift; sourceTree = "<group>"; };
 		E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		E946E7182D91689C008DFAEE /* SheetPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetPresentation.swift; sourceTree = "<group>"; };
 		E9586D272C06829000909DEB /* QRScannerBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerBackend.swift; sourceTree = "<group>"; };
 		E95FFF922B4350CA00856102 /* StorifyQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorifyQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95FFF952B4350CA00856102 /* StorifyQRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorifyQRApp.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				E946E6EB2D908526008DFAEE /* Coordinator.swift */,
 				E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */,
 				E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */,
+				E946E7182D91689C008DFAEE /* SheetPresentation.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				E9BB2C282B460F6A002753A7 /* MapView.swift in Sources */,
 				E9A9CBFE2D9058F600AC0A0D /* Shape+Ext.swift in Sources */,
 				E9BB2C2D2B4712C9002753A7 /* NewItemView.swift in Sources */,
+				E946E7192D91689C008DFAEE /* SheetPresentation.swift in Sources */,
 				E903341D2B618FB5003CA1F2 /* Bundle-Decodable.swift in Sources */,
 				E95FFF982B4350CA00856102 /* ContentView.swift in Sources */,
 				E986C62C2C10A56C00233CA3 /* QRItemViewModel.swift in Sources */,

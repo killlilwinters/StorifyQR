@@ -15,7 +15,8 @@ import SwiftUI
 import PhotosUI
 
 struct NewItemView: View {
-    @Environment(\.dismiss) var dismiss
+ 
+    @Environment(Coordinator.self) var coordinator
     @State var viewModel = NewItemViewModel()
     @Namespace var mapID
     
@@ -36,10 +37,10 @@ struct NewItemView: View {
                             PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
                                 SelectPhotoButtonView()
                             }
-                                .buttonStyle(.plain)
-                                .clipShape(.capsule)
-                                .padding(.top)
-                                .onChange(of: viewModel.pickerItem, viewModel.loadImage)
+                            .buttonStyle(.plain)
+                            .clipShape(.capsule)
+                            .padding(.top)
+                            .onChange(of: viewModel.pickerItem, viewModel.loadImage)
                         }
                         // Tags
                         VStack {
@@ -54,8 +55,10 @@ struct NewItemView: View {
                                         }
                                     }
                                     Button {
-                                        viewModel.isShowingSheet.toggle()
-                                        print("Toggled sheet")
+                                        coordinator.push(.addTagView(viewModel.classifier) { tag in
+                                            print("saveTo appending a Tag")
+                                            viewModel.addTagToItem(tag: tag)
+                                        })
                                     } label: {
                                         Image(systemName: "plus")
                                             .frame(width: 25, height: 25)
@@ -68,13 +71,6 @@ struct NewItemView: View {
                         }
                         .modifier(ContentPad())
                         .padding(.horizontal)
-                        .sheet(isPresented: $viewModel.isShowingSheet) {
-                            AddTagView(classifierInstance: viewModel.classifier) { tag in
-                                print("saveTo appending a Tag")
-                                viewModel.addTagToItem(tag: tag)
-                            }
-                            .presentationDetents([.medium, .large])
-                        }
                         // Name TextField
                         VStack {
                             Text("Name:")
@@ -131,7 +127,7 @@ struct NewItemView: View {
                     }
                 }
             }
-// Bottom save floating button
+            // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
                     viewModel.askToSave()
@@ -152,7 +148,7 @@ struct NewItemView: View {
             Button("Cancel", role: .cancel) { }
             Button("Save") {
                 viewModel.saveToContext()
-                dismiss()
+                coordinator.pop()
             }
         }
         .alert("Can't perform this action.", isPresented: $viewModel.isShowingTagAlert) {

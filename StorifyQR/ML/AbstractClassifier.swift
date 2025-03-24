@@ -15,7 +15,7 @@ enum MLError: Error {
     case noData
 }
 
-class AbstractClassifier: ObservableObject {
+final class AbstractClassifier: ObservableObject {
     
     @Published private var classifier = Classifier()
     
@@ -41,4 +41,15 @@ class AbstractClassifier: ObservableObject {
         
     }
     
+}
+
+// MARK: - Hashable conformance
+extension AbstractClassifier: Hashable {
+    static func == (lhs: AbstractClassifier, rhs: AbstractClassifier) -> Bool {
+        lhs.classifier == rhs.classifier
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(classifier)
+    }
 }

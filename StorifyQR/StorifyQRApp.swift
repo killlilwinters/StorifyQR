@@ -17,20 +17,11 @@ import TipKit
 @main
 struct StorifyQRApp: App {
     
-    @AppStorage("ONBOARDING") var showOnboarding = true
-    @AppStorage("LANGUAGE") var savedLanguage = ""
-    
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
-                .onAppear {
-                    checkForLangChange()
-                }
                 .task {
                     configureTips()
-                }
-                .sheet(isPresented: $showOnboarding) {
-                    OnboardingView()
                 }
         }
 //        .modelContainer(for: StoredItem.self) this is the cause of Sheet closing automatically when using MVVM SwiftData implementation.
@@ -40,15 +31,6 @@ struct StorifyQRApp: App {
         try? Tips.configure([
             .datastoreLocation(.applicationDefault)
         ])
-    }
-    
-    func checkForLangChange() {
-        let languageCode = Locale.current.language.languageCode?.identifier
-        if savedLanguage != languageCode {
-            guard let sl = languageCode else { return }
-            savedLanguage = sl
-            showOnboarding = true
-        }
     }
     
 }

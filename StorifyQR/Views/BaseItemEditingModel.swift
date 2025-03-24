@@ -25,7 +25,6 @@ class BaseItemEditing {
     var image: Image?
     
     // Save alert
-    var isShowingSheet = false
     var isShowingAlert = false
     
     // Tag manipulation alert
@@ -42,6 +41,16 @@ class BaseItemEditing {
     var descCharactersLeft: String {
         "\(itemDescription.count) / \(maxDescLenght)"
     }
+    
+    init(item: StoredItem? = nil) {
+        self.name = item?.name ?? ""
+        self.itemDescription = item?.itemDescription ?? ""
+        self.photoData = item?.photo
+        self.location = item?.location?.getCLLocation() ?? nil
+        self.image = item?.photo != nil ? Image(data: item!.photo!) : nil
+        self.tags = item?.tags ?? [Tag]()
+    }
+    
     func limitName() {
         name.limitTextField(limit: maxNameLenght)
     }
@@ -50,20 +59,19 @@ class BaseItemEditing {
     }
     
     func addTagToItem(tag: Tag) {
-        if tag.isMLSuggested && tags.contains(where: { $0.isMLSuggested }) {
+        guard !(tag.isMLSuggested && tags.contains(where: { $0.isMLSuggested })) else {
             isShowingTagAlert = true
             return
         }
         
-        let isTagRepeated = tags.contains { $0.title == tag.title }
+        guard !tags.contains(where: { $0.title == tag.title }) else { return }
         
-        if !isTagRepeated {
-            if tag.isMLSuggested {
-                tags.insert(tag, at: 0)
-            } else {
-                tags.append(tag)
-            }
+        if tag.isMLSuggested {
+            tags.insert(tag, at: 0)
+        } else {
+            tags.append(tag)
         }
+        
     }
     
     func loadImage() {
@@ -104,15 +112,6 @@ class BaseItemEditing {
             return false
         }
         return true
-    }
-    
-    init(item: StoredItem? = nil) {
-        self.name = item?.name ?? ""
-        self.itemDescription = item?.itemDescription ?? ""
-        self.photoData = item?.photo
-        self.location = item?.location?.getCLLocation() ?? nil
-        self.image = item?.photo != nil ? Image(data: item!.photo!) : nil
-        self.tags = item?.tags ?? [Tag]()
     }
     
     func askToSave() {

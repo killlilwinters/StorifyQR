@@ -13,7 +13,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(Coordinator.self) var coordinator
     
     var dateColors: [Color] {
         let currentDate = Date.now
@@ -42,7 +42,7 @@ struct OnboardingView: View {
                     .padding(40)
                 Spacer()
                 Button {
-                    dismiss()
+                    coordinator.dismissSheet()
                 } label: {
                     StyledButtonComponent(foregroundStyle: Color.tagBlue, title: Text("Continue"))
                         .containerRelativeFrame(.horizontal) { width, axis in

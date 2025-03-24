@@ -11,9 +11,10 @@ import SwiftUI
 import PhotosUI
 
 struct EditItemView: View {
-    @Environment(\.dismiss) var dismiss
+    
     @Environment(Coordinator.self) var coordinator
-    @Bindable var viewModel: EditItemViewModel
+    
+    @State var viewModel: EditItemViewModel
     @Namespace var mapID
     
     var body: some View {
@@ -51,8 +52,10 @@ struct EditItemView: View {
                                         }
                                     }
                                     Button {
-                                        viewModel.isShowingSheet.toggle()
-                                        print("Toggled sheet")
+                                        coordinator.push(.addTagView(viewModel.classifier) { tag in
+                                            print("saveTo appending a Tag")
+                                            viewModel.addTagToItem(tag: tag)
+                                        })
                                     } label: {
                                         Image(systemName: "plus")
                                             .frame(width: 25, height: 25)
@@ -65,13 +68,6 @@ struct EditItemView: View {
                         }
                         .modifier(ContentPad())
                         .padding(.horizontal)
-                        .sheet(isPresented: $viewModel.isShowingSheet) {
-                            AddTagView(classifierInstance: viewModel.classifier) { tag in
-                                print("saveTo appending a Tag")
-                                viewModel.addTagToItem(tag: tag)
-                            }
-                            .presentationDetents([.medium, .large])
-                        }
                         // Name TextField
                         VStack {
                             Text("Name:")
@@ -149,7 +145,7 @@ struct EditItemView: View {
             Button("Cancel", role: .cancel) { }
             Button("Save") {
                 viewModel.saveChanges()
-                dismiss()
+                coordinator.pop()
             }
         }
     }

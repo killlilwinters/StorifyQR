@@ -10,7 +10,8 @@
 import SwiftUI
 
 struct AddTagView: View {
-    @Environment(\.dismiss) var dismiss
+    
+    @Environment(Coordinator.self) var coordinator
     @Bindable var viewModel: AddTagViewModel
     @State var classifierInstance: AbstractClassifier
     
@@ -98,7 +99,7 @@ struct AddTagView: View {
                                 .padding(.vertical, 10)
                                 .onTapGesture {
                                     viewModel.saveTo(row)
-                                    dismiss()
+                                    coordinator.dismissSheet()
                                 }
                                 .background(
                                     ZStack(alignment: .trailing){
@@ -148,7 +149,7 @@ struct AddTagView: View {
                             MLTagView(title: str)
                                 .onTapGesture {
                                     viewModel.sendMLTagOut(title: str)
-                                    dismiss()
+                                    coordinator.dismissSheet()
                                 }
                         }
                     }

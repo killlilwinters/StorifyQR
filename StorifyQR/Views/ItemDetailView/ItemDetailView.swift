@@ -12,7 +12,6 @@ import SwiftData
 
 struct ItemDetailView: View {
     
-    @Environment(\.dismiss) var dismiss
     @Environment(Coordinator.self) var coordinator
     @Bindable var viewModel: ItemDetailViewModel
     @Namespace var qrCodeID
@@ -110,7 +109,7 @@ struct ItemDetailView: View {
                     .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
                         Button("Delete", role: .destructive) {
                             viewModel.deleteCurrentItem()
-                            dismiss()
+                            coordinator.pop()
                         }
                     })
                     .navigationTitle(viewModel.item.name)

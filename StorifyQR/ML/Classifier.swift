@@ -78,3 +78,6 @@ struct Classifier {
     
 }
 
+// MARK: - Hashable conformance
+extension Classifier: Hashable { }
+

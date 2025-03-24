@@ -14,7 +14,7 @@ import SwiftUI
 import CoreTransferable
 
 @Model
-final class Tag: SwiftDataItem, Comparable {
+final class Tag: SwiftDataItem {
     @Attribute(.unique)
     var title: String
     var size: CGFloat = 0
@@ -48,3 +48,6 @@ final class Tag: SwiftDataItem, Comparable {
         color = try container.decode(String.self, forKey: .tagColor)
     }
 }
+
+// MARK: - Hashable, Comparable conformance
+extension Tag: Hashable, Comparable { }
