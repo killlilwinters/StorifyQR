@@ -23,7 +23,7 @@
 		E940B0F02B71762F00030605 /* iPadScreenContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */; };
 		E944E1852B54B2DC003E5230 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */; };
 		E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */; };
-		E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* ColorComponents.swift */; };
+		E944E18C2B54B557003E5230 /* TagColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944E18B2B54B557003E5230 /* TagColors.swift */; };
 		E946E6EC2D908526008DFAEE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EB2D908526008DFAEE /* Coordinator.swift */; };
 		E946E6F02D9085C9008DFAEE /* ViewDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */; };
 		E946E6F42D9087D2008DFAEE /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */; };
@@ -94,7 +94,7 @@
 		E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPadScreenContainer.swift; sourceTree = "<group>"; };
 		E944E1842B54B2DC003E5230 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
 		E944E1882B54B3D2003E5230 /* CustomColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColorPickerView.swift; sourceTree = "<group>"; };
-		E944E18B2B54B557003E5230 /* ColorComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorComponents.swift; sourceTree = "<group>"; };
+		E944E18B2B54B557003E5230 /* TagColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagColors.swift; sourceTree = "<group>"; };
 		E946E6EB2D908526008DFAEE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		E946E6EF2D9085C9008DFAEE /* ViewDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDestination.swift; sourceTree = "<group>"; };
 		E946E6F32D9087D2008DFAEE /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
@@ -220,7 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				E9E833672B4B620B009BADB5 /* Coordinate2D.swift */,
-				E944E18B2B54B557003E5230 /* ColorComponents.swift */,
+				E944E18B2B54B557003E5230 /* TagColors.swift */,
 				E9754B8F2B8E8D4000197455 /* LocationManager.swift */,
 				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
 				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
@@ -543,7 +543,7 @@
 				E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,
 				E9DC1C682C18BD95003A7F47 /* AuroraEffectView.swift in Sources */,
-				E944E18C2B54B557003E5230 /* ColorComponents.swift in Sources */,
+				E944E18C2B54B557003E5230 /* TagColors.swift in Sources */,
 				E930067D2C0DCF3700B78642 /* QRScanneerViewModel.swift in Sources */,
 				E940445F2C065BB900B03956 /* QRScannerView.swift in Sources */,
 				E9586D282C06829000909DEB /* QRScannerBackend.swift in Sources */,

@@ -191,7 +191,24 @@ struct ContentView: View {
 
 #Preview {
     // https://forums.developer.apple.com/forums/thread/661669
-    StoredItemDataSource.shared.appendItem(StoredItem(id: UUID(), name: "Testing item", itemDescription: "This item is used for testing", location: nil))
+    
+    // Appending a mock item
+    let item = StoredItem(
+        id: UUID(),
+        name: "Testing item",
+        itemDescription: "This item is used for testing",
+        location: nil
+    )
+    StoredItemDataSource.shared.appendItem(item)
+    
+    // Appending a mock tag
+    let tag = Tag(
+        title: "Test",
+        isMLSuggested: false,
+        tagColor: .tagOrange
+    )
+    TagDataSource.shared.appendItem(tag)
+    
     return ContentView()
         .environment(Coordinator())
 }

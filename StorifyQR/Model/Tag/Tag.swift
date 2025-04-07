@@ -23,21 +23,29 @@ final class Tag: SwiftDataItem {
     var tagColor: Color {
         get {
             // Convert tagColor string to Color
-            return ColorComponents.decodeTagColor(colorString: color)
+            return TagColors.decodeTagColor(from: color)
         }
         set {
             // Convert Color to string and assign to tagColor
-            color = ColorComponents.encodeTagColor(color: newValue)
+            color = TagColors.encodeTagColor(from: newValue)
         }
     }
     var items: [StoredItem]?
     
-    init(title: String, 
+    init(title: String,
          isMLSuggested: Bool = false,
-         tagColor: Color) {
+         tagColor: Color
+    ) {
+        // Check if the color is in TagColors
+        if !TagColors.isColorInTagColors(tagColor) {
+            assertionFailure("Color not in TagColors")
+        }
+        
+        self.color = TagColors.encodeTagColor(from: tagColor)
+        
         self.title = title
         self.isMLSuggested = isMLSuggested
-        self.color = ColorComponents.encodeTagColor(color: tagColor)
+        
     }
     
     required init(from decoder: Decoder) throws {
