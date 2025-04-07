@@ -86,10 +86,6 @@ final class ContentViewModel {
         }
     }
     
-    func getImage(item: StoredItem) -> Image? {
-        return item.photo.flatMap { Image(data: $0) }
-    }
-    
     @MainActor
     func fetchItems() {
         storedItems = dataSource.fetchItems()

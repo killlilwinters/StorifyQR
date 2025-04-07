@@ -24,9 +24,9 @@ struct ContentView: View {
                     //       SearchBar(searchText: $viewModel.searchText)
                     //             .padding()
                     //  }
-                    tags
-                        .padding()
-                    items
+                    Tags
+
+                    Items
                         .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
                     
                     if viewModel.isShowingNoItemsForTagCUV {
@@ -106,33 +106,20 @@ struct ContentView: View {
         }
     }
     
-    var tags: some View {
+    var Tags: some View {
         ScrollView(.horizontal) {
             HStack {
-                Capsule()
-                    .tint(.primary)
-                    .overlay (
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .foregroundStyle(.reversed)
-                                .onTapGesture {
-                                    withOptionalAnimation {
-                                        viewModel.isSearching.toggle()
-                                    }
-                                }
-                            if viewModel.isSearching {
-                                TextField("", text: $viewModel.searchText)
-                                    .foregroundStyle(.reversed)
-                                    .placeholder(when: viewModel.searchText.isEmpty) {
-                                        Text("Search...").foregroundColor(.reversed)
-                                    }
-                            }
-                        }
-                            .padding(.horizontal)
-                    )
-                    .frame(width: viewModel.isSearching ? 200 : 45, height: 45)
+                
+                InlineSearchBar(
+                    isSearching: $viewModel.isSearching,
+                    searchText: $viewModel.searchText
+                )
+                .padding(.leading)
+                
                 ForEach(viewModel.tags) { tag in
                     let isSelected = tag == viewModel.selectedTag
+                    let trailingPadding: CGFloat = viewModel.tags.last == tag ? 15 : 0
+                    
                     TagView(tag: tag)
                         .onTapGesture {
                             viewModel.filterTag(tag: tag)
@@ -143,45 +130,26 @@ struct ContentView: View {
                         )
                         .padding(.horizontal, 1)
                         .padding(.vertical, 2)
+                        .padding(.trailing, trailingPadding)
+                    
                 }
             }
         }
         .scrollIndicators(.hidden)
+        .padding(.vertical)
     }
     
-    var items: some View {
+    var Items: some View {
         ForEach(viewModel.filteredItems) { item in
             Button {
                 coordinator.push(.detailView(item))
             } label: {
                 LazyVStack {
-                    HStack {
-                        let image = viewModel.getImage(item: item)
-                        if image != nil {
-                            image!
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 100, height: 100)
-                                .clipShape(UnevenRoundedRectangle(cornerRadii: RectangleCornerRadii(topLeading: 25, bottomLeading: 25, bottomTrailing: 0, topTrailing: 0)))
-                        } else {
-                            HStack(spacing: 0) {
-                                Image(systemName: "shippingbox")
-                                    .font(.system(size: 50))
-                                    .frame(width: 100, height: 100)
-                                Rectangle()
-                                    .frame(width: 1, height: 100)
-                            }
-                        }
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .bold()
-                            Text(item.itemDescription.limit(limit: 20))
-                        }
-                        .padding(.horizontal)
-                        Spacer()
-                    }
-                    .modifier(ContentPad(enablePadding: false))
-                    .padding(.horizontal)
+                    ItemView(
+                        image: item.image,
+                        name: item.name,
+                        itemDescription: item.itemDescription
+                    )
                 }
             }
             .buttonStyle(.plain)

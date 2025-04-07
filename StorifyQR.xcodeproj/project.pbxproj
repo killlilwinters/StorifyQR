@@ -15,7 +15,6 @@
 		E930067D2C0DCF3700B78642 /* QRScanneerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930067C2C0DCF3700B78642 /* QRScanneerViewModel.swift */; };
 		E930067F2C0DE77200B78642 /* QRItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E930067E2C0DE77200B78642 /* QRItemView.swift */; };
 		E93354E02B8269B700602047 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354DF2B8269B700602047 /* SearchBar.swift */; };
-		E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93354E12B82990A00602047 /* ContentViewExtensions.swift */; };
 		E93635622B4C93C500882CF5 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635612B4C93C500882CF5 /* Tag.swift */; };
 		E93635652B4C978A00882CF5 /* AddTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93635642B4C978A00882CF5 /* AddTagView.swift */; };
 		E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */; };
@@ -36,6 +35,8 @@
 		E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA32B435C3300856102 /* StoredItem.swift */; };
 		E95FFFA62B435EAD00856102 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA52B435EAD00856102 /* QRGenerator.swift */; };
 		E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95FFFA72B43622100856102 /* ImageCoverter.swift */; };
+		E971C55A2DA419B000DF0EFC /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971C5592DA419B000DF0EFC /* ItemView.swift */; };
+		E971C55C2DA41BE200DF0EFC /* InlineSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E971C55B2DA41BE200DF0EFC /* InlineSearchBar.swift */; };
 		E9754B902B8E8D4000197455 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9754B8F2B8E8D4000197455 /* LocationManager.swift */; };
 		E986C62C2C10A56C00233CA3 /* QRItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */; };
 		E9A9CBFA2D9050CB00AC0A0D /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */; };
@@ -86,7 +87,6 @@
 		E930067C2C0DCF3700B78642 /* QRScanneerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanneerViewModel.swift; sourceTree = "<group>"; };
 		E930067E2C0DE77200B78642 /* QRItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRItemView.swift; sourceTree = "<group>"; };
 		E93354DF2B8269B700602047 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
-		E93354E12B82990A00602047 /* ContentViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewExtensions.swift; sourceTree = "<group>"; };
 		E93635612B4C93C500882CF5 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		E93635642B4C978A00882CF5 /* AddTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagView.swift; sourceTree = "<group>"; };
 		E936356A2B4CA98600882CF5 /* AddTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagViewModel.swift; sourceTree = "<group>"; };
@@ -108,6 +108,8 @@
 		E95FFFA32B435C3300856102 /* StoredItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItem.swift; sourceTree = "<group>"; };
 		E95FFFA52B435EAD00856102 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		E95FFFA72B43622100856102 /* ImageCoverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCoverter.swift; sourceTree = "<group>"; };
+		E971C5592DA419B000DF0EFC /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		E971C55B2DA41BE200DF0EFC /* InlineSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InlineSearchBar.swift; sourceTree = "<group>"; };
 		E9754B8F2B8E8D4000197455 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRItemViewModel.swift; sourceTree = "<group>"; };
 		E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 		E95FFF942B4350CA00856102 /* StorifyQR */ = {
 			isa = PBXGroup;
 			children = (
+				E944E18A2B54B545003E5230 /* Components */,
 				E946E6EA2D90851A008DFAEE /* Coordinator */,
 				E9A9CBF82D90506800AC0A0D /* Repository */,
 				E95FFF952B4350CA00856102 /* StorifyQRApp.swift */,
@@ -314,6 +317,16 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		E971C5582DA4194900DF0EFC /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E93354DF2B8269B700602047 /* SearchBar.swift */,
+				E971C5592DA419B000DF0EFC /* ItemView.swift */,
+				E971C55B2DA41BE200DF0EFC /* InlineSearchBar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E986C62A2C10A54100233CA3 /* QRItemView */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,7 +342,6 @@
 				E9E450162C1373890046C465 /* DataSourceProtocol.swift */,
 				E9D06D722B5589BD00ECC51D /* TagDataSource.swift */,
 				E9BB2C322B478A5F002753A7 /* StoredItemDataSource.swift */,
-				E944E18A2B54B545003E5230 /* Components */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -396,10 +408,9 @@
 		E9C130902B44D437004011E3 /* ContentView */ = {
 			isa = PBXGroup;
 			children = (
+				E971C5582DA4194900DF0EFC /* Components */,
 				E95FFF972B4350CA00856102 /* ContentView.swift */,
 				E9D06D742B55A66C00ECC51D /* ContentViewModel.swift */,
-				E93354DF2B8269B700602047 /* SearchBar.swift */,
-				E93354E12B82990A00602047 /* ContentViewExtensions.swift */,
 			);
 			path = ContentView;
 			sourceTree = "<group>";
@@ -530,7 +541,9 @@
 				E936356B2B4CA98600882CF5 /* AddTagViewModel.swift in Sources */,
 				E9B7A74A2BDD401800D885AF /* AbstractClassifier.swift in Sources */,
 				E940B0F02B71762F00030605 /* iPadScreenContainer.swift in Sources */,
+				E971C55A2DA419B000DF0EFC /* ItemView.swift in Sources */,
 				E944E1892B54B3D2003E5230 /* CustomColorPickerView.swift in Sources */,
+				E971C55C2DA41BE200DF0EFC /* InlineSearchBar.swift in Sources */,
 				E944E1852B54B2DC003E5230 /* UIScreen+Ext.swift in Sources */,
 				E93635622B4C93C500882CF5 /* Tag.swift in Sources */,
 				E9E833642B4B4DBC009BADB5 /* Coordinate2DMapView.swift in Sources */,
@@ -538,7 +551,6 @@
 				E913C2412BFB73BF00DEE35E /* String+Ext.swift in Sources */,
 				E930067F2C0DE77200B78642 /* QRItemView.swift in Sources */,
 				E95FFFA82B43622100856102 /* ImageCoverter.swift in Sources */,
-				E93354E22B82990A00602047 /* ContentViewExtensions.swift in Sources */,
 				E9B6D5E92B6C418600B6B47F /* BaseItemEditingModel.swift in Sources */,
 				E9ACB3472B5AE1CE00BB1C5D /* TagCodable.swift in Sources */,
 				E95FFFA42B435C3300856102 /* StoredItem.swift in Sources */,

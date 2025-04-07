@@ -4,6 +4,8 @@
 //
 //  Created by Maks Winters on 23.03.2025.
 //
+// https://stackoverflow.com/a/57715771/23215434
+//
 
 import SwiftUI
 
@@ -16,5 +18,18 @@ extension View {
 extension View {
     func makeiPadScreenCompatible() -> some View {
         modifier(iPadScreenContainer())
+    }
+}
+
+extension View {
+    func placeholder<Content: View>(
+        when shouldShow: Bool,
+        alignment: Alignment = .leading,
+        @ViewBuilder placeholder: () -> Content) -> some View {
+
+        ZStack(alignment: alignment) {
+            placeholder().opacity(shouldShow ? 1 : 0)
+            self
+        }
     }
 }
