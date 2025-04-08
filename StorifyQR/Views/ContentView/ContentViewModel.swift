@@ -54,7 +54,7 @@ final class ContentViewModel {
     var importingData = false
     
     var importingAlert = false
-    var errorAlert = false
+    var isPresentingError = false
     var errorMessage = ""
     
     var importItem: StoredItem?
@@ -82,12 +82,13 @@ final class ContentViewModel {
         } catch {
             errorMessage = error.localizedDescription
             print(error)
-            errorAlert = true
+            isPresentingError = true
         }
     }
     
     @MainActor
     func fetchItems() {
+        print("Fetching items")
         storedItems = dataSource.fetchItems()
         tags = tagDataSource.fetchItems().sorted { $0.isMLSuggested && !$1.isMLSuggested }
     }
@@ -105,11 +106,11 @@ final class ContentViewModel {
     
     @MainActor
     func fetchFiltered() {
-        guard selectedTag != nil else { return }
+        guard let selectedTag else { return }
         do {
             storedItems = try dataSource.fetchItems().filter(
                 #Predicate<StoredItem>{
-                    $0.tags.contains(selectedTag!)
+                    $0.tags.contains(selectedTag)
                 }
             )
         } catch {

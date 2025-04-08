@@ -33,3 +33,15 @@ extension View {
         }
     }
 }
+
+//MARK: - Error Alert
+extension View {
+    func simpleErrorAlert(message errorMessage: String, isPresented: Binding<Bool>) -> some View {
+        self
+            .alert("There was an error", isPresented: isPresented) {
+                Button("OK") { }
+            } message: {
+                Text(errorMessage)
+            }
+    }
+}

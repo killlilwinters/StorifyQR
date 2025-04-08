@@ -20,125 +20,100 @@ struct ContentView: View {
         Background {
             ScrollView(.vertical) {
                 VStack {
-                    //  if viewModel.isSearching {
-                    //       SearchBar(searchText: $viewModel.searchText)
-                    //             .padding()
-                    //  }
-                    Tags
+                    
+                    TagsCarrousel(
+                        isSearching:   $viewModel.isSearching,
+                        searchText:    $viewModel.searchText,
+                        selectedTag:   $viewModel.selectedTag,
+                        tags:          viewModel.tags,
+                        performFilter: viewModel.filterTag(tag:)
+                    )
 
                     Items
                         .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
                     
-                    if viewModel.isShowingNoItemsForTagCUV {
-                        ContentUnavailableView(
-                            "No items",
-                            systemImage: "tag.slash",
-                            description: Text("There are no items associated with this tag.")
-                        )
-                    }
-                    
-                    if viewModel.isShowingNoItemsCUV {
-                        ContentUnavailableView(
-                            "No items",
-                            systemImage: "shippingbox.circle.fill",
-                            description: Text("Press \"+\" to add items")
-                        )
-                    }
-                    
-                    if viewModel.isShowingNothingFoundCUV {
-                        ContentUnavailableView(
-                            "Nothing found",
-                            systemImage: "magnifyingglass",
-                            description: Text("Try changing your search query.")
-                        )
-                    }
+                    UnavailableView
                     
                 }
             }
-            .onAppear {
-                print("ContentView appeared")
-                viewModel.fetchItems()
-            }
-            .navigationTitle("StorifyQR")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        coordinator.push(.newItemView)
-                    } label: {
-                        Image(systemName: "plus")
-                    }
-                }
-                ToolbarItem(placement: .topBarLeading) {
-                    Button("Import", systemImage: "square.and.arrow.down") {
-                        viewModel.importingData.toggle()
-                    }
-                }
-            }
-            .fileImporter(isPresented: $viewModel.importingData, allowedContentTypes: [.sqrExportType]) { result in
-                viewModel.processImport(result: result)
-            }
-            .alert("Import \"\(viewModel.importItem?.name ?? "")\"?", isPresented: $viewModel.importingAlert) {
-                Button("Cancel", role: .cancel) { }
-                Button("Save") {
-                    viewModel.saveItem()
-                }
-            }
-            .alert("There was an error", isPresented: $viewModel.errorAlert) {
-                Button("OK") { }
-            } message: {
-                Text(viewModel.errorMessage)
-            }
+            .onAppear { viewModel.fetchItems() }
+            .toolbar { ToolBarItems }
+            .importAndAlertModifiers(viewModel: viewModel)
+            .simpleErrorAlert(
+                message: viewModel.errorMessage,
+                isPresented: $viewModel.isPresentingError
+            )
         }
+        .navigationTitle("StorifyQR")
         .safeAreaInset(edge: .bottom, alignment: .trailing) {
-            Button {
-                coordinator.push(.scannerView)
-            } label: {
-                RoundedRectangle(cornerRadius: 20)
-                    .frame(width: 60, height: 60)
-                    .overlay {
-                        Image(systemName: "qrcode.viewfinder")
-                            .font(.system(size: 25))
-                            .foregroundStyle(.reversed)
-                    }
-            }
-            .padding()
-            .shadow(radius: 5)
+            FloatingButton
         }
     }
     
-    var Tags: some View {
-        ScrollView(.horizontal) {
-            HStack {
-                
-                InlineSearchBar(
-                    isSearching: $viewModel.isSearching,
-                    searchText: $viewModel.searchText
-                )
-                .padding(.leading)
-                
-                ForEach(viewModel.tags) { tag in
-                    let isSelected = tag == viewModel.selectedTag
-                    let trailingPadding: CGFloat = viewModel.tags.last == tag ? 15 : 0
-                    
-                    TagView(tag: tag)
-                        .onTapGesture {
-                            viewModel.filterTag(tag: tag)
-                        }
-                        .overlay (
-                            Capsule()
-                                .stroke(lineWidth: isSelected ? 3 : 0)
-                        )
-                        .padding(.horizontal, 1)
-                        .padding(.vertical, 2)
-                        .padding(.trailing, trailingPadding)
-                    
+    // MARK: UnavailableView
+    var UnavailableView: some View {
+        if viewModel.isShowingNoItemsForTagCUV {
+            return ContentUnavailableView(
+                "No items",
+                systemImage: "tag.slash",
+                description: Text("There are no items associated with this tag.")
+            )
+        }
+        
+        if viewModel.isShowingNoItemsCUV {
+            return ContentUnavailableView(
+                "No items",
+                systemImage: "shippingbox.circle.fill",
+                description: Text("Press \"+\" to add items")
+            )
+        }
+        
+        if viewModel.isShowingNothingFoundCUV {
+            return ContentUnavailableView(
+                "Nothing found",
+                systemImage: "magnifyingglass",
+                description: Text("Try changing your search query.")
+            )
+        }
+        
+        return ContentUnavailableView("An error occured", systemImage: "exclamationmark.triangle")
+    }
+    
+    // MARK: FloatingButton
+    var FloatingButton: some View {
+        Button {
+            coordinator.push(.scannerView)
+        } label: {
+            RoundedRectangle(cornerRadius: 20)
+                .frame(width: 60, height: 60)
+                .overlay {
+                    Image(systemName: "qrcode.viewfinder")
+                        .font(.system(size: 25))
+                        .foregroundStyle(.reversed)
                 }
-            }
         }
-        .scrollIndicators(.hidden)
-        .padding(.vertical)
+        .padding()
+        .shadow(radius: 5)
     }
     
+    // MARK: ToolBarItems
+    @ToolbarContentBuilder
+    var ToolBarItems: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            Button {
+                coordinator.push(.newItemView)
+            } label: {
+                Image(systemName: "plus")
+            }
+        }
+        ToolbarItem(placement: .topBarLeading) {
+            Button("Import", systemImage: "square.and.arrow.down") {
+                viewModel.importingData.toggle()
+            }
+        }
+    }
+    
+    // MARK: Items
     var Items: some View {
         ForEach(viewModel.filteredItems) { item in
             Button {
@@ -154,6 +129,37 @@ struct ContentView: View {
             }
             .buttonStyle(.plain)
         }
+    }
+}
+
+// MARK: - Import and Alert Modifiers
+private extension View {
+    func importAndAlertModifiers(viewModel: ContentViewModel) -> some View {
+        
+        // Show importing screen
+        let importingData = Binding {
+            viewModel.importingData
+        } set: { value in
+            viewModel.importingData = value
+        }
+        
+        // Show import error
+        let importingAlert = Binding {
+            viewModel.importingAlert
+        } set: { value in
+            viewModel.importingAlert = value
+        }
+
+        return self
+            .fileImporter(isPresented: importingData, allowedContentTypes: [.sqrExportType]) { result in
+                viewModel.processImport(result: result)
+            }
+            .alert("Import \"\(viewModel.importItem?.name ?? "")\"?", isPresented: importingAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Save") {
+                    viewModel.saveItem()
+                }
+            }
     }
 }
 
