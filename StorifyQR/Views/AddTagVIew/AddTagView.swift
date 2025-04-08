@@ -21,9 +21,9 @@ struct AddTagView: View {
                 ZStack(alignment: .bottom) {
                     ScrollView(.vertical) {
                         VStack {
-                            suggestionView
+                            SuggestionView
                             Divider()
-                            chipsView
+                            ChipsView
                         }
                     }
                     VStack {
@@ -84,7 +84,7 @@ struct AddTagView: View {
         }
     }
     
-    var chipsView: some View {
+    var ChipsView: some View {
         VStack{
             VStack(alignment: .leading, spacing: 4) {
                 ForEach(viewModel.rows, id: \.self) { rows in
@@ -135,7 +135,7 @@ struct AddTagView: View {
         }
     }
     
-    var suggestionView: some View {
+    var SuggestionView: some View {
         VStack {
             HStack {
                 Image(systemName: "wand.and.stars")

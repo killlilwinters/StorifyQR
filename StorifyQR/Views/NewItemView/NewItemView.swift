@@ -31,8 +31,10 @@ struct NewItemView: View {
                                 viewModel.image!
                                     .resizable()
                                     .scaledToFit()
+                                    .makeiPadScreenCompatible()
                             } else {
                                 EmptyPhotoView()
+                                    .makeiPadScreenCompatible()
                             }
                             PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
                                 SelectPhotoButtonView()
@@ -42,6 +44,7 @@ struct NewItemView: View {
                             .padding(.top)
                             .onChange(of: viewModel.pickerItem, viewModel.loadImage)
                         }
+                        .frame(maxWidth: .infinity)
                         // Tags
                         VStack {
                             Text("Tags:")

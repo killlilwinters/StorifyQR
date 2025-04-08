@@ -33,9 +33,6 @@
         }
       }
     },
-    "An error occured" : {
-
-    },
     "Are you sure you want to delete \"%@\"?" : {
       "localizations" : {
         "fr" : {
@@ -727,6 +724,9 @@
           }
         }
       }
+    },
+    "Select an item" : {
+
     },
     "Share" : {
       "localizations" : {

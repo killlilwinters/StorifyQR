@@ -15,6 +15,7 @@ import SwiftUI
 enum TagColors: String, Codable, CaseIterable {
     
     case tagPurple, tagRed, tagOrange, tagYellow, tagGreen, tagBlue, tagDefault
+    case gray // Tag color placeholder for ML tags so it does not crash the app
 
     var color: Color {
         switch self {
@@ -25,6 +26,7 @@ enum TagColors: String, Codable, CaseIterable {
         case .tagGreen:   return .tagGreen
         case .tagBlue:    return .tagBlue
         case .tagDefault: return .tagDefault
+        case .gray:       return .gray
         }
     }
 
