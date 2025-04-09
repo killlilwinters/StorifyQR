@@ -41,6 +41,7 @@
 		E98334282DA5BE310015075B /* TagsCarrousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98334272DA5BE310015075B /* TagsCarrousel.swift */; };
 		E983342B2DA5C8810015075B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E983342A2DA5C8810015075B /* ContentView.swift */; };
 		E983342D2DA5C8BA0015075B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E983342C2DA5C8BA0015075B /* ContentViewModel.swift */; };
+		E983342F2DA5E86A0015075B /* PhotosPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E983342E2DA5E86A0015075B /* PhotosPickerView.swift */; };
 		E986C62C2C10A56C00233CA3 /* QRItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */; };
 		E9A9CBFA2D9050CB00AC0A0D /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */; };
 		E9A9CBFC2D90511500AC0A0D /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A9CBFB2D90511500AC0A0D /* View+Ext.swift */; };
@@ -117,6 +118,7 @@
 		E98334272DA5BE310015075B /* TagsCarrousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCarrousel.swift; sourceTree = "<group>"; };
 		E983342A2DA5C8810015075B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E983342C2DA5C8BA0015075B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		E983342E2DA5E86A0015075B /* PhotosPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPickerView.swift; sourceTree = "<group>"; };
 		E986C62B2C10A56C00233CA3 /* QRItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRItemViewModel.swift; sourceTree = "<group>"; };
 		E9A9CBF92D9050CB00AC0A0D /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 		E9A9CBFB2D90511500AC0A0D /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				E9BB2C2E2B4749EF002753A7 /* BackgroundUI.swift */,
 				E923BD582B8B9EB70013BF88 /* withOptionalAnimation.swift */,
 				E940B0EF2B71762F00030605 /* iPadScreenContainer.swift */,
+				E983342E2DA5E86A0015075B /* PhotosPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 				E9B7A7482BDD3FA600D885AF /* Classifier.swift in Sources */,
 				E9BB2C2F2B4749EF002753A7 /* BackgroundUI.swift in Sources */,
 				E9E2BF5F2B77EC02001A234E /* ProcessInfo+Ext.swift in Sources */,
+				E983342F2DA5E86A0015075B /* PhotosPickerView.swift in Sources */,
 				E9E450172C1373890046C465 /* DataSourceProtocol.swift in Sources */,
 				E9B7A7562BDD741C00D885AF /* StorifyQRImageClassifierV2.3.mlmodel in Sources */,
 				E9D06D752B55A66C00ECC51D /* ItemListViewModel.swift in Sources */,

@@ -25,8 +25,10 @@ struct ItemDetailView: View {
                             viewModel.image!
                                 .resizable()
                                 .scaledToFit()
+                                .makeiPadScreenCompatible()
                         } else {
                             EmptyPhotoView()
+                                .makeiPadScreenCompatible()
                         }
                         if UIDevice.current.userInterfaceIdiom == .pad {
                             actionButtons
@@ -106,6 +108,7 @@ struct ItemDetailView: View {
                         Text(viewModel.getDate())
                             .foregroundStyle(.secondary)
                     }
+                    .frame(maxWidth: .infinity)
                     .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
                         Button("Delete", role: .destructive) {
                             viewModel.deleteCurrentItem()

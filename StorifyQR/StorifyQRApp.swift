@@ -19,7 +19,7 @@ struct StorifyQRApp: App {
     
     var body: some Scene {
         WindowGroup {
-            CoordinatorView()
+            ContentView()
                 .task {
                     configureTips()
                 }

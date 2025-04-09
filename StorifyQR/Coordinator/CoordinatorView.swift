@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct CoordinatorView: View {
-    
-    @Bindable var coordinator = Coordinator()
+    @Environment(Coordinator.self) var coordinator
+    @Binding var selectedItem: StoredItem?
     
     @AppStorage("LANGUAGE") var savedLanguage = ""
     @AppStorage("ONBOARDING") var showOnboarding = true
     
     var body: some View {
+        @Bindable var coordinator = coordinator
         NavigationStack(path: $coordinator.path) {
-            ContentView()
+            VStack {
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    iPadLayout
+                } else if UIDevice.current.userInterfaceIdiom == .phone {
+                    iPhoneLayout
+                }
+            }
                 .environment(coordinator)
                 .onAppear {
                     checkForLangChange()
@@ -37,6 +44,20 @@ struct CoordinatorView: View {
         }
     }
     
+    var iPadLayout: some View {
+        Group {
+            if let selectedItem {
+                ItemDetailView(item: selectedItem)
+            } else {
+                ContentUnavailableView("Select an item", systemImage: "shippingbox.fill")
+            }
+        }
+    }
+    
+    var iPhoneLayout: some View {
+        ItemListView(selectedItem: .constant(nil))
+    }
+    
     func showOnboardingIfNeeded() {
         guard showOnboarding else { return }
         coordinator.push(.onboardingView)
@@ -54,5 +75,6 @@ struct CoordinatorView: View {
 }
 
 #Preview {
-    CoordinatorView()
+    CoordinatorView(selectedItem: .constant(nil))
+        .environment(Coordinator())
 }

@@ -78,6 +78,7 @@ struct ItemListView: View {
     }
     
     // MARK: FloatingButton
+    #warning("Fix the bug when pressing this button too many times on iPad causes it to open an infinite amount of scanners")
     var FloatingButton: some View {
         Button {
             coordinator.push(.scannerView)
@@ -115,8 +116,11 @@ struct ItemListView: View {
     var Items: some View {
         ForEach(viewModel.filteredItems) { item in
             Button {
-                selectedItem = item
-                coordinator.push(.detailView(item))
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    selectedItem = item
+                } else if UIDevice.current.userInterfaceIdiom == .phone {
+                    coordinator.push(.detailView(item))
+                }
             } label: {
                 LazyVStack {
                     ItemView(

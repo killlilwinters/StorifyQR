@@ -9,19 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Bindable var coordinator = Coordinator()
+    
     @State private var selectedItem: StoredItem?
-    @Environment(Coordinator.self) var coordinator
     
     var body: some View {
-        NavigationSplitView {
-            ItemListView(selectedItem: $selectedItem)
-                .environment(coordinator)
-        } detail: {
-            if let selectedItem {
-                ItemDetailView(item: selectedItem)
-            } else {
-                ContentUnavailableView("Select an item", systemImage: "shippingbox.fill")
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            NavigationSplitView {
+                ItemListView(selectedItem: $selectedItem)
+                    .environment(coordinator)
+            } detail: {
+                CoordinatorView(selectedItem: $selectedItem)
+                    .environment(coordinator)
             }
+        } else if UIDevice.current.userInterfaceIdiom == .phone {
+            CoordinatorView(selectedItem: .constant(nil))
+                .environment(coordinator)
         }
     }
 }

@@ -26,25 +26,11 @@ struct NewItemView: View {
                 ScrollView {
                     VStack(spacing: 20) {
                         // Picture view, picture selector
-                        VStack {
-                            if viewModel.image != nil {
-                                viewModel.image!
-                                    .resizable()
-                                    .scaledToFit()
-                                    .makeiPadScreenCompatible()
-                            } else {
-                                EmptyPhotoView()
-                                    .makeiPadScreenCompatible()
-                            }
-                            PhotosPicker(selection: $viewModel.pickerItem, matching: .images) {
-                                SelectPhotoButtonView()
-                            }
-                            .buttonStyle(.plain)
-                            .clipShape(.capsule)
-                            .padding(.top)
-                            .onChange(of: viewModel.pickerItem, viewModel.loadImage)
-                        }
-                        .frame(maxWidth: .infinity)
+                        PhotosPickerView(
+                            image: $viewModel.image,
+                            pickerItem: $viewModel.pickerItem,
+                            loadImage: viewModel.loadImage
+                        )
                         // Tags
                         VStack {
                             Text("Tags:")
@@ -133,6 +119,7 @@ struct NewItemView: View {
             // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
+                    #warning("Implement ListView update upon save")
                     viewModel.askToSave()
                 } label: {
                     StyledButtonComponent(foregroundStyle: Color.createItemButton.gradient, title: Text("Create item"))
