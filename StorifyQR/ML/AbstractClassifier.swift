@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-// TODO: Better error handling
-enum MLError: Error {
-    case detectionError
-    case noResults
-    case noFirstResult
-    case noData
-}
-
 final class AbstractClassifier: ObservableObject {
+    enum MLError: Error, LocalizedError {
+        case detectionError
+        case ciImageError
+        
+        var errorDescription: String? {
+            switch self {
+            case .detectionError: "Error detecting an image"
+            case .ciImageError:   "Error converting UIImage to CIImage"
+            }
+        }
+    }
     
     @Published private var classifier = Classifier()
     
@@ -31,13 +34,15 @@ final class AbstractClassifier: ObservableObject {
     }
     
     // MARK: Intent(s)
-    func detect(uiImage: UIImage) {
+    func detect(uiImage: UIImage) throws {
         guard let ciImage = CIImage(image: uiImage) else {
-            print("Failed to convert UIImage to CIImage")
-            return
+            throw MLError.ciImageError
         }
-        print("CIImage created, initiating classification process")
-        classifier.detect(ciImage: ciImage)
+        do {
+            try classifier.detect(ciImage: ciImage)
+        } catch {
+            throw error
+        }
         
     }
     

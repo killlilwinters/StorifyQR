@@ -12,11 +12,15 @@ import SwiftUI
 @Observable
 final class Coordinator {
     
-    var path = NavigationPath()
+    var path = [ViewDestination]()
     var sheet: SheetPresentation?
     
     func push(_ destination: ViewDestination) {
         path.append(destination)
+    }
+    
+    func nonRepeatingPush(_ destination: ViewDestination) {
+        path.last == destination ? () : push(destination)
     }
     
     func pop() {

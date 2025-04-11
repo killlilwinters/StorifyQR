@@ -26,8 +26,7 @@ final class AddTagViewModel {
     var selectedColor = Color.tagRed
     var isShowingSelectior = false
     
-    @MainActor
-    func getTags() {
+    func renderTags() {
         var rows: [[Tag]] = []
         var currentRow: [Tag] = []
         
@@ -65,7 +64,6 @@ final class AddTagViewModel {
         } else {
             self.rows = []
         }
-        tags = dataSource.fetchItems()
     }
     
     func limitTextField() {
@@ -78,7 +76,10 @@ final class AddTagViewModel {
         guard !tagText.isEmpty else { return }
         let newTag = Tag(title: tagText, tagColor: selectedColor)
         dataSource.appendItem(newTag)
-        getTags()
+        
+        fetchTags()
+        renderTags()
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             self.tagText = ""
         }
@@ -93,12 +94,12 @@ final class AddTagViewModel {
     @MainActor
     func deleteTag(tag: Tag) {
         dataSource.removeItem(tag)
-        getTags()
+        renderTags()
     }
     
     @MainActor
     func fetchTags() {
-        tags = dataSource.fetchItems().filter { $0.isMLSuggested == false}
+        tags = dataSource.fetchItems().filter { $0.isMLSuggested == false }
     }
     
     func sendMLTagOut(title: String) {
@@ -112,10 +113,11 @@ final class AddTagViewModel {
         }
     }
     
-    @MainActor
     init(saveTo: @escaping (Tag) -> Void) {
         self.saveTo = saveTo
-        fetchTags()
-        getTags()
+        Task {
+            await fetchTags()
+            renderTags()
+        }
     }
 }

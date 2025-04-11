@@ -93,12 +93,11 @@ class BaseItemEditing {
     }
     
     private func initializeDetection() throws {
-        print("Get suggested tags CALLED!")
-        guard let data = photoData else {
-            throw MLError.noData
-        }
-        let uiImage = UIImage(data: data) ?? UIImage()
-        classifier.detect(uiImage: uiImage)
+        guard let photoData else { throw Errors.noImageData }
+        
+        guard let uiImage = UIImage(data: photoData) else { throw Errors.ivalidImageData }
+        
+        do { try classifier.detect(uiImage: uiImage) } catch { throw error }
     }
     
     func endEditing() {

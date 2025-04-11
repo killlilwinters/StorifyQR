@@ -12,7 +12,6 @@ extension ItemDetailView {
     var actionButtons: some View {
         HStack {
             Group {
-#warning("Implement coordinator to fix updating location in the background since it is not necessary in detail view - it is caused by this navlink")
                 Button {
                     coordinator.push(.editView(viewModel.item))
                 } label: {

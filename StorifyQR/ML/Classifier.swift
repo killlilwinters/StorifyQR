@@ -12,10 +12,23 @@ import Vision
 import CoreImage
 
 struct Classifier {
+    enum ClassificationError: Error, LocalizedError {
+        case noResults, modelLoadingFailed
+        
+        var errorDescription: String? {
+            switch self {
+            case .noResults: "No classification results available."
+            case .modelLoadingFailed: "Failed to load the model."
+                
+            }
+        }
+    }
+    
     
     let minimumConfidence: VNConfidence = 0.05
     lazy var getModel: VNCoreMLModel? = {
         let config = MLModelConfiguration()
+        
         return try? VNCoreMLModel(for: StorifyQRImageClassifierV2_3(configuration: config).model)
     }()
     
@@ -23,52 +36,35 @@ struct Classifier {
     private(set) var results: String?
     private(set) var validResultsArray = [String]()
     
-    mutating func detect(ciImage: CIImage) {
+    mutating func detect(ciImage: CIImage) throws(ClassificationError) {
         validResultsArray.removeAll()
-        print("Starting classification process")
         
-        guard let model = getModel
-        else {
-            print("Model loading failed")
-            return
-        }
+        guard let model = getModel else { throw .modelLoadingFailed }
         
         let request = VNCoreMLRequest(model: model)
         
-        //        #if targetEnvironment(simulator)
-        //        let allDevices = MLComputeDevice.allComputeDevices
-        //
-        //        for device in allDevices {
-        //          if(device.description.contains("MLCPUComputeDevice")){
-        //            request.setComputeDevice(.some(device), for: .main)
-        //            break
-        //          }
-        //        }
-        //        #endif
-        
-        let handler = VNImageRequestHandler(ciImage: ciImage, options: [:])
+        let handler = VNImageRequestHandler(ciImage: ciImage, options: .init())
         
         do {
-            #if targetEnvironment(simulator)
-            request.usesCPUOnly = true
-            #endif
+            // MARK: Won't work on the Simulator, use iPad verion for Mac for testing from now on
+//            #if targetEnvironment(simulator)
+//            request.usesCPUOnly = true
+//            #endif
             try handler.perform([request])
             if let results = request.results as? [VNClassificationObservation], let firstResult = results.first {
                 self.results = firstResult.identifier
-                print("Image classified as: \(firstResult.identifier), \(firstResult.confidence)")
-                
-                print("Others:")
+
                 results.forEach { observation in
                     if observation.confidence > minimumConfidence {
+                        
                         let observationString = observation.identifier
-                        print(observationString)
                         validResultsArray.append(observationString)
-                        print(validResultsArray)
+                        
                     }
                 }
                 
             } else {
-                print("No classification results found")
+                throw ClassificationError.noResults
             }
         } catch {
             print("Error in classification request: \(error)")
