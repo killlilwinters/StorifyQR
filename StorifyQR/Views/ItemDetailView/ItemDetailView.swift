@@ -112,9 +112,7 @@ struct ItemDetailView: View {
                     .alert("Are you sure you want to delete \"\(viewModel.item.name)\"?", isPresented: $viewModel.isShowingAlert, actions: {
                         Button("Delete", role: .destructive) {
                             viewModel.deleteCurrentItem()
-                            if UIDevice.current.userInterfaceIdiom != .pad {
-                                coordinator.pop()
-                            }
+                            coordinator.pop()
                         }
                     })
                     .navigationTitle(viewModel.item.name)

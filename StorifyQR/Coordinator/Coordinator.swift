@@ -24,6 +24,7 @@ final class Coordinator {
     }
     
     func pop() {
+        guard !path.isEmpty else { return }
         path.removeLast()
     }
     
