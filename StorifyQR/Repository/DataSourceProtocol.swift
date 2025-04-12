@@ -12,6 +12,8 @@
 //
 // https://www.youtube.com/watch?v=SPhATsEQR74
 //
+// Combine: https://www.youtube.com/live/-NDFLP7Aqeg?si=mD36_3UYMG3xVdcP
+//
 
 import SwiftData
 import Combine
