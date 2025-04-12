@@ -33,6 +33,13 @@ struct ItemListView: View {
 
                     Items
                         .animation(reduceMotion ? .none : .bouncy(duration: 0.3), value: viewModel.storedItems)
+                        .onChange(of: viewModel.storedItems) { oldValue, newValue in
+                            guard let selectedItem else { return }
+                            
+                            if !viewModel.storedItems.contains(selectedItem) {
+                                self.selectedItem = nil
+                            }
+                        }
                     
                     UnavailableView
                     

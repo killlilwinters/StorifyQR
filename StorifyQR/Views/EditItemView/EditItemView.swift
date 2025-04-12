@@ -116,7 +116,6 @@ struct EditItemView: View {
             // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
-                    #warning("Implement ListView update upon save")
                     viewModel.askToSave()
                 } label: {
                     StyledButtonComponent(foregroundStyle: EditItemViewModel.saveButtonStyle, title: Text("Save changes"))

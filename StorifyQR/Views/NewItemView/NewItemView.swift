@@ -119,7 +119,6 @@ struct NewItemView: View {
             // Bottom save floating button
             .safeAreaInset(edge: .bottom, alignment: .center) {
                 Button {
-                    #warning("Implement ListView update upon save")
                     viewModel.askToSave()
                 } label: {
                     StyledButtonComponent(foregroundStyle: Color.createItemButton.gradient, title: Text("Create item"))

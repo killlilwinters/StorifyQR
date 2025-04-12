@@ -11,9 +11,10 @@
 // https://stackoverflow.com/questions/49054485/file-couldn-t-be-opened-because-you-don-t-have-permission-to-view-it-error
 //
 
+import Combine
 import SwiftUI
 
-@Observable
+@Observable @MainActor
 final class ItemListViewModel {
     
     struct Tags: Codable {
@@ -22,8 +23,8 @@ final class ItemListViewModel {
     
     static let imageConverter = ImageCoverter()
     
-    @MainActor let dataSource = StoredItemDataSource.shared
-    @MainActor let tagDataSource = TagDataSource.shared
+    let dataSource = StoredItemDataSource.shared
+    let tagDataSource = TagDataSource.shared
     
     var storedItems = [StoredItem]()
     
@@ -53,16 +54,33 @@ final class ItemListViewModel {
         storedItems.isEmpty && selectedTag != nil
     }
     
+    // Import
+    var importItem: StoredItem?
+    var importItemTags: [Tag]?
+    
     var importingData = false
     
     var importingAlert = false
     var isPresentingError = false
     var errorMessage = ""
     
-    var importItem: StoredItem?
-    var importItemTags: [Tag]?
+    // Combine
+    var subscriptions = Set<AnyCancellable>()
     
-    @MainActor
+    init() {
+        subscribeToDBUpdates()
+    }
+    
+    func subscribeToDBUpdates() {
+        dataSource.dbPublisher
+            .sink { newValue in
+                if newValue == .update {
+                    self.fetchItems()
+                }
+            }
+            .store(in: &subscriptions)
+    }
+    
     func saveItem() {
         dataSource.appendItem(importItem!)
         dataSource.appendTagToItem(item: importItem!, tags: importItemTags!)
@@ -88,14 +106,12 @@ final class ItemListViewModel {
         }
     }
     
-    @MainActor
     func fetchItems() {
         print("Fetching items")
         storedItems = dataSource.fetchItems()
         tags = tagDataSource.fetchItems().sorted { $0.isMLSuggested && !$1.isMLSuggested }
     }
     
-    @MainActor
     func filterTag(tag: Tag) {
         if tag == selectedTag {
             fetchItems()
@@ -106,7 +122,6 @@ final class ItemListViewModel {
 
     }
     
-    @MainActor
     func fetchFiltered() {
         guard let selectedTag else { return }
         do {

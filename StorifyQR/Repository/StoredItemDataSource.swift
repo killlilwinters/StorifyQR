@@ -7,10 +7,13 @@
 // https://dev.to/jameson/swiftui-with-swiftdata-through-repository-36d1
 //
 
+import Combine
 import Foundation
 import SwiftData
 
 final class StoredItemDataSource: DataSource {
+    var dbPublisher = PassthroughSubject<DBNotification, Never>()
+    
     let modelContainer: ModelContainer
     private let modelContext: ModelContext
 
@@ -27,6 +30,7 @@ final class StoredItemDataSource: DataSource {
         item.tags = tags
         do {
             try modelContext.save()
+            dbPublisher.send(.update)
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -36,6 +40,7 @@ final class StoredItemDataSource: DataSource {
         modelContext.insert(item)
         do {
             try modelContext.save()
+            dbPublisher.send(.update)
         } catch {
             fatalError("\(error)")
         }
@@ -54,6 +59,7 @@ final class StoredItemDataSource: DataSource {
         item.location = location
         item.tags = tags
         do {
+            dbPublisher.send(.update)
             try modelContext.save()
         } catch {
             fatalError("\(error)")
@@ -78,5 +84,6 @@ final class StoredItemDataSource: DataSource {
 
     func removeItem(_ item: StoredItem) {
         modelContext.delete(item)
+        dbPublisher.send(.update)
     }
 }

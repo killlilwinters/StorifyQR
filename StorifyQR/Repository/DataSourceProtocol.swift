@@ -13,14 +13,20 @@
 // https://www.youtube.com/watch?v=SPhATsEQR74
 //
 
-import Foundation
 import SwiftData
+import Combine
+
+enum DBNotification {
+    case update
+}
 
 protocol SwiftDataItem: Codable, PersistentModel { }
 
 protocol DataSource {
     
     associatedtype Item: SwiftDataItem
+    
+    var dbPublisher: PassthroughSubject<DBNotification, Never> { get }
     
     func appendItem(_ item: Item)
     

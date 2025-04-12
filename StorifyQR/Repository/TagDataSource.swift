@@ -7,10 +7,12 @@
 // https://forums.developer.apple.com/forums/thread/733093
 //
 
-import Foundation
+import Combine
 import SwiftData
 
 final class TagDataSource: DataSource {
+    var dbPublisher = PassthroughSubject<DBNotification, Never>()
+    
     
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
@@ -28,6 +30,7 @@ final class TagDataSource: DataSource {
         modelContext.insert(item)
         do {
             try modelContext.save()
+            dbPublisher.send(.update)
         } catch {
             fatalError(error.localizedDescription)
         }
@@ -43,5 +46,6 @@ final class TagDataSource: DataSource {
 
     func removeItem(_ item: Tag) {
         modelContext.delete(item)
+        dbPublisher.send(.update)
     }
 }
