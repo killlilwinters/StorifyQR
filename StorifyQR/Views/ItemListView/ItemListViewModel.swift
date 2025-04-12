@@ -72,10 +72,10 @@ final class ItemListViewModel {
     }
     
     func subscribeToDBUpdates() {
-        dataSource.dbPublisher
-            .sink { newValue in
+        DBNotificationCenter.publisher
+            .sink { [weak self] newValue in
                 if newValue == .update {
-                    self.fetchItems()
+                    self?.fetchItems()
                 }
             }
             .store(in: &subscriptions)

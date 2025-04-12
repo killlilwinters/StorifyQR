@@ -16,10 +16,17 @@
 import SwiftData
 import Combine
 
+// MARK: - Enums
 enum DBNotification {
     case update
 }
 
+@MainActor
+enum DBNotificationCenter {
+    static let publisher = Publishers.Merge(StoredItemDataSource.shared.dbPublisher, TagDataSource.shared.dbPublisher)
+}
+
+// MARK: - Protocols
 protocol SwiftDataItem: Codable, PersistentModel { }
 
 protocol DataSource {

@@ -60,28 +60,31 @@ struct ItemListView: View {
     }
     
     // MARK: UnavailableView
-    var UnavailableView: ContentUnavailableView<Label<Text, Image>, Text?, EmptyView>? {
+    @ViewBuilder
+    // Comments left for educational purposes
+    var UnavailableView: some View /*ContentUnavailableView<Label<Text, Image>, Text?, EmptyView>?*/ {
         if viewModel.isShowingNoItemsForTagCUV {
-            return ContentUnavailableView(
+            /*return */ContentUnavailableView(
                 "No items",
                 systemImage: "tag.slash",
                 description: Text("There are no items associated with this tag.")
             )
         } else if viewModel.isShowingNoItemsCUV {
-            return ContentUnavailableView(
+            /*return*/ ContentUnavailableView(
                 "No items",
                 systemImage: "shippingbox.circle.fill",
                 description: Text("Press \"+\" to add items")
             )
         } else if viewModel.isShowingNothingFoundCUV {
-            return ContentUnavailableView(
+            /*return*/ ContentUnavailableView(
                 "Nothing found",
                 systemImage: "magnifyingglass",
                 description: Text("Try changing your search query.")
             )
-        } else {
-            return nil
         }
+//        } else {
+//            return nil
+//        }
     }
     
     // MARK: FloatingButton
